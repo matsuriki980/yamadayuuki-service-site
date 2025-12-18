@@ -1,0 +1,278 @@
+@use "../utils/variables" as *;
+@use "../utils/mixins" as *;
+
+/* ------------------------------------------------------------------------------------------------------
+ お問い合わせページ 共通
+------------------------------------------------------------------------------------------------------ */
+.form {
+  margin: 0 auto;
+
+  // 見出し
+  &__heading {
+    font-weight: 500;
+    text-align: center;
+  }
+
+  // ステップ
+  &__step {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    position: relative;
+
+    // 線
+    &::before {
+      position: absolute;
+      z-index: -1;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      content: "";
+      display: block;
+      width: 90%;
+      height: 2px;
+      background: rgba($color: $main-color, $alpha: 0.3);
+    }
+
+    &-item {
+      background: $accent-color;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      row-gap: $margin-sm;
+      color: $base-color;
+
+      // 現在地以外
+      &.inactive {
+        background: $sub-color;
+        color: $main-color;
+      }
+    }
+  }
+
+  // リード文
+  &__lead {
+    text-align: center;
+    line-height: 1.75;
+  }
+
+  // フォーム入力欄
+  &__item {
+    display: grid;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px rgba($color: $main-color, $alpha: 0.3) solid;
+
+    &-title {
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+    }
+
+    .required {
+      font-weight: 400;
+      background: $accent-color;
+      border-radius: 6px;
+      color: $base-color;
+      box-sizing: border-box;
+    }
+
+    .textarea {
+      width: 100%;
+      background: $sub-color;
+    }
+
+    // ラジオボタン スタイル
+    .radio {
+      display: flex;
+      align-items: center;
+    }
+
+    .radio__label {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    input[type="radio"] {
+      background: $sub-color;
+      appearance: none;
+      -webkit-appearance: none;
+      border-radius: 50%;
+      position: relative;
+      cursor: pointer;
+    }
+
+    input[type="radio"]:checked::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: $accent-color;
+      border-radius: 50%;
+    }
+  }
+
+  textarea {
+    line-height: 1.75;
+  }
+}
+
+/* ------------------------------------------------------------------------------------------------------
+ お問い合わせページ pc
+------------------------------------------------------------------------------------------------------ */
+@include mq(l) {
+  .form {
+    width: min(66.6%, 1080px);
+
+    // 見出し
+    &__heading {
+      font-size: clamp(24px, 2.2vw, 32px);
+      margin-bottom: $margin-xl;
+    }
+
+    // ステップ
+    &__step {
+      width: max(41.6%, 320px);
+      height: clamp(72px, 6.5vw, 104px);
+      margin-bottom: $margin-xl;
+
+      &-item {
+        width: clamp(72px, 6.5vw, 104px);
+        height: 100%;
+      }
+    }
+
+    // リード文
+    &__lead {
+      margin-bottom: $margin-xl;
+    }
+
+    // フォーム入力欄
+    &__item {
+      grid-template-columns: 27% 62.5%;
+      padding-bottom: $margin-lg;
+      margin-bottom: $margin-lg;
+
+      // 最後の入力欄
+      &:last-of-type {
+        margin-bottom: $margin-xl;
+      }
+
+      &-title {
+        font-size: clamp(14px, 1.25vw, 20px);
+        column-gap: $margin-sm;
+      }
+
+      .required {
+        padding: $margin-xs $margin-sm;
+        font-size: 12px;
+      }
+
+      .textarea {
+        padding: $margin-md;
+      }
+
+      // ラジオボタン スタイル
+      .radio {
+        column-gap: $margin-md;
+      }
+
+      .radio__label {
+        column-gap: $margin-xs;
+      }
+
+      input[type="radio"] {
+        width: 16px;
+        height: 16px;
+      }
+
+      input[type="radio"]:checked::before {
+        width: 10px;
+        height: 10px;
+      }
+    }
+  }
+}
+
+/* ------------------------------------------------------------------------------------------------------
+ お問い合わせページ sp
+------------------------------------------------------------------------------------------------------ */
+@include mq(s) {
+  .form {
+    @include wrapper;
+
+    // 見出し
+    &__heading {
+      font-size: clamp(22px, 6.4vw, 32px);
+      margin-bottom: $margin-xl;
+    }
+
+    // ステップ
+    &__step {
+      width: min(100%, 400px);
+      height: clamp(72px, 21.3vw, 96px);
+      margin-bottom: $margin-xl;
+
+      &-item {
+        width: clamp(72px, 21.3vw, 96px);
+        height: 100%;
+      }
+    }
+
+    // リード文
+    &__lead {
+      margin-bottom: $margin-xl;
+    }
+
+    // フォーム入力欄
+    &__item {
+      grid-template-rows: 1fr;
+      grid-template-columns: 1fr;
+      row-gap: $margin-md;
+      padding-bottom: $margin-lg;
+      margin-bottom: $margin-lg;
+
+      // 最後の入力欄
+      &:last-of-type {
+        margin-bottom: 48px;
+      }
+
+      &-title {
+        font-size: clamp(14px, 4.266vw, 20px);
+        column-gap: $margin-sm;
+      }
+
+      .required {
+        padding: $margin-xs $margin-sm;
+        font-size: 12px;
+      }
+
+      .textarea {
+        padding: $margin-md;
+      }
+
+      // ラジオボタン スタイル
+      .radio {
+        column-gap: $margin-md;
+      }
+
+      .radio__label {
+        column-gap: $margin-xs;
+      }
+
+      input[type="radio"] {
+        width: 16px;
+        height: 16px;
+      }
+
+      input[type="radio"]:checked::before {
+        width: 10px;
+        height: 10px;
+      }
+    }
+  }
+}

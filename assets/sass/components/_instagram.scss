@@ -1,0 +1,98 @@
+@use "../utils/variables" as *;
+@use "../utils/mixins" as *;
+
+/* ----------------------------------------------------------------------------
+instagram 共通
+---------------------------------------------------------------------------- */
+.instagram {
+  &__wrapper {
+    @include wrapper;
+    display: grid;
+  }
+
+  &__description {
+    line-height: 2;
+  }
+
+  // 画像
+  &__img-area {
+    position: relative;
+    height: 100%;
+  }
+
+  &__img {
+    display: block;
+    position: absolute;
+
+    // ウエディング写真
+    &:nth-of-type(1) {
+      width: 45.95%;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+    }
+    // 企業写真
+    &:nth-of-type(2) {
+      width: 45.48%;
+      top: 0;
+      left: 0;
+    }
+    // モデル写真
+    &:nth-of-type(3) {
+      width: 37.69%;
+      bottom: 0;
+      left: 7.79%;
+    }
+  }
+}
+
+/* ----------------------------------------------------------------------------
+instagram pc
+---------------------------------------------------------------------------- */
+@include mq(l) {
+  .instagram {
+    &__wrapper {
+      grid-template-columns: 48.82% 40vw;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    // 画像
+    &__content--right {
+      height: 40vw;
+    }
+
+    &__description {
+      margin-bottom: $margin-xl;
+    }
+  }
+}
+/* ----------------------------------------------------------------------------
+instagram sp
+---------------------------------------------------------------------------- */
+@include mq(s) {
+  .instagram {
+    &__wrapper {
+      row-gap: $margin-xl;
+      grid-template-rows:  91.66vw auto;
+    }
+
+    &__content--left {
+      order: 2;
+    }
+
+    // 画像
+    &__content--right {
+      order: 1;
+      width: 91.66vw;
+    }
+
+    &__img {
+      display: block;
+    }
+
+    &__description {
+      margin-bottom: $margin-xl;
+    }
+  }
+}

@@ -1,0 +1,121 @@
+@use "variables" as *;
+
+// ----------------------------------------------------------------------
+// レスポンシブ設定
+// ----------------------------------------------------------------------
+$breakpoints: (
+  s: "(width <= 1019px)",
+  l: "(width >= 1020px)",
+);
+
+@mixin mq($key) {
+  @media #{map-get($breakpoints, $key)} {
+    @content;
+  }
+}
+
+// ----------------------------------------------------------------------
+// 英字 スタイル
+// ----------------------------------------------------------------------
+@mixin en {
+  font-family: $font-family-en;
+  text-transform: capitalize;
+  letter-spacing: 0.1em;
+}
+
+@mixin box-shadow {
+  box-shadow: 5px 5px 20px 0px rgba(31, 31, 31, 0.1);
+}
+
+// ----------------------------------------------------------------------
+// コンテンツ幅
+// ----------------------------------------------------------------------
+@mixin wrapper {
+
+  // pc
+  @include mq(l) {
+    padding: 0 8.68vw;
+  }
+
+  //sp
+  @include mq(s) {
+    margin: 0 auto;
+    width: 91.47%;
+  }
+}
+
+// ----------------------------------------------------------------------
+// 装飾 (円)
+// ----------------------------------------------------------------------
+@mixin decoration-circle($circle-type) {
+  position: absolute;
+  content: "";
+  background: $accent-color;
+  border-radius: 50%;
+
+  // 円(大)
+  @if $circle-type == lg {
+    // pc
+    @include mq(l) {
+      width: 16px;
+      height: 16px;
+    }
+
+    // sp
+    @include mq(s) {
+      width: 14px;
+      height: 14px;
+    }
+  }
+
+  // 円(小)
+  @if $circle-type == sm {
+    // pc
+    @include mq(l) {
+      width: 12px;
+      height: 12px;
+    }
+
+    // sp
+    @include mq(s) {
+      width: 10px;
+      height: 10px;
+    }
+  }
+}
+
+// ----------------------------------------------------------------------
+// ロゴ
+// ----------------------------------------------------------------------
+@mixin logo {
+  font-weight: 600;
+  @include en;
+
+  // pc
+  @include mq(l) {
+    font-size: 24px;
+  }
+
+  //sp
+  @include mq(s) {
+    font-size: clamp(24px, 6.4vw, 32px);
+  }
+}
+// ----------------------------------------------------------------------
+// リード文
+// ----------------------------------------------------------------------
+@mixin lead($text-align: left) {
+  line-height: 2;
+
+  @if $text-align == center {
+    text-align: center;
+  }
+
+  // pc
+  @include mq(l) {
+  }
+
+  // sp
+  @include mq(l) {
+  }
+}

@@ -1,0 +1,62 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+/* ----------------------------------------------------------------------------
+ベーススタイル
+---------------------------------------------------------------------------- */
+
+body {
+  font-family: $font-family-jp;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: $main-color;
+  // pc
+  @include mq(l) {
+    font-size: clamp(12px, 1.111vw, 18px);
+  }
+
+  // sp
+  @include mq(s) {
+    font-size: clamp(14px, 3.733vw, 18px);
+  }
+}
+
+// pc非表示
+.pc-hidden {
+  @include mq(l) {
+    display: none;
+  }
+}
+
+// sp非表示
+.sp-hidden {
+  @include mq(s) {
+    display: none;
+  }
+}
+
+img,
+video,
+svg {
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+// リンク
+a {
+  transition: $transition;
+  cursor: pointer;
+
+  @include mq(l) {
+    // ホバー時の動き (PCのみ)
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}
+
+// スクロール 無効化
+.no-scroll {
+  overflow: hidden;
+}

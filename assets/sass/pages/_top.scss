@@ -1,0 +1,582 @@
+@use "../utils/variables" as *;
+@use "../utils/mixins" as *;
+
+/* ------------------------------------------------------------------------------------------------------
+ メインビジュアル ファーストビュー 共通
+------------------------------------------------------------------------------------------------------ */
+.top-fv {
+  padding-top: 0;
+
+  // タイトル
+  &__title-wrapper {
+    position: absolute;
+    text-shadow: 0px 0px 15px rgba(255, 255, 255, 1);
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title--main {
+    font-weight: 500;
+    line-height: 1.3;
+    @include en;
+  }
+
+  &__title--sub {
+    font-weight: 400;
+    position: relative;
+
+    // 装飾(線)
+    &::before {
+      position: absolute;
+      content: "";
+      display: block;
+      width: 64px;
+      height: 1px;
+      background: $main-color;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+    }
+  }
+
+  // 画像
+  &__img {
+    height: 100%;
+
+    picture {
+      width: 100%;
+      height: 100%;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top left;
+    }
+  }
+}
+
+/* ------------------------------------------------------------------------------------------------------
+ メインビジュアル ファーストビュー pc
+------------------------------------------------------------------------------------------------------ */
+@include mq(l) {
+  .top-fv {
+    margin-left: 2.5vw;
+    height: 100svh;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    &__wrapper {
+      width: 100%;
+      height: calc(100svh - clamp(128px, 12vw, 200px));
+    }
+
+    // タイトル
+    &__title-wrapper {
+      row-gap: $margin-lg;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &__title--main {
+      font-size: 88px;
+    }
+
+    &__title--sub {
+      font-size: 20px;
+      padding-left: 80px;
+
+      // 装飾(線)
+      &::before {
+        width: 64px;
+      }
+    }
+
+    // 画像
+    &__img {
+      width: 57vw;
+      margin-left: auto;
+      text-align: right;
+    }
+  }
+}
+/* ------------------------------------------------------------------------------------------------------
+ メインビジュアル ファーストビュー sp
+------------------------------------------------------------------------------------------------------ */
+@include mq(s) {
+  .top-fv {
+    height: min(880px, calc(100svh - clamp(80px, 21.33vw, 120px)));
+    margin-top: clamp(80px, 21.33vw, 120px);
+
+    &__wrapper {
+      @include wrapper;
+      height: calc(100% - clamp(80px, 21.33vw, 120px));
+      position: relative;
+    }
+
+    // タイトル
+    &__title-wrapper {
+      row-gap: $margin-md;
+      bottom: -9%;
+    }
+
+    &__title--main {
+      font-size: clamp(50px, 13.33vw, 80px);
+    }
+
+    &__title--sub {
+      font-size: clamp(14px, 3.73vw, 20px);
+      padding-left: 48px;
+
+      // 装飾(線)
+      &::before {
+        width: 32px;
+      }
+    }
+  }
+}
+
+/* ------------------------------------------------------------------------------------------------------
+ concept 共通
+------------------------------------------------------------------------------------------------------ */
+.concept {
+  text-align: center;
+
+  &__wrapper {
+    @include wrapper;
+  }
+
+  // リード文
+  &__lead {
+    line-height: 2;
+
+    // 最後のリード文
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}
+
+/* ------------------------------------------------------------------------------------------------------
+ concept pc
+------------------------------------------------------------------------------------------------------ */
+@include mq(l) {
+  .concept {
+    // リード文
+    &__lead {
+      margin-bottom: $margin-lg;
+    }
+  }
+}
+
+/* ------------------------------------------------------------------------------------------------------
+ concept sp
+------------------------------------------------------------------------------------------------------ */
+@include mq(s) {
+  .concept {
+    // リード文
+    &__lead {
+      margin-bottom: clamp($margin-md, 4vw, $margin-lg);
+    }
+  }
+}
+
+/* ------------------------------------------------------------------------------------------------------
+ service 共通
+------------------------------------------------------------------------------------------------------ */
+.service {
+  &__wrapper {
+    @include wrapper;
+    display: grid;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  // 画像
+  &__img-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  // 1枚目
+  &__img:nth-of-type(1) {
+    width: 58%;
+  }
+
+  // 2枚目
+  &__img:nth-of-type(2) {
+    width: 70.4%;
+    margin-left: auto;
+  }
+
+  // リード文
+  &__lead {
+    font-weight: 500;
+    line-height: 1.7;
+  }
+
+  &__description {
+    line-height: 2;
+  }
+}
+
+/* ------------------------------------------------------------------------------------------------------
+ service pc
+------------------------------------------------------------------------------------------------------ */
+@include mq(l) {
+  .service {
+    &__wrapper {
+      grid-template-columns: 40.9% 50%;
+      align-items: center;
+    }
+
+    // 画像
+    &__img-wrapper {
+      row-gap: $margin-xl;
+    }
+
+    // リード文
+    &__lead {
+      font-size: clamp(20px, 1.66vw, 32px);
+      margin-bottom: $margin-xl;
+    }
+
+    &__description {
+      margin-bottom: $margin-lg;
+
+      // 最後のリード文
+      &:last-of-type {
+        margin-bottom: $margin-xl;
+      }
+    }
+  }
+}
+
+/* ------------------------------------------------------------------------------------------------------
+ service sp
+------------------------------------------------------------------------------------------------------ */
+@include mq(s) {
+  .service {
+    &__wrapper {
+      row-gap: $margin-xl;
+    }
+
+    // 画像
+    &__img-wrapper {
+      row-gap: clamp($margin-md, 4vw, $margin-lg);
+    }
+
+    // リード文
+    &__lead {
+      font-size: clamp(20px, 5vw, 28px);
+      margin-bottom: $margin-lg;
+    }
+
+    &__description {
+      margin-bottom: clamp($margin-md, 4vw, $margin-lg);
+
+      // 最後のリード文
+      &:last-of-type {
+        margin-bottom: $margin-xl;
+      }
+    }
+  }
+}
+
+/* ------------------------------------------------------------------------------------------------------
+ works 共通
+------------------------------------------------------------------------------------------------------ */
+.works {
+  // ホバー時の動き
+  a:hover {
+    opacity: 1; //aリンクすべてに指定している透過を無効化
+  }
+
+  // スライダー ボタン
+  .carousel-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .carousel-arrow {
+    border-radius: 50%;
+    background: $main-color;
+    position: relative;
+
+    &::before {
+      position: absolute;
+      content: "";
+      display: block;
+      border-top: 1px solid $base-color;
+      border-right: 1px solid $base-color;
+      top: 50%;
+    }
+
+    &--left::before {
+      left: 50%;
+      transform: rotate(-135deg) translate(50%);
+    }
+
+    &--right::before {
+      right: 50%;
+      transform: rotate(45deg) translateY(-50%);
+    }
+  }
+
+  .carousel-dots {
+    display: flex;
+    align-items: center;
+
+    span {
+      border-radius: 50%;
+      background: rgba($color: $main-color, $alpha: 0.2);
+    }
+  }
+
+  &__content--top {
+    @include wrapper;
+    display: flex;
+  }
+
+  // リスト
+  &__content--bottom {
+    overflow: hidden;
+  }
+
+  &__list {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  &__item {
+    &-text-area {
+      display: flex;
+      flex-direction: column-reverse;
+      row-gap: $margin-sm;
+    }
+
+    &-title {
+      font-weight: 500;
+    }
+
+    &-label {
+      color: $accent-color;
+    }
+  }
+}
+
+/* ------------------------------------------------------------------------------------------------------
+ works pc
+------------------------------------------------------------------------------------------------------ */
+@include mq(l) {
+  .works {
+    &__content--top {
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    // スライダー ボタン
+    .carousel-navigation {
+      width: 20.83vw;
+      height: 4.16vw;
+    }
+
+    .carousel-arrow {
+      width: 4.16vw;
+      height: 100%;
+
+      &::before {
+        width: 14px;
+        height: 14px;
+      }
+    }
+
+    .carousel-dots {
+      column-gap: $margin-md;
+
+      span {
+        width: 12px;
+        height: 12px;
+      }
+    }
+
+    &__content--bottom {
+      padding-left: 8.68vw;
+    }
+
+    &__list {
+      width: 197vw;
+      margin-bottom: $margin-xl;
+    }
+
+    &__item {
+      width: 14.89%;
+
+      &-img {
+        margin-bottom: $margin-lg;
+        overflow: hidden;
+      }
+
+      img {
+        scale: 1;
+        transition: $transition;
+      }
+
+      &:hover {
+        img {
+          scale: 1.2;
+        }
+      }
+
+      &-text-area {
+        row-gap: $margin-sm;
+      }
+
+      &-title {
+        font-size: clamp(18px, 1.66vw, 27px);
+      }
+    }
+  }
+}
+
+/* ------------------------------------------------------------------------------------------------------
+ works sp
+------------------------------------------------------------------------------------------------------ */
+@include mq(s) {
+  .works {
+    &__content--top {
+      flex-direction: column;
+    }
+
+    // スライダー ボタン
+    .carousel-navigation {
+      width: min(56vw, 360px);
+      height: min(10.6vw, 64px);
+      margin-bottom: $margin-lg;
+    }
+
+    .carousel-arrow {
+      width: min(10.6vw, 64px);
+      height: 100%;
+
+      &::before {
+        width: min(2vw, 12px);
+        height: min(2vw, 12px);
+      }
+    }
+
+    .carousel-dots {
+      column-gap: min(2vw, $margin-md);
+
+      span {
+        width: clamp(8px, 2vw, 16px);
+        height: clamp(8px, 2vw, 16px);
+      }
+    }
+
+    &__content--bottom {
+      @include wrapper;
+    }
+
+    &__list {
+      width: 624vw;
+      margin-bottom: $margin-xl;
+    }
+
+    &__item {
+      width: 14.96%;
+
+      &-img {
+        margin-bottom: min(6.4vw, 36px);
+      }
+
+      &-title {
+        font-size: min(5.33vw, 28px);
+      }
+    }
+  }
+}
+
+/* ------------------------------------------------------------------------------------------------------
+ about 共通
+------------------------------------------------------------------------------------------------------ */
+.about {
+  &__wrapper {
+    @include wrapper;
+    display: grid;
+  }
+
+  // 名前
+  .name {
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    column-gap: $margin-sm;
+  }
+
+  .name-en {
+    @include en;
+    color: $accent-color;
+    font-weight: 400;
+  }
+
+  &__description {
+    line-height: 2;
+  }
+}
+
+/* ------------------------------------------------------------------------------------------------------
+ about pc
+------------------------------------------------------------------------------------------------------ */
+@include mq(l) {
+  .about {
+    &__wrapper {
+      grid-template-columns: 44.867% 45.24%;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    // 名前
+    .name {
+      font-size: 28px;
+      margin-bottom: $margin-lg;
+    }
+
+    .name-en {
+      font-size: clamp(12px, 1.111vw, 16px);
+    }
+
+    &__description {
+      margin-bottom: $margin-xl;
+    }
+  }
+}
+
+/* ------------------------------------------------------------------------------------------------------
+ about sp
+------------------------------------------------------------------------------------------------------ */
+@include mq(s) {
+  .about {
+    &__wrapper {
+      row-gap: $margin-xl;
+    }
+
+    // 名前
+    .name {
+      font-size: min(6.4vw, 28px);
+      margin-bottom: $margin-lg;
+    }
+
+    .name-en {
+      font-size: min(12px, 3.2vw, 18px);
+    }
+
+    &__description {
+      margin-bottom: $margin-xl;
+    }
+  }
+}

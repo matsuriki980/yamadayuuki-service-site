@@ -1,0 +1,25 @@
+@use "../utils/variables" as *;
+@use "../utils/mixins" as *;
+
+/* ----------------------------------------------------------------------------
+   セクション 余白
+---------------------------------------------------------------------------- */
+section {
+  @include mq(l) {
+    padding-top: 160px;
+  }
+
+  @include mq(s) {
+    padding-top: 120px;
+  }
+}
+
+footer {
+  @include mq(l) {
+    margin-top: 160px;
+  }
+
+  @include mq(s) {
+    margin-top: 120px;
+  }
+}

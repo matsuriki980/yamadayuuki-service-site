@@ -1,0 +1,276 @@
+@use "../utils/variables" as *;
+@use "../utils/mixins" as *;
+
+/* ----------------------------------------------------------------------------
+フッター 共通
+---------------------------------------------------------------------------- */
+.footer {
+  background: $main-color;
+  box-sizing: border-box;
+  color: $base-color;
+
+  &__wrapper {
+    margin: 0 auto;
+  }
+
+  // 上段の要素
+  &__top {
+    display: flex;
+    border-bottom: 1px solid rgba($color: $base-color, $alpha: $opacity);
+  }
+
+  // 左側の要素
+  &__content--left {
+    display: flex;
+    flex-direction: column;
+  }
+
+  // ロゴ
+  &__logo {
+    @include logo;
+  }
+
+  // 連絡先
+  &__info {
+    display: flex;
+    flex-direction: column;
+
+    &-item {
+      display: flex;
+      align-items: center;
+    }
+
+    // 電話番号
+    .phone-number {
+      display: flex;
+      align-items: center;
+    }
+
+    .reception {
+      font-weight: 300;
+    }
+  }
+
+  // ナビゲーション
+  &__nav {
+    &-list {
+      display: flex;
+
+      // 右側
+      .nav-column ul {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    &-item a {
+      @include en;
+    }
+
+    // 2階層目 ナビゲーション
+    .has-child > a {
+      display: inline-block;
+    }
+
+    &-sub-list {
+      font-weight: 300;
+      display: flex;
+      flex-direction: column;
+
+      a {
+        position: relative;
+      }
+
+      // 装飾
+      a::before {
+        position: absolute;
+        display: inline-block;
+        content: "";
+        background: $base-color;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 1px;
+      }
+    }
+  }
+
+  // コピーライト
+  .copyright {
+    display: block;
+    text-align: center;
+  }
+}
+
+/* ----------------------------------------------------------------------------
+フッター pc
+---------------------------------------------------------------------------- */
+@include mq(l) {
+  .footer {
+    padding: $margin-xl 0 $margin-md;
+
+    &__wrapper {
+      width: 95%;
+    }
+
+    // 上段の要素
+    &__top {
+      justify-content: space-between;
+      padding-bottom: $margin-xl;
+      margin-bottom: $margin-md;
+    }
+
+    // 左側の要素
+    &__content--left {
+      justify-content: space-between;
+    }
+
+    // 連絡先
+    &__info {
+      row-gap: $margin-md;
+
+      &-item {
+        column-gap: $margin-sm;
+        font-size: clamp(16px, 1.25vw, 18px);
+      }
+
+      // 電話番号
+      .phone-number {
+        column-gap: $margin-sm;
+      }
+
+      .reception {
+        font-size: 13px;
+        font-weight: 300;
+
+        span {
+          font-size: 14px;
+        }
+      }
+    }
+
+    // ナビゲーション
+    &__nav {
+      &-list {
+        column-gap: $margin-xl;
+        align-items: flex-start;
+      }
+
+      // 右側
+      .nav-column ul {
+        row-gap: $margin-md;
+      }
+
+      &-item a {
+        font-size: clamp(15px, 1.25vw, 18px);
+      }
+
+      // 2階層目ナビゲーション
+      .has-child > a {
+        margin-bottom: 12px;
+      }
+
+      &-sub-list {
+        row-gap: $margin-md;
+
+        a {
+          font-size: clamp(13px, 1.04vw, 15px);
+          padding-left: $margin-md;
+        }
+
+        // 装飾
+        a::before {
+          width: 12px;
+          height: 1px;
+        }
+      }
+    }
+  }
+}
+
+/* ----------------------------------------------------------------------------
+フッター sp
+---------------------------------------------------------------------------- */
+@include mq(s) {
+  .footer {
+    padding: $margin-xl 0 $margin-md;
+
+    &__wrapper {
+      @include wrapper;
+    }
+
+    // 上段の要素
+    &__top {
+      flex-direction: column;
+      row-gap: $margin-xl;
+      padding-bottom: $margin-xl;
+      margin-bottom: $margin-md;
+    }
+
+    // 左側の要素
+    &__content--left {
+      row-gap: $margin-xl;
+    }
+
+    // 連絡先
+    &__info {
+      row-gap: $margin-md;
+
+      &-item {
+        column-gap: $margin-sm;
+        font-size: clamp(14px, 4.266vw, 16px);
+      }
+
+      // 電話番号
+      .phone-number {
+        column-gap: $margin-sm;
+      }
+
+      .reception {
+        font-size: 11px;
+        font-weight: 300;
+
+        span {
+          font-size: 12px;
+        }
+      }
+    }
+
+    // ナビゲーション
+    &__nav {
+      &-list {
+        gap: $margin-xl;
+        align-items: flex-start;
+        flex-wrap: wrap;
+      }
+
+      // 右側
+      .nav-column ul {
+        row-gap: $margin-md;
+      }
+
+      &-item a {
+        font-size: 18px;
+      }
+
+      // 2階層目ナビゲーション
+      .has-child > a {
+        margin-bottom: 12px;
+      }
+
+      &-sub-list {
+        row-gap: $margin-md;
+
+        a {
+          font-size: 13px;
+          padding-left: $margin-md;
+        }
+
+        // 装飾
+        a::before {
+          width: 8px;
+        }
+      }
+    }
+  }
+}

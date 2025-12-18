@@ -1,0 +1,6 @@
+# node_modulesディレクトリ全体
+assets/node_modules
+assets/package.json
+
+# Node.js関連ファイル
+assets/package-lock.json

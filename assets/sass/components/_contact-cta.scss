@@ -1,0 +1,160 @@
+@use "../utils/variables" as *;
+@use "../utils/mixins" as *;
+@use "button" as *;
+
+/* ----------------------------------------------------------------------------
+   お問い合わせCTA 共通
+---------------------------------------------------------------------------- */
+.contact-cta {
+  &__wrapper {
+    @include wrapper;
+    display: grid;
+    align-items: center;
+  }
+
+  &__lead {
+    @include lead();
+  }
+
+  &__content {
+    // 右側の要素
+    &--right {
+      display: grid;
+      justify-content: space-between;
+      color: $base-color;
+      text-align: center;
+    }
+  }
+
+  // 電話番号・メール 共通
+  &__box {
+    background: $main-color;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &__title {
+    font-weight: 500;
+    margin-bottom: $margin-md;
+  }
+
+  .icon {
+    @include icon(lg);
+  }
+
+  // 電話番号
+  &__box--phone {
+    a {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .phone-number {
+      @include en;
+      font-weight: 500;
+      display: inline-block;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  // メール
+  &__button {
+    display: flex;
+    column-gap: $margin-sm;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+/* ----------------------------------------------------------------------------
+   お問い合わせCTA pc
+---------------------------------------------------------------------------- */
+@include mq(l) {
+  .contact-cta {
+    &__wrapper {
+      grid-template-columns: 31.36% 60%;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__content {
+      // 右側の要素
+      &--right {
+        grid-template-columns: 48% 48%;
+      }
+    }
+
+    // 電話番号・メール 共通
+    &__box {
+      padding: clamp(32px, 2.778vw, 40px) 16px;
+    }
+
+    // 電話番号
+    .phone-number {
+      font-size: clamp(21px, 2vw, 32px);
+      margin-bottom: $margin-sm;
+    }
+
+    .reception {
+      font-size: clamp(12px, 0.972vw, 14px);
+    }
+
+    // メール
+    &__button {
+      font-size: clamp(14px, 1.39vw, 20px);
+      width: min(100%, 320px);
+      height: clamp(56px, 4.444vw, 64px);
+    }
+  }
+}
+
+/* ----------------------------------------------------------------------------
+   お問い合わせCTA sp
+---------------------------------------------------------------------------- */
+@include mq(s) {
+  .contact-cta {
+    &__wrapper {
+      row-gap: clamp(24px, 8.533vw, 40px);
+    }
+
+    &__content {
+      // 右側の要素
+      &--right {
+        width: 100%;
+        grid-auto-columns: 1fr;
+        row-gap: $margin-md;
+      }
+    }
+
+    // 電話番号・メール 共通
+    &__box {
+      width: 100%;
+      padding: clamp(32px, 8.5vw, 40px) 16px;
+    }
+
+    // 電話番号
+    .phone-number {
+      font-size: clamp(24px, 8.53vw, 40px);
+      margin-bottom: $margin-sm;
+
+      .icon {
+        width: clamp(32px, 8.53vw, 40px);
+      }
+    }
+
+    .reception {
+      font-size: clamp(14px, 3.2vw, 16px);
+    }
+
+    // メール
+    &__button {
+      font-size: clamp(18px, 4.8vw, 20px);
+      width: min(100%, 320px);
+      height: clamp(64px, 17vw, 72px);
+    }
+  }
+}

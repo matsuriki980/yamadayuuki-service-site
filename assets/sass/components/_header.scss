@@ -1,0 +1,435 @@
+@use "../utils/variables" as *;
+@use "../utils/mixins" as *;
+
+/* ----------------------------------------------------------------------------
+ヘッダー 共通
+---------------------------------------------------------------------------- */
+.header {
+  width: 100%;
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  &__wrapper {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  // ロゴ
+  &__logo {
+    @include logo;
+  }
+
+  // ナビゲーション
+  .gnav {
+    &__item a {
+      @include en;
+    }
+
+    // 2階層目ナビゲーション
+    &__item:nth-of-type(2) > a {
+      position: relative;
+
+      &::before,
+      &::after {
+        position: absolute;
+        content: "";
+      }
+    }
+  }
+
+  // 電話番号
+  &__contact--phone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .phone-number {
+      font-weight: 600;
+      @include en;
+      display: flex;
+      align-items: center;
+    }
+
+    .phone-icon {
+      display: inline-block;
+    }
+  }
+}
+
+/* ----------------------------------------------------------------------------
+ヘッダー pc
+---------------------------------------------------------------------------- */
+@include mq(l) {
+  .header {
+    &__wrapper {
+      width: 95%;
+      height: clamp(64px, 6vw, 100px);
+    }
+
+    // 右側の要素
+    &__right-wrapper {
+      display: flex;
+      align-items: center;
+      column-gap: clamp(32px, 3.333vw, 48px);
+    }
+
+    // ナビゲーション
+    .gnav {
+      &__list {
+        display: flex;
+        align-items: center;
+        column-gap: clamp(32px, 3.333vw, 48px);
+      }
+
+      &__item {
+        a {
+          font-size: clamp(15px, 1.25vw, 18px);
+          font-weight: 400;
+        }
+
+        // お問い合わせ
+        &:nth-of-type(5) {
+          .mail-icon {
+            display: inline-block;
+            width: 20px;
+          }
+        }
+      }
+
+      // 2階層目ナビゲーション
+      &__item:nth-of-type(2) > a {
+        position: relative;
+        padding-right: $margin-md;
+        margin: $margin-sm 0;
+        display: inline-block;
+
+        &::before {
+          display: none;
+        }
+
+        &::after {
+          top: 44%;
+          right: 0;
+          width: 8px;
+          height: 8px;
+          border-bottom: 1px #1f1f1f solid;
+          border-right: 1px #1f1f1f solid;
+          transform: translateY(-50%) rotate(45deg);
+        }
+      }
+
+      &__sub-list {
+        display: flex;
+        flex-direction: column;
+        row-gap: $margin-md;
+        position: absolute;
+        background: $base-color;
+        @include box-shadow;
+        padding: $margin-md;
+        box-sizing: border-box;
+        opacity: 0;
+        visibility: hidden;
+        transition: $transition;
+
+        &.active {
+          opacity: 1;
+          visibility: visible;
+        }
+
+        a {
+          font-size: clamp(13px, 1.04vw, 15px);
+        }
+      }
+    }
+
+    // 電話番号
+    &__contact--phone {
+      row-gap: $margin-sm;
+      flex-direction: column;
+
+      .reception {
+        font-size: clamp(12px, 0.9vw, 13px);
+      }
+
+      .phone-number {
+        font-size: clamp(19px, 1.528vw, 22px);
+      }
+
+      .phone-icon {
+        width: clamp(21px, 1.677vw, 24px);
+      }
+    }
+  }
+}
+
+/* ----------------------------------------------------------------------------
+ヘッダー sp
+---------------------------------------------------------------------------- */
+@include mq(s) {
+  .header {
+    &__wrapper {
+      @include wrapper;
+      height: clamp(80px, 21.33vw, 120px);
+      position: relative;
+    }
+
+    // ハンバーガーボタン
+    .hamburger-btn {
+      width: clamp(48px, 12.8vw, 56px);
+      height: clamp(48px, 12.8vw, 56px);
+      border-radius: 6px;
+      background: $accent-color;
+      display: flex;
+      justify-content: center;
+      position: fixed;
+      z-index: 10;
+      right: 4.265%;
+
+      // 線 共通
+      span {
+        position: absolute;
+        width: 70%;
+        height: 1px;
+        background: $base-color;
+        transition: $transition;
+      }
+
+      // 線 1本目
+      span:nth-of-type(1) {
+        top: calc(50% - 9px);
+      }
+
+      // 線 2本目
+      span:nth-of-type(2) {
+        top: 50%;
+      }
+
+      // 線 3本目
+      span:nth-of-type(3) {
+        top: calc(50% - -9px);
+      }
+    }
+
+    // ハンバーガーボタン active
+    .hamburger-btn.active {
+      span {
+        width: 65%;
+      }
+
+      // 線 1本目
+      span:nth-of-type(1) {
+        top: 50%;
+        transform: rotate(45deg);
+      }
+
+      // 線 2本目
+      span:nth-of-type(2) {
+        opacity: 0;
+      }
+
+      // 線 3本目
+      span:nth-of-type(3) {
+        top: 50%;
+        transform: rotate(-45deg);
+      }
+    }
+
+    // ハンバーガーメニュー
+    .hamburger-menu {
+      width: 100vw;
+      height: 100lvh;
+      position: fixed;
+      z-index: 9;
+      top: 0;
+      left: 0;
+      transform: translateX(100%);
+      transition: $transition;
+
+      // ハンバーガーメニュー アクティブ
+      &.active {
+        transform: translateX(0);
+      }
+
+      &__wrapper {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        row-gap: $margin-xl;
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        width: min(95%, 410px);
+        height: 100%;
+        background: $main-color;
+        overflow-y: scroll;
+      }
+
+      // ロゴ
+      &__logo {
+        @include wrapper;
+        @include logo;
+        color: $base-color;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        position: absolute;
+        left: 4.265%;
+      }
+    }
+
+    // 背景透過
+    .hamburger-menu__bg {
+      width: 100vw;
+      height: 100dvh;
+      position: fixed;
+      z-index: 8;
+      top: 0;
+      left: 0;
+      background: rgba($color: $main-color, $alpha: $opacity);
+      opacity: 0;
+      visibility: hidden;
+      transition: $transition;
+
+      // active
+      &.active {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    // ナビゲーション
+    .gnav {
+      @include wrapper;
+      padding-top: 128px;
+
+      &__list {
+        display: flex;
+        row-gap: clamp(17px, 5.3vw, 24px);
+        flex-direction: column;
+      }
+
+      &__item {
+        padding-bottom: clamp(17px, 5.3vw, 24px);
+        border-bottom: 1px solid rgba($color: $base-color, $alpha: $opacity);
+      }
+
+      &__item > a {
+        position: relative;
+        font-size: clamp(17px, 5.3vw, 22px);
+        color: $base-color;
+        display: block;
+        padding-left: $margin-md;
+
+        &::before {
+          @include decoration-circle(sm);
+          top: 10%;
+          left: 0;
+        }
+      }
+
+      .has-child {
+        padding-bottom: 0;
+      }
+
+      .has-child a {
+        &::after {
+          top: 2%;
+          right: 0;
+          width: 12px;
+          height: 12px;
+          border-bottom: 1px $base-color solid;
+          border-right: 1px $base-color solid;
+          transform: rotate(45deg);
+        }
+      }
+
+      &__sub-list {
+        color: $base-color;
+        display: flex;
+        flex-direction: column;
+        row-gap: $margin-md;
+        height: 0;
+        overflow: hidden;
+        transition: $transition;
+        padding-top: clamp(17px, 19.875px, 24px);
+
+        a {
+          font-size: clamp(13px, 4vw, 15px);
+          padding-left: $margin-md;
+          margin-left: 12px;
+          position: relative;
+        }
+
+        // 装飾
+        a::before {
+          display: inline-block;
+          content: "";
+          position: absolute;
+          width: 12px;
+          height: 1px;
+          background: $base-color;
+          top: 50%;
+          left: 0;
+          transform: translateY(-50%);
+        }
+      }
+    }
+
+    // メール・電話共通
+    &__contact {
+      @include wrapper;
+      color: $base-color;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &-title {
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: $margin-md;
+      }
+    }
+
+    // メール
+    &__contact--email {
+      flex-direction: column;
+
+      a {
+        width: 100%;
+        height: 64px;
+        font-size: 20px;
+
+        .email-icon {
+          display: inline-block;
+          width: 24px;
+        }
+      }
+    }
+
+    // 電話番号
+    &__contact--phone {
+      flex-direction: column-reverse;
+
+      .header__contact-title {
+        order: 1;
+      }
+
+      .reception {
+        font-size: clamp(14px, 4.266vw, 18px);
+      }
+
+      .phone-number {
+        font-size: clamp(28px, 8.9vw, 36px);
+        margin-bottom: $margin-sm;
+      }
+
+      .phone-icon {
+        width: clamp(28px, 9vw, 36px);
+      }
+    }
+  }
+}
