@@ -12,10 +12,6 @@
     align-items: center;
   }
 
-  &__lead {
-    @include lead();
-  }
-
   &__content {
     // 右側の要素
     &--right {

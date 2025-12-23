@@ -306,6 +306,16 @@ a {
   overflow: hidden;
 }
 
+.text--left {
+  line-height: 2;
+  text-align: left;
+}
+
+.text--center {
+  line-height: 2;
+  text-align: center;
+}
+
 /* ----------------------------------------------------------------------------
  アイコン
 ---------------------------------------------------------------------------- */
@@ -1257,7 +1267,7 @@ instagram pc
     align-items: center;
   }
   .instagram__content--right {
-    height: 40vw;
+    height: 35.5vw;
   }
   .instagram__description {
     margin-bottom: clamp(36px, 3.333vw, 48px);
@@ -1269,7 +1279,7 @@ instagram sp
 @media (width <= 1019px) {
   .instagram__wrapper {
     row-gap: clamp(36px, 3.333vw, 48px);
-    grid-template-rows: 91.66vw auto;
+    grid-template-rows: 81.66vw auto;
   }
   .instagram__content--left {
     order: 2;
@@ -1302,9 +1312,6 @@ instagram sp
     margin: 0 auto;
     width: 91.47%;
   }
-}
-.contact-cta__lead {
-  line-height: 2;
 }
 .contact-cta__content--right {
   display: grid;
@@ -1685,9 +1692,6 @@ instagram sp
 /* ------------------------------------------------------------------------------------------------------
  ファーストビュー 共通
 ------------------------------------------------------------------------------------------------------ */
-.fv {
-  padding-top: clamp(36px, 3.333vw, 48px);
-}
 .fv__wrapper {
   padding: 0;
   display: grid;
@@ -1697,6 +1701,9 @@ instagram sp
  ファーストビュー pc
 ------------------------------------------------------------------------------------------------------ */
 @media (width >= 1020px) {
+  .fv {
+    padding-top: clamp(64px, 6vw, 100px);
+  }
   .fv__wrapper {
     width: 91.66%;
     margin-left: auto;
@@ -1709,6 +1716,9 @@ instagram sp
  ファーストビュー sp
 ------------------------------------------------------------------------------------------------------ */
 @media (width <= 1019px) {
+  .fv {
+    padding-top: clamp(80px, 21.33vw, 120px);
+  }
   .fv__wrapper {
     grid-template-rows: 1fr;
     row-gap: 24px;
@@ -2230,6 +2240,196 @@ instagram sp
     margin-bottom: clamp(36px, 3.333vw, 48px);
   }
 }
+/* ------------------------------------------------------------------------------------------------------
+ serviceページ 
+------------------------------------------------------------------------------------------------------ */
+/* -------------------------------------------------------------
+   types 共通
+------------------------------------------------------------- */
+.service-type__wrapper {
+  display: grid;
+}
+@media (width >= 1020px) {
+  .service-type__wrapper {
+    padding: 0 8.68vw;
+  }
+}
+@media (width <= 1019px) {
+  .service-type__wrapper {
+    margin: 0 auto;
+    width: 91.47%;
+  }
+}
+.service-type__list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.service-type__item {
+  background: #f2f2f2;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+.service-type__title-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.service-type__title {
+  font-weight: 500;
+  line-height: 1.5;
+}
+.service-type__title-en {
+  font-family: "Inter", sans-serif;
+  text-transform: capitalize;
+  letter-spacing: 0.1em;
+  color: #1e5aa8;
+}
+
+/* -------------------------------------------------------------
+   types pc
+------------------------------------------------------------- */
+@media (width >= 1020px) {
+  .service-type__wrapper {
+    grid-template-columns: 44% 47.9%;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .service-type__list {
+    gap: 24px;
+  }
+  .service-type__item {
+    width: 9vw;
+    height: 9vw;
+  }
+  .service-type__item-icon {
+    width: 40%;
+  }
+  .service-type__title-area {
+    row-gap: 2px;
+  }
+  .service-type__title {
+    font-size: clamp(13px, 0.972vw, 16px);
+    margin-bottom: 4px;
+  }
+  .service-type__title-en {
+    font-size: clamp(12px, 0.903vw, 14px);
+  }
+}
+
+/* -------------------------------------------------------------
+   reason 共通
+------------------------------------------------------------- */
+@media (width >= 1020px) {
+  .service-reason__wrapper {
+    padding: 0 8.68vw;
+  }
+}
+@media (width <= 1019px) {
+  .service-reason__wrapper {
+    margin: 0 auto;
+    width: 91.47%;
+  }
+}
+.service-reason__list {
+  display: flex;
+  flex-direction: column;
+}
+.service-reason__item {
+  display: grid;
+}
+.service-reason__number {
+  font-family: "Inter", sans-serif;
+  text-transform: capitalize;
+  letter-spacing: 0.1em;
+  color: #1e5aa8;
+  display: inline-block;
+}
+.service-reason__title {
+  font-weight: 500;
+}
+
+/* -------------------------------------------------------------
+   reason pc
+------------------------------------------------------------- */
+@media (width >= 1020px) {
+  .service-reason__wrapper {
+    grid-template-columns: 44% 47.9%;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .service-reason__lead {
+    margin-bottom: clamp(36px, 3.333vw, 48px);
+  }
+  .service-reason__list {
+    row-gap: clamp(64px, 5vw, 80px);
+  }
+  .service-reason__item {
+    grid-template-columns: 54% 40%;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .service-reason__item:nth-of-type(2) {
+    grid-template-columns: 40% 54%;
+  }
+  .service-reason__item:nth-of-type(2) .service-reason__text-area {
+    order: 2;
+  }
+  .service-reason__number {
+    margin-bottom: 8px;
+  }
+  .service-reason__title {
+    font-size: clamp(18px, 1.67vw, 24px);
+    margin-bottom: 24px;
+  }
+}
+
+/* -------------------------------------------------------------
+   genre 共通
+------------------------------------------------------------- */
+@media (width >= 1020px) {
+  .service-genre__wrapper {
+    padding: 0 8.68vw;
+  }
+}
+@media (width <= 1019px) {
+  .service-genre__wrapper {
+    margin: 0 auto;
+    width: 91.47%;
+  }
+}
+.service-genre__list {
+  display: grid;
+}
+
+/* -------------------------------------------------------------
+   genre pc
+------------------------------------------------------------- */
+@media (width >= 1020px) {
+  .service-genre__wrapper {
+    grid-template-columns: 44% 47.9%;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .service-genre__lead {
+    margin-bottom: clamp(36px, 3.333vw, 48px);
+  }
+  .service-genre__list {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 4.4vw;
+    margin-bottom: clamp(36px, 3.333vw, 48px);
+  }
+  .service-genre__item-img {
+    margin-bottom: 16px;
+  }
+}
+
 /* ------------------------------------------------------------------------------------------------------
  お問い合わせページ 共通
 ------------------------------------------------------------------------------------------------------ */

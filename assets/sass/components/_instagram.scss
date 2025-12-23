@@ -59,7 +59,7 @@ instagram pc
 
     // 画像
     &__content--right {
-      height: 40vw;
+      height: 35.5vw;
     }
 
     &__description {
@@ -74,7 +74,7 @@ instagram sp
   .instagram {
     &__wrapper {
       row-gap: $margin-xl;
-      grid-template-rows:  91.66vw auto;
+      grid-template-rows:  81.66vw auto;
     }
 
     &__content--left {

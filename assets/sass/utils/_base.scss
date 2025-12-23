@@ -60,3 +60,11 @@ a {
 .no-scroll {
   overflow: hidden;
 }
+
+.text--left {
+  @include text(left);
+}
+
+.text--center {
+  @include text(center);
+}

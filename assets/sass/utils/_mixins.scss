@@ -31,7 +31,6 @@ $breakpoints: (
 // コンテンツ幅
 // ----------------------------------------------------------------------
 @mixin wrapper {
-
   // pc
   @include mq(l) {
     padding: 0 8.68vw;
@@ -101,21 +100,18 @@ $breakpoints: (
     font-size: clamp(24px, 6.4vw, 32px);
   }
 }
+
 // ----------------------------------------------------------------------
 // リード文
 // ----------------------------------------------------------------------
-@mixin lead($text-align: left) {
+@mixin text($text-align-lead) {
   line-height: 2;
 
-  @if $text-align == center {
+  @if $text-align-lead == left {
+    text-align: left;
+  }
+
+  @if $text-align-lead == center {
     text-align: center;
-  }
-
-  // pc
-  @include mq(l) {
-  }
-
-  // sp
-  @include mq(l) {
   }
 }

@@ -1,0 +1,208 @@
+@use "../utils/variables" as *;
+@use "../utils/mixins" as *;
+
+/* ------------------------------------------------------------------------------------------------------
+ serviceページ 
+------------------------------------------------------------------------------------------------------ */
+
+/* -------------------------------------------------------------
+   types 共通
+------------------------------------------------------------- */
+.service-type {
+  &__wrapper {
+    @include wrapper;
+    display: grid;
+  }
+
+  // ----------------
+  // アイコン
+  // ----------------
+  &__list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    background: $sub-color;
+    border-radius: $radius;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  &__title-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__title {
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  &__title-en {
+    @include en;
+    color: $accent-color;
+  }
+}
+
+/* -------------------------------------------------------------
+   types pc
+------------------------------------------------------------- */
+.service-type {
+  @include mq(l) {
+    &__wrapper {
+      grid-template-columns: 44% 47.9%;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    // ----------------
+    // アイコン
+    // ----------------
+    &__list {
+      gap: $margin-lg;
+    }
+
+    &__item {
+      width: 9vw;
+      height: 9vw;
+
+      &-icon {
+        width: 40%;
+      }
+    }
+
+    &__title-area {
+      row-gap: 2px;
+    }
+
+    &__title {
+      font-size: clamp(13px, 0.972vw, 16px);
+      margin-bottom: $margin-xs;
+    }
+
+    &__title-en {
+      font-size: clamp(12px, 0.903vw, 14px);
+    }
+  }
+}
+
+/* -------------------------------------------------------------
+   reason 共通
+------------------------------------------------------------- */
+.service-reason {
+  &__wrapper {
+    @include wrapper;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__item {
+    display: grid;
+  }
+
+  &__number {
+    @include en;
+    color: $accent-color;
+    display: inline-block;
+  }
+
+  &__title {
+    font-weight: 500;
+  }
+}
+
+/* -------------------------------------------------------------
+   reason pc
+------------------------------------------------------------- */
+.service-reason {
+  @include mq(l) {
+    &__wrapper {
+      grid-template-columns: 44% 47.9%;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__lead {
+      margin-bottom: $margin-xl;
+    }
+
+    &__list {
+      row-gap: clamp(64px, 5vw, 80px);
+    }
+
+    &__item {
+      grid-template-columns: 54% 40%;
+      justify-content: space-between;
+      align-items: center;
+
+      // 二番目の項目を横向きに反転
+      &:nth-of-type(2) {
+        grid-template-columns: 40% 54%;
+      }
+
+      &:nth-of-type(2) .service-reason__text-area {
+        order: 2;
+      }
+    }
+
+    &__number {
+      margin-bottom: $margin-sm;
+    }
+
+    &__title {
+      font-size: clamp(18px, 1.67vw, 24px);
+      margin-bottom: $margin-lg;
+    }
+  }
+}
+
+/* -------------------------------------------------------------
+   genre 共通
+------------------------------------------------------------- */
+.service-genre {
+  &__wrapper {
+    @include wrapper;
+  }
+
+  &__list {
+    display: grid;
+  }
+}
+
+/* -------------------------------------------------------------
+   genre pc
+------------------------------------------------------------- */
+.service-genre {
+  @include mq(l) {
+    &__wrapper {
+      grid-template-columns: 44% 47.9%;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__lead {
+      margin-bottom: $margin-xl;
+    }
+
+    &__list {
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 4.4vw;
+      margin-bottom: $margin-xl;
+    }
+
+    &__item-img {
+      margin-bottom: $margin-md;
+    }
+  }
+}
