@@ -1,5 +1,7 @@
 @charset "UTF-8";
-/* ------------------------------ スタイルリセット ------------------------------*/
+/* ------------------------------------------------------------------------------------------------------
+ スタイルリセット 
+------------------------------------------------------------------------------------------------------ */
 *,
 ::before,
 ::after {
@@ -252,9 +254,32 @@ th {
   font-weight: bold;
 }
 
-/* ----------------------------------------------------------------------------
-ベーススタイル
----------------------------------------------------------------------------- */
+.tab-list {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.tab-list .tab-item {
+  font-weight: 500;
+  color: rgba(31, 31, 31, 0.2);
+}
+.tab-list .tab-item.active {
+  color: #1f1f1f;
+}
+@media (width >= 1020px) {
+  .tab-list {
+    justify-content: space-around;
+    margin-bottom: 32px;
+  }
+  .tab-list .tab-item {
+    cursor: pointer;
+    font-size: clamp(15px, 1.25vw, 18px);
+  }
+}
+
+/* ------------------------------------------------------------------------------------------------------
+ ベーススタイル 
+------------------------------------------------------------------------------------------------------ */
 body {
   font-family: "Noto Sans JP", sans-serif;
   font-weight: 400;
@@ -316,9 +341,9 @@ a {
   text-align: center;
 }
 
-/* ----------------------------------------------------------------------------
- アイコン
----------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------
+ アイコン 
+------------------------------------------------------------------------------------------------------ */
 .icon {
   display: inline-block;
 }
@@ -336,9 +361,9 @@ a {
   }
 }
 
-/* ----------------------------------------------------------------------------
- ボタン 共通
----------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------
+ ボタン 
+------------------------------------------------------------------------------------------------------ */
 .btn {
   border-radius: 6px;
   background: #1e5aa8;
@@ -360,8 +385,8 @@ a {
 }
 @media (width >= 1020px) {
   .btn {
-    width: clamp(160px, 12.5vw, 180px);
-    height: clamp(48px, 3.88vw, 56px);
+    width: clamp(160px, 12.5vw, 200px);
+    height: clamp(48px, 3.88vw, 64px);
     -moz-column-gap: 8px;
          column-gap: 8px;
   }
@@ -375,9 +400,6 @@ a {
   }
 }
 
-/* ----------------------------------------------------------------------------
- ボタン 左寄せ
----------------------------------------------------------------------------- */
 .btn--left {
   border-radius: 6px;
   background: #1e5aa8;
@@ -400,8 +422,8 @@ a {
 }
 @media (width >= 1020px) {
   .btn--left {
-    width: clamp(160px, 12.5vw, 180px);
-    height: clamp(48px, 3.88vw, 56px);
+    width: clamp(160px, 12.5vw, 200px);
+    height: clamp(48px, 3.88vw, 64px);
     -moz-column-gap: 8px;
          column-gap: 8px;
   }
@@ -415,9 +437,6 @@ a {
   }
 }
 
-/* ----------------------------------------------------------------------------
- ボタン 中央寄せ
----------------------------------------------------------------------------- */
 .btn--center {
   border-radius: 6px;
   background: #1e5aa8;
@@ -440,8 +459,8 @@ a {
 }
 @media (width >= 1020px) {
   .btn--center {
-    width: clamp(160px, 12.5vw, 180px);
-    height: clamp(48px, 3.88vw, 56px);
+    width: clamp(160px, 12.5vw, 200px);
+    height: clamp(48px, 3.88vw, 64px);
     -moz-column-gap: 8px;
          column-gap: 8px;
   }
@@ -455,9 +474,6 @@ a {
   }
 }
 
-/* ----------------------------------------------------------------------------
- ボタン 戻る
----------------------------------------------------------------------------- */
 .btn--back {
   border-radius: 6px;
   background: #1e5aa8;
@@ -470,20 +486,24 @@ a {
   text-transform: capitalize;
   background: #ffffff;
   color: #1f1f1f;
-  border: 1px solid #1f1f1f;
+  border: 1px #1f1f1f solid;
 }
 .btn--back:hover {
   background: #1f1f1f;
   border: 1px #1f1f1f solid;
   opacity: 1;
 }
+.btn--back:hover {
+  color: #ffffff;
+  border: 1px solid #1f1f1f;
+}
 .btn--back:hover .icon g {
   fill: #ffffff;
 }
 @media (width >= 1020px) {
   .btn--back {
-    width: clamp(160px, 12.5vw, 180px);
-    height: clamp(48px, 3.88vw, 56px);
+    width: clamp(160px, 12.5vw, 200px);
+    height: clamp(48px, 3.88vw, 64px);
     -moz-column-gap: 8px;
          column-gap: 8px;
   }
@@ -496,29 +516,19 @@ a {
          column-gap: 8px;
   }
 }
-.btn--back:hover {
-  color: #ffffff;
-  border: 1px solid #1f1f1f;
-}
 
-/* ----------------------------------------------------------------------------
- ホバー時 色
----------------------------------------------------------------------------- */
 .footer .btn:hover,
 .contact-cta__button:hover {
   border: 1px solid #ffffff;
 }
 
-/* ----------------------------------------------------------------------------
- お問い合わせ 送信完了 ボタン
----------------------------------------------------------------------------- */
 .thanks__btn {
   margin: 0 auto;
 }
 
-/* ----------------------------------------------------------------------------
- 下層ページ ファーストビュー 見出し
----------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------
+ heading 
+------------------------------------------------------------------------------------------------------ */
 .heading--fv {
   display: flex;
   flex-direction: column-reverse;
@@ -539,13 +549,13 @@ a {
   position: absolute;
 }
 .heading--fv .sub-heading::before {
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
   position: absolute;
   content: "";
   background: #1e5aa8;
   border-radius: 50%;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
 }
 @media (width >= 1020px) {
   .heading--fv .sub-heading::before {
@@ -580,9 +590,6 @@ a {
   }
 }
 
-/* ----------------------------------------------------------------------------
- セクション 見出し 左寄せ
----------------------------------------------------------------------------- */
 .heading--left {
   display: flex;
   flex-direction: column-reverse;
@@ -650,13 +657,11 @@ a {
   }
 }
 
-/* ----------------------------------------------------------------------------
- セクション 見出し 中央寄せ
----------------------------------------------------------------------------- */
 .heading--center {
   display: flex;
   flex-direction: column-reverse;
   text-align: center;
+  align-items: center;
 }
 .heading--center .main-heading {
   font-family: "Inter", sans-serif;
@@ -703,24 +708,24 @@ a {
   }
 }
 .heading--center .sub-heading::before {
-  left: 50%;
-  top: 0;
-  transform: translateX(-50%);
+  top: 50%;
+  left: -20px;
+  transform: translateY(-50%);
 }
 @media (width >= 1020px) {
   .heading--center .sub-heading {
-    padding: 24px 0 0;
+    margin-bottom: 4px;
   }
 }
 @media (width <= 1019px) {
   .heading--center .sub-heading {
-    padding: 16px 0 0;
+    margin-bottom: 4px;
   }
 }
 
-/* ----------------------------------------------------------------------------
-ヘッダー 共通
----------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------
+ header 共通
+------------------------------------------------------------------------------------------------------ */
 .header {
   width: 100%;
   position: absolute;
@@ -779,9 +784,9 @@ a {
   display: inline-block;
 }
 
-/* ----------------------------------------------------------------------------
-ヘッダー pc
----------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------
+ header pc
+------------------------------------------------------------------------------------------------------ */
 @media (width >= 1020px) {
   .header__wrapper {
     width: 95%;
@@ -859,9 +864,9 @@ a {
     width: clamp(21px, 1.677vw, 24px);
   }
 }
-/* ----------------------------------------------------------------------------
-ヘッダー sp
----------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------
+ header sp
+------------------------------------------------------------------------------------------------------ */
 @media (width <= 1019px) {
   .header__wrapper {
     height: clamp(80px, 21.33vw, 120px);
@@ -875,8 +880,7 @@ a {
 }
 @media (width <= 1019px) and (width <= 1019px) {
   .header__wrapper {
-    margin: 0 auto;
-    width: 91.47%;
+    padding: 0 4.265vw;
   }
 }
 @media (width <= 1019px) {
@@ -968,8 +972,7 @@ a {
 }
 @media (width <= 1019px) and (width <= 1019px) {
   .header .hamburger-menu__logo {
-    margin: 0 auto;
-    width: 91.47%;
+    padding: 0 4.265vw;
   }
 }
 @media (width <= 1019px) and (width >= 1020px) {
@@ -1000,21 +1003,9 @@ a {
     visibility: visible;
   }
   .header .gnav {
-    padding-top: 128px;
+    width: 100%;
+    padding: 128px 4.265vw 0;
   }
-}
-@media (width <= 1019px) and (width >= 1020px) {
-  .header .gnav {
-    padding: 0 8.68vw;
-  }
-}
-@media (width <= 1019px) and (width <= 1019px) {
-  .header .gnav {
-    margin: 0 auto;
-    width: 91.47%;
-  }
-}
-@media (width <= 1019px) {
   .header .gnav__list {
     display: flex;
     row-gap: clamp(17px, 5.3vw, 24px);
@@ -1106,8 +1097,7 @@ a {
 }
 @media (width <= 1019px) and (width <= 1019px) {
   .header__contact {
-    margin: 0 auto;
-    width: 91.47%;
+    padding: 0 4.265vw;
   }
 }
 @media (width <= 1019px) {
@@ -1118,6 +1108,7 @@ a {
   }
   .header__contact--email {
     flex-direction: column;
+    width: 100%;
   }
   .header__contact--email a {
     width: 100%;
@@ -1145,9 +1136,9 @@ a {
     width: clamp(28px, 9vw, 36px);
   }
 }
-/* ----------------------------------------------------------------------------
-   下部 お問い合わせCTA sp
----------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------
+ 下部追従 お問い合わせCTA sp 
+------------------------------------------------------------------------------------------------------ */
 @media (width <= 1019px) {
   .cta-btns {
     background: #ffffff;
@@ -1172,8 +1163,7 @@ a {
 }
 @media (width <= 1019px) and (width <= 1019px) {
   .cta-btns__wrapper {
-    margin: 0 auto;
-    width: 91.47%;
+    padding: 0 4.265vw;
   }
 }
 @media (width <= 1019px) {
@@ -1212,9 +1202,9 @@ a {
     width: clamp(14px, 3.733vw, 20px);
   }
 }
-/* ----------------------------------------------------------------------------
-instagram 共通
----------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------
+ instagram 共通 
+------------------------------------------------------------------------------------------------------ */
 .instagram__wrapper {
   display: grid;
 }
@@ -1225,8 +1215,7 @@ instagram 共通
 }
 @media (width <= 1019px) {
   .instagram__wrapper {
-    margin: 0 auto;
-    width: 91.47%;
+    padding: 0 4.265vw;
   }
 }
 .instagram__description {
@@ -1257,9 +1246,9 @@ instagram 共通
   left: 7.79%;
 }
 
-/* ----------------------------------------------------------------------------
-instagram pc
----------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------
+ instagram pc 
+------------------------------------------------------------------------------------------------------ */
 @media (width >= 1020px) {
   .instagram__wrapper {
     grid-template-columns: 48.82% 40vw;
@@ -1273,9 +1262,9 @@ instagram pc
     margin-bottom: clamp(36px, 3.333vw, 48px);
   }
 }
-/* ----------------------------------------------------------------------------
-instagram sp
----------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------
+ instagram sp 
+------------------------------------------------------------------------------------------------------ */
 @media (width <= 1019px) {
   .instagram__wrapper {
     row-gap: clamp(36px, 3.333vw, 48px);
@@ -1295,9 +1284,9 @@ instagram sp
     margin-bottom: clamp(36px, 3.333vw, 48px);
   }
 }
-/* ----------------------------------------------------------------------------
-   お問い合わせCTA 共通
----------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------
+ お問い合わせCTA 共通 
+------------------------------------------------------------------------------------------------------ */
 .contact-cta__wrapper {
   display: grid;
   align-items: center;
@@ -1309,8 +1298,7 @@ instagram sp
 }
 @media (width <= 1019px) {
   .contact-cta__wrapper {
-    margin: 0 auto;
-    width: 91.47%;
+    padding: 0 4.265vw;
   }
 }
 .contact-cta__content--right {
@@ -1380,9 +1368,9 @@ instagram sp
   align-items: center;
 }
 
-/* ----------------------------------------------------------------------------
-   お問い合わせCTA pc
----------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------
+ お問い合わせCTA PC 
+------------------------------------------------------------------------------------------------------ */
 @media (width >= 1020px) {
   .contact-cta__wrapper {
     grid-template-columns: 31.36% 60%;
@@ -1408,9 +1396,9 @@ instagram sp
     height: clamp(56px, 4.444vw, 64px);
   }
 }
-/* ----------------------------------------------------------------------------
-   お問い合わせCTA sp
----------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------
+ お問い合わせCTA sp 
+------------------------------------------------------------------------------------------------------ */
 @media (width <= 1019px) {
   .contact-cta__wrapper {
     row-gap: clamp(24px, 8.533vw, 40px);
@@ -1440,9 +1428,9 @@ instagram sp
     height: clamp(64px, 17vw, 72px);
   }
 }
-/* ----------------------------------------------------------------------------
-フッター 共通
----------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------
+ footer 共通
+------------------------------------------------------------------------------------------------------ */
 .footer {
   background: #1f1f1f;
   box-sizing: border-box;
@@ -1528,9 +1516,9 @@ instagram sp
   text-align: center;
 }
 
-/* ----------------------------------------------------------------------------
-フッター pc
----------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------
+ footer pc
+------------------------------------------------------------------------------------------------------ */
 @media (width >= 1020px) {
   .footer {
     padding: clamp(36px, 3.333vw, 48px) 0 16px;
@@ -1591,9 +1579,9 @@ instagram sp
     height: 1px;
   }
 }
-/* ----------------------------------------------------------------------------
-フッター sp
----------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------
+ footer sp
+------------------------------------------------------------------------------------------------------ */
 @media (width <= 1019px) {
   .footer {
     padding: clamp(36px, 3.333vw, 48px) 0 16px;
@@ -1606,8 +1594,7 @@ instagram sp
 }
 @media (width <= 1019px) and (width <= 1019px) {
   .footer__wrapper {
-    margin: 0 auto;
-    width: 91.47%;
+    padding: 0 4.265vw;
   }
 }
 @media (width <= 1019px) {
@@ -1664,9 +1651,9 @@ instagram sp
     width: 8px;
   }
 }
-/* ----------------------------------------------------------------------------
-   セクション 余白
----------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------
+  セクション間 余白 
+------------------------------------------------------------------------------------------------------ */
 @media (width >= 1020px) {
   section {
     padding-top: 160px;
@@ -1690,7 +1677,7 @@ instagram sp
 }
 
 /* ------------------------------------------------------------------------------------------------------
- ファーストビュー 共通
+ 下層ページ fv 共通
 ------------------------------------------------------------------------------------------------------ */
 .fv__wrapper {
   padding: 0;
@@ -1698,7 +1685,7 @@ instagram sp
 }
 
 /* ------------------------------------------------------------------------------------------------------
- ファーストビュー pc
+ 下層ページ fv pc
 ------------------------------------------------------------------------------------------------------ */
 @media (width >= 1020px) {
   .fv {
@@ -1713,7 +1700,7 @@ instagram sp
   }
 }
 /* ------------------------------------------------------------------------------------------------------
- ファーストビュー sp
+ 下層ページ fv sp
 ------------------------------------------------------------------------------------------------------ */
 @media (width <= 1019px) {
   .fv {
@@ -1731,12 +1718,11 @@ instagram sp
 }
 @media (width <= 1019px) and (width <= 1019px) {
   .fv__wrapper {
-    margin: 0 auto;
-    width: 91.47%;
+    padding: 0 4.265vw;
   }
 }
 /* ------------------------------------------------------------------------------------------------------
- メインビジュアル ファーストビュー 共通
+ main-visual 共通
 ------------------------------------------------------------------------------------------------------ */
 .top-fv {
   padding-top: 0;
@@ -1841,8 +1827,7 @@ instagram sp
 }
 @media (width <= 1019px) and (width <= 1019px) {
   .top-fv__wrapper {
-    margin: 0 auto;
-    width: 91.47%;
+    padding: 0 4.265vw;
   }
 }
 @media (width <= 1019px) {
@@ -1874,8 +1859,7 @@ instagram sp
 }
 @media (width <= 1019px) {
   .concept__wrapper {
-    margin: 0 auto;
-    width: 91.47%;
+    padding: 0 4.265vw;
   }
 }
 .concept__lead {
@@ -1916,8 +1900,7 @@ instagram sp
 }
 @media (width <= 1019px) {
   .service__wrapper {
-    margin: 0 auto;
-    width: 91.47%;
+    padding: 0 4.265vw;
   }
 }
 .service__img-wrapper {
@@ -1951,7 +1934,7 @@ instagram sp
     row-gap: clamp(36px, 3.333vw, 48px);
   }
   .service__lead {
-    font-size: clamp(20px, 1.66vw, 32px);
+    font-size: clamp(20px, 1.66vw, 28px);
     margin-bottom: clamp(36px, 3.333vw, 48px);
   }
   .service__description {
@@ -2032,8 +2015,7 @@ instagram sp
 }
 @media (width <= 1019px) {
   .works__content--top {
-    margin: 0 auto;
-    width: 91.47%;
+    padding: 0 4.265vw;
   }
 }
 .works__content--bottom {
@@ -2109,7 +2091,10 @@ instagram sp
     row-gap: 8px;
   }
   .works__item-title {
-    font-size: clamp(18px, 1.66vw, 27px);
+    font-size: clamp(18px, 1.39vw, 22px);
+  }
+  .works__item-label {
+    font-size: clamp(12px, 0.972vw, 14px);
   }
 }
 /* ------------------------------------------------------------------------------------------------------
@@ -2148,8 +2133,7 @@ instagram sp
 }
 @media (width <= 1019px) and (width <= 1019px) {
   .works__content--bottom {
-    margin: 0 auto;
-    width: 91.47%;
+    padding: 0 4.265vw;
   }
 }
 @media (width <= 1019px) {
@@ -2180,8 +2164,7 @@ instagram sp
 }
 @media (width <= 1019px) {
   .about__wrapper {
-    margin: 0 auto;
-    width: 91.47%;
+    padding: 0 4.265vw;
   }
 }
 .about .name {
@@ -2241,11 +2224,8 @@ instagram sp
   }
 }
 /* ------------------------------------------------------------------------------------------------------
- serviceページ 
+ types 共通 (service) 
 ------------------------------------------------------------------------------------------------------ */
-/* -------------------------------------------------------------
-   types 共通
-------------------------------------------------------------- */
 .service-type__wrapper {
   display: grid;
 }
@@ -2256,8 +2236,7 @@ instagram sp
 }
 @media (width <= 1019px) {
   .service-type__wrapper {
-    margin: 0 auto;
-    width: 91.47%;
+    padding: 0 4.265vw;
   }
 }
 .service-type__list {
@@ -2291,9 +2270,9 @@ instagram sp
   color: #1e5aa8;
 }
 
-/* -------------------------------------------------------------
-   types pc
-------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------
+ types pc (service) 
+------------------------------------------------------------------------------------------------------ */
 @media (width >= 1020px) {
   .service-type__wrapper {
     grid-template-columns: 44% 47.9%;
@@ -2304,8 +2283,8 @@ instagram sp
     gap: 24px;
   }
   .service-type__item {
-    width: 9vw;
-    height: 9vw;
+    width: max(128px, 9vw);
+    height: max(128px, 9vw);
   }
   .service-type__item-icon {
     width: 40%;
@@ -2321,10 +2300,39 @@ instagram sp
     font-size: clamp(12px, 0.903vw, 14px);
   }
 }
-
-/* -------------------------------------------------------------
-   reason 共通
-------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------
+ types sp (service) 
+------------------------------------------------------------------------------------------------------ */
+@media (width <= 1019px) {
+  .service-type__wrapper {
+    flex-wrap: wrap;
+    row-gap: clamp(36px, 3.333vw, 48px);
+  }
+  .service-type__list {
+    gap: 24px;
+    order: 2;
+  }
+  .service-type__item {
+    width: min(42vw, 180px);
+    height: min(42vw, 180px);
+  }
+  .service-type__item-icon {
+    width: 40%;
+  }
+  .service-type__title-area {
+    row-gap: 2px;
+  }
+  .service-type__title {
+    font-size: min(3.73vw, 18px);
+    margin-bottom: 4px;
+  }
+  .service-type__title-en {
+    font-size: min(3.2vw, 14px);
+  }
+}
+/* ------------------------------------------------------------------------------------------------------
+ reason 共通 (service) 
+------------------------------------------------------------------------------------------------------ */
 @media (width >= 1020px) {
   .service-reason__wrapper {
     padding: 0 8.68vw;
@@ -2332,8 +2340,7 @@ instagram sp
 }
 @media (width <= 1019px) {
   .service-reason__wrapper {
-    margin: 0 auto;
-    width: 91.47%;
+    padding: 0 4.265vw;
   }
 }
 .service-reason__list {
@@ -2354,9 +2361,9 @@ instagram sp
   font-weight: 500;
 }
 
-/* -------------------------------------------------------------
-   reason pc
-------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------
+ reason pc (service) 
+------------------------------------------------------------------------------------------------------ */
 @media (width >= 1020px) {
   .service-reason__wrapper {
     grid-template-columns: 44% 47.9%;
@@ -2370,15 +2377,20 @@ instagram sp
     row-gap: clamp(64px, 5vw, 80px);
   }
   .service-reason__item {
-    grid-template-columns: 54% 40%;
+    grid-template-columns: 40% 54%;
     justify-content: space-between;
     align-items: center;
   }
   .service-reason__item:nth-of-type(2) {
-    grid-template-columns: 40% 54%;
+    grid-template-columns: 54% 40%;
+  }
+  .service-reason__item:nth-of-type(2) .service-reason__item-img {
+    grid-column: 2;
+    grid-row: 1;
   }
   .service-reason__item:nth-of-type(2) .service-reason__text-area {
-    order: 2;
+    grid-column: 1;
+    grid-row: 1;
   }
   .service-reason__number {
     margin-bottom: 8px;
@@ -2388,10 +2400,30 @@ instagram sp
     margin-bottom: 24px;
   }
 }
-
-/* -------------------------------------------------------------
-   genre 共通
-------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------
+ reason sp (service) 
+------------------------------------------------------------------------------------------------------ */
+@media (width <= 1019px) {
+  .service-reason__lead {
+    margin-bottom: clamp(36px, 3.333vw, 48px);
+  }
+  .service-reason__list {
+    row-gap: min(17vw, 100px);
+  }
+  .service-reason__item {
+    row-gap: min(6.4vw, 40px);
+  }
+  .service-reason__number {
+    margin-bottom: 8px;
+  }
+  .service-reason__title {
+    font-size: min(5vw, 27px);
+    margin-bottom: 16px;
+  }
+}
+/* ------------------------------------------------------------------------------------------------------
+ genre 共通 (service) 
+------------------------------------------------------------------------------------------------------ */
 @media (width >= 1020px) {
   .service-genre__wrapper {
     padding: 0 8.68vw;
@@ -2399,17 +2431,13 @@ instagram sp
 }
 @media (width <= 1019px) {
   .service-genre__wrapper {
-    margin: 0 auto;
-    width: 91.47%;
+    padding: 0 4.265vw;
   }
 }
-.service-genre__list {
-  display: grid;
-}
 
-/* -------------------------------------------------------------
-   genre pc
-------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------
+ genre pc (service) 
+------------------------------------------------------------------------------------------------------ */
 @media (width >= 1020px) {
   .service-genre__wrapper {
     grid-template-columns: 44% 47.9%;
@@ -2424,12 +2452,504 @@ instagram sp
     grid-template-rows: 1fr 1fr;
     gap: 4.4vw;
     margin-bottom: clamp(36px, 3.333vw, 48px);
+    display: grid;
   }
   .service-genre__item-img {
     margin-bottom: 16px;
   }
 }
+/* ------------------------------------------------------------------------------------------------------
+ genre sp (service) 
+------------------------------------------------------------------------------------------------------ */
+@media (width <= 1019px) {
+  .service-genre__lead {
+    margin-bottom: clamp(36px, 3.333vw, 48px);
+  }
+  .service-genre__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: clamp(36px, 3.333vw, 48px);
+    margin-bottom: clamp(36px, 3.333vw, 48px);
+  }
+  .service-genre__item {
+    width: min(42.66vw, 214px);
+  }
+  .service-genre__item-img {
+    margin-bottom: 8px;
+  }
+}
+/* ------------------------------------------------------------------------------------------------------
+ plan 共通 (service) 
+------------------------------------------------------------------------------------------------------ */
+.service-plan__bg {
+  background: #f2f2f2;
+  width: 100%;
+  box-sizing: border-box;
+}
+.service-plan__list {
+  display: flex;
+  align-items: center;
+}
+.service-plan__list > .service-plan__item:only-child {
+  margin-left: auto;
+  margin-right: auto;
+}
+.service-plan__item {
+  box-sizing: border-box;
+  background: #ffffff;
+}
+.service-plan__title-area {
+  text-align: center;
+}
+.service-plan .en {
+  color: #1e5aa8;
+  font-family: "Inter", sans-serif;
+  text-transform: capitalize;
+  letter-spacing: 0.1em;
+  display: inline-block;
+}
+.service-plan__title {
+  font-weight: 500;
+}
+.service-plan__table {
+  width: 100%;
+}
+.service-plan__table tbody {
+  display: flex;
+  flex-direction: column;
+}
+.service-plan__table tr {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(31, 31, 31, 0.3);
+}
+.service-plan__table-title {
+  font-weight: 400;
+}
+.service-plan__table-number {
+  font-weight: 500;
+  font-family: "Inter", sans-serif;
+  text-transform: capitalize;
+  letter-spacing: 0.1em;
+}
+.service-plan__table-unit {
+  font-family: "Noto Sans JP", sans-serif;
+}
+.service-plan .caution {
+  line-height: 1.7;
+  position: relative;
+}
+.service-plan .caution::before {
+  content: "※";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 
+/* ------------------------------------------------------------------------------------------------------
+ plan pc (service) 
+------------------------------------------------------------------------------------------------------ */
+@media (width >= 1020px) and (width >= 1020px) {
+  .service-plan__wrapper {
+    padding: 0 8.68vw;
+  }
+}
+@media (width >= 1020px) and (width <= 1019px) {
+  .service-plan__wrapper {
+    padding: 0 4.265vw;
+  }
+}
+@media (width >= 1020px) {
+  .service-plan__lead {
+    margin-bottom: clamp(36px, 3.333vw, 48px);
+  }
+  .service-plan__bg {
+    padding: clamp(64px, 5vw, 80px) 12.815%;
+  }
+  .service-plan__tab-list {
+    max-width: 800px;
+    margin: 0 auto 32px;
+  }
+  .service-plan__list {
+    justify-content: space-between;
+    max-width: 1080px;
+    margin: 0 auto 32px;
+  }
+  .service-plan__item {
+    width: 45.2%;
+    padding: 32px;
+  }
+  .service-plan .en {
+    font-size: clamp(12px, 0.972vw, 14px);
+    margin-bottom: 8px;
+  }
+  .service-plan__title {
+    font-size: clamp(17px, 1.39vw, 20px);
+    margin-bottom: 24px;
+  }
+  .service-plan__table tbody {
+    row-gap: 16px;
+  }
+  .service-plan__table tr {
+    padding-bottom: 16px;
+  }
+  .service-plan__table-number {
+    font-size: clamp(17px, 1.67vw, 24px);
+  }
+  .service-plan .caution {
+    font-size: clamp(12px, 0.972vw, 16px);
+    padding-left: 24px;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+}
+/* ------------------------------------------------------------------------------------------------------
+ plan sp (service) 
+------------------------------------------------------------------------------------------------------ */
+@media (width <= 1019px) {
+  .service-plan {
+    padding-top: 120px;
+  }
+  .service-plan__lead {
+    margin-bottom: clamp(36px, 3.333vw, 48px);
+  }
+}
+@media (width <= 1019px) and (width >= 1020px) {
+  .service-plan__lead {
+    padding: 0 8.68vw;
+  }
+}
+@media (width <= 1019px) and (width <= 1019px) {
+  .service-plan__lead {
+    padding: 0 4.265vw;
+  }
+}
+@media (width <= 1019px) {
+  .service-plan__bg {
+    padding: min(14.93vw, 80px) 4.265vw;
+  }
+  .service-plan__tab-list {
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: min(4.8vw, 22px);
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+  .service-plan__list {
+    justify-content: center;
+    row-gap: min(17vw, 100px);
+    margin-bottom: clamp(36px, 3.333vw, 48px);
+    flex-wrap: wrap;
+  }
+}
+@media (width <= 1019px) and (min-width: 600px) and (max-width: 1020px) {
+  .service-plan__list {
+    justify-content: space-between;
+  }
+}
+@media (width <= 1019px) {
+  .service-plan__item {
+    padding: 32px 4.664%;
+    width: min(100%, 343px);
+  }
+  .service-plan .en {
+    font-size: min(3.466vw, 14px);
+    margin-bottom: 4px;
+  }
+  .service-plan__title {
+    font-size: min(5.33vw, 22px);
+    margin-bottom: 24px;
+  }
+  .service-plan__table tbody {
+    row-gap: 16px;
+  }
+  .service-plan__table tr {
+    padding-bottom: 16px;
+  }
+  .service-plan__table-title {
+    font-size: min(4.266vw, 16px);
+  }
+  .service-plan__table-number {
+    font-size: min(5.66vw, 20px);
+  }
+  .service-plan .caution {
+    font-size: min(3.73vw, 18px);
+    padding-left: 24px;
+  }
+}
+/* ------------------------------------------------------------------------------------------------------
+ voice 共通 (service) 
+------------------------------------------------------------------------------------------------------ */
+.service-voice__wrapper {
+  margin: 0 auto;
+}
+.service-voice__list {
+  display: flex;
+  flex-direction: column;
+}
+.service-voice__item-title {
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 8px;
+       column-gap: 8px;
+}
+.service-voice__category {
+  color: #1e5aa8;
+}
+
+/* ------------------------------------------------------------------------------------------------------
+ voice pc (service) 
+------------------------------------------------------------------------------------------------------ */
+@media (width >= 1020px) {
+  .service-voice__lead {
+    margin-bottom: clamp(36px, 3.333vw, 48px);
+  }
+  .service-voice__wrapper {
+    width: 75%;
+  }
+  .service-voice__list {
+    row-gap: clamp(80px, 7vw, 100px);
+  }
+  .service-voice__item {
+    display: grid;
+    justify-content: space-between;
+    align-items: center;
+    grid-template-columns: 13% 82%;
+  }
+  .service-voice__item:nth-of-type(2) {
+    grid-template-columns: 82% 13%;
+  }
+  .service-voice__item:nth-of-type(2) .service-voice__item-img {
+    order: 2;
+  }
+  .service-voice__item-title {
+    font-size: clamp(18px, 1.67vw, 24px);
+    margin-bottom: 16px;
+  }
+  .service-voice__category {
+    font-size: clamp(12px, 0.972vw, 14px);
+  }
+}
+/* ------------------------------------------------------------------------------------------------------
+ voice sp (service) 
+------------------------------------------------------------------------------------------------------ */
+@media (width <= 1019px) {
+  .service-voice__lead {
+    margin-bottom: clamp(36px, 3.333vw, 48px);
+  }
+}
+@media (width <= 1019px) and (width >= 1020px) {
+  .service-voice__wrapper {
+    padding: 0 8.68vw;
+  }
+}
+@media (width <= 1019px) and (width <= 1019px) {
+  .service-voice__wrapper {
+    padding: 0 4.265vw;
+  }
+}
+@media (width <= 1019px) {
+  .service-voice__list {
+    row-gap: min(17vw, 100px);
+  }
+  .service-voice__item {
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+    justify-content: center;
+    align-items: center;
+  }
+  .service-voice__item-img {
+    width: min(32vw, 160px);
+  }
+  .service-voice__item-text {
+    max-width: 512px;
+  }
+  .service-voice__item-title {
+    font-size: clamp(18px, 5.33vw, 22px);
+    margin-bottom: 16px;
+  }
+}
+@media (width <= 1019px) and (min-width: 600px) and (max-width: 1020px) {
+  .service-voice__item {
+    display: grid;
+    grid-template-columns: 26.6% 68%;
+    justify-content: space-between;
+  }
+  .service-voice__item-img {
+    width: min(100%, 180px);
+  }
+  .service-voice__item:nth-of-type(2) {
+    grid-template-columns: 68% 26.6%;
+  }
+  .service-voice__item:nth-of-type(2) .service-voice__item-img {
+    order: 2;
+  }
+}
+@media (width <= 1019px) {
+  .service-voice__category {
+    font-size: clamp(12px, 3.466vw, 14px);
+  }
+}
+/* ------------------------------------------------------------------------------------------------------
+ flow 共通 (service) 
+------------------------------------------------------------------------------------------------------ */
+@media (width >= 1020px) {
+  .service-flow__wrapper {
+    padding: 0 8.68vw;
+  }
+}
+@media (width <= 1019px) {
+  .service-flow__wrapper {
+    padding: 0 4.265vw;
+  }
+}
+.service-flow__lead {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.5;
+}
+.service-flow__lead .en {
+  font-family: "Inter", sans-serif;
+  text-transform: capitalize;
+  letter-spacing: 0.1em;
+  color: #1e5aa8;
+  font-weight: 500;
+}
+.service-flow__lead .lead-second-row {
+  display: flex;
+  align-items: center;
+}
+.service-flow__list {
+  display: grid;
+}
+.service-flow__item-text {
+  display: flex;
+  flex-direction: column;
+}
+.service-flow__item-title {
+  font-weight: 500;
+  display: flex;
+  flex-direction: column-reverse;
+  row-gap: 8px;
+}
+.service-flow__item:nth-of-type(2), .service-flow__item:nth-of-type(2) .service-flow__item-img {
+  position: relative;
+}
+.service-flow__item:nth-of-type(2)::before, .service-flow__item:nth-of-type(2)::after, .service-flow__item:nth-of-type(2) .service-flow__item-img::before, .service-flow__item:nth-of-type(2) .service-flow__item-img::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+.service-flow__number {
+  color: #1e5aa8;
+  font-family: "Inter", sans-serif;
+  text-transform: capitalize;
+  letter-spacing: 0.1em;
+}
+
+/* ------------------------------------------------------------------------------------------------------
+ flow pc (service) 
+------------------------------------------------------------------------------------------------------ */
+@media (width >= 1020px) {
+  .service-flow__lead {
+    margin-bottom: 24px;
+  }
+  .service-flow__lead .en {
+    font-size: clamp(28px, 3.3vw, 48px);
+    margin-left: 4px;
+  }
+  .service-flow__list {
+    grid-template-columns: 27.5% 27.5% 27.5%;
+    justify-content: space-between;
+    margin-bottom: clamp(36px, 3.333vw, 48px);
+  }
+  .service-flow__item-img {
+    margin-bottom: 24px;
+  }
+  .service-flow__item-text {
+    row-gap: 16px;
+  }
+  .service-flow__item-title {
+    font-size: clamp(18px, 1.67vw, 24px);
+  }
+  .service-flow__item:nth-of-type(2)::before, .service-flow__item:nth-of-type(2)::after {
+    display: none;
+  }
+  .service-flow__item:nth-of-type(2) .service-flow__item-img::before, .service-flow__item:nth-of-type(2) .service-flow__item-img::after {
+    border-left: clamp(18px, 2.222vw, 32px) solid #1e5aa8;
+    border-top: clamp(9px, 1.111vw, 16px) solid transparent;
+    border-bottom: clamp(9px, 1.111vw, 16px) solid transparent;
+    top: 50%;
+  }
+  .service-flow__item:nth-of-type(2) .service-flow__item-img::before {
+    left: calc(50% - 14.583vw);
+    transform: translate(-50%, -50%);
+  }
+  .service-flow__item:nth-of-type(2) .service-flow__item-img::after {
+    right: calc(50% - 14.583vw);
+    transform: translate(70%, -50%);
+  }
+  .service-flow__number {
+    font-size: clamp(12px, 0.972vw, 14px);
+  }
+}
+/* ------------------------------------------------------------------------------------------------------
+ flow sp (service) 
+------------------------------------------------------------------------------------------------------ */
+@media (width <= 1019px) {
+  .service-flow__lead {
+    flex-direction: column;
+    margin-bottom: 24px;
+  }
+  .service-flow__lead .en {
+    font-size: min(10.67vw, 48px);
+    margin-left: 4px;
+  }
+  .service-flow__list {
+    row-gap: 100px;
+    margin-bottom: clamp(36px, 3.333vw, 48px);
+  }
+  .service-flow__item {
+    position: relative;
+  }
+  .service-flow__item-img {
+    margin-bottom: 24px;
+  }
+  .service-flow__item-text {
+    row-gap: 16px;
+  }
+  .service-flow__item-title {
+    font-size: min(5vw, 27px);
+  }
+  .service-flow__item:nth-of-type(2)::before, .service-flow__item:nth-of-type(2)::after {
+    border-top: 40px solid #1e5aa8;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    left: 50%;
+  }
+  .service-flow__item:nth-of-type(2)::before {
+    top: -48px;
+    transform: translate(-50%, -50%);
+  }
+  .service-flow__item:nth-of-type(2)::after {
+    bottom: -48px;
+    transform: translate(-50%, 50%);
+  }
+  .service-flow__item:nth-of-type(2) .service-flow__item-img::before, .service-flow__item:nth-of-type(2) .service-flow__item-img::after {
+    display: none;
+  }
+  .service-flow__number {
+    font-size: clamp(12px, 3.73vw, 16px);
+  }
+}
 /* ------------------------------------------------------------------------------------------------------
  お問い合わせページ 共通
 ------------------------------------------------------------------------------------------------------ */
@@ -2592,18 +3112,10 @@ instagram sp
 /* ------------------------------------------------------------------------------------------------------
  お問い合わせページ sp
 ------------------------------------------------------------------------------------------------------ */
-@media (width <= 1019px) and (width >= 1020px) {
-  .form {
-    padding: 0 8.68vw;
-  }
-}
-@media (width <= 1019px) and (width <= 1019px) {
-  .form {
-    margin: 0 auto;
-    width: 91.47%;
-  }
-}
 @media (width <= 1019px) {
+  .form {
+    padding: 120px 4.265vw 0;
+  }
   .form__heading {
     font-size: clamp(22px, 6.4vw, 32px);
     margin-bottom: clamp(36px, 3.333vw, 48px);

@@ -1,15 +1,14 @@
-@use "../utils/variables" as *;
-@use "../utils/mixins" as *;
+@use "../utils";
 
-// --------------------------------------------------------------------------------------------------------------------------------------------
-// 見出し
-// --------------------------------------------------------------------------------------------------------------------------------------------
+/* ------------------------------------------------------------------------------------------------------
+ heading 
+------------------------------------------------------------------------------------------------------ */
 @mixin heading($heading-type) {
   display: flex;
   flex-direction: column-reverse;
 
   .main-heading {
-    @include en;
+    @include utils.en;
     font-weight: 500;
   }
 
@@ -24,77 +23,77 @@
     }
   }
 
-  // ---------------------------------------------------------------------
+  //---------------------------------------------------------------
   // 下層ページ ファーストビュー 見出し
-  // ---------------------------------------------------------------------
+  //---------------------------------------------------------------
   @if $heading-type == fv {
     text-align: left;
 
     // 装飾
     .sub-heading {
       &::before {
-        @include decoration-circle(lg);
         left: 0;
         top: 50%;
         transform: translateY(-50%);
+        @include utils.decoration-circle(lg);
       }
     }
 
-    @include mq(l) {
+    @include utils.mq(l) {
       .main-heading {
         font-size: clamp(56px, 6vw, 88px);
       }
       .sub-heading {
         font-size: clamp(16px, 5vw, 20px);
-        padding-left: $margin-lg;
-        margin-bottom: $margin-md;
+        padding-left: utils.$margin-lg;
+        margin-bottom: utils.$margin-md;
       }
     }
 
-    @include mq(s) {
+    @include utils.mq(s) {
       .main-heading {
         font-size: clamp(64px, 19vw, 80px);
       }
       .sub-heading {
         font-size: clamp(16px, 4.8vw, 20px);
-        padding-left: $margin-md;
-        margin-bottom: $margin-sm;
+        padding-left: utils.$margin-md;
+        margin-bottom: utils.$margin-sm;
       }
     }
   }
 
-  // ---------------------------------------------------------------------
-  // セクション 見出し 共通設定
-  // ---------------------------------------------------------------------
+  //---------------------------------------------------------------
+  // セクション 見出し 共通設定セクション 見出し 共通設定
+  //---------------------------------------------------------------
   @if $heading-type == left or $heading-type == center {
     // 装飾
     .sub-heading {
       &::before {
-        @include decoration-circle(sm);
+        @include utils.decoration-circle(sm);
       }
     }
 
     // pc
-    @include mq(l) {
+    @include utils.mq(l) {
       .main-heading {
         font-size: clamp(56px, 5.55vw, 80px);
-        margin-bottom: $margin-xl;
+        margin-bottom: utils.$margin-xl;
       }
     }
 
     //sp
-    @include mq(s) {
+    @include utils.mq(s) {
       // メイン
       .main-heading {
         font-size: clamp(48px, 17vw, 80px);
-        margin-bottom: $margin-xl;
+        margin-bottom: utils.$margin-xl;
       }
     }
   }
 
-  // ---------------------------------------------------------------------
+  //---------------------------------------------------------------
   // セクション 見出し 左寄せ
-  // ---------------------------------------------------------------------
+  //---------------------------------------------------------------
   @if $heading-type == left {
     text-align: left;
 
@@ -108,70 +107,71 @@
     }
 
     // pc
-    @include mq(l) {
+    @include utils.mq(l) {
       .sub-heading {
-        padding: 0 0 0 $margin-lg;
-        margin-bottom: $margin-xs;
+        padding: 0 0 0 utils.$margin-lg;
+        margin-bottom: utils.$margin-xs;
       }
     }
 
     //sp
-    @include mq(s) {
+    @include utils.mq(s) {
       .sub-heading {
-        padding: 0 0 0 $margin-md;
-        margin-bottom: $margin-xs;
+        padding: 0 0 0 utils.$margin-md;
+        margin-bottom: utils.$margin-xs;
       }
     }
   }
 
-  // ---------------------------------------------------------------------
+  //---------------------------------------------------------------
   // セクション 見出し 中央寄せ
-  // ---------------------------------------------------------------------
+  //---------------------------------------------------------------
   @if $heading-type == center {
     text-align: center;
+    align-items: center;
 
     // 装飾
     .sub-heading {
       &::before {
-        left: 50%;
-        top: 0;
-        transform: translateX(-50%);
+        top: 50%;
+        left: -20px;
+        transform: translateY(-50%);
       }
     }
 
     //pc
-    @include mq(l) {
+    @include utils.mq(l) {
       .sub-heading {
-        padding: $margin-lg 0 0;
+        margin-bottom: utils.$margin-xs;
       }
     }
 
     //sp
-    @include mq(s) {
+    @include utils.mq(s) {
       .sub-heading {
-        padding: $margin-md 0 0;
+        margin-bottom: utils.$margin-xs;
       }
     }
   }
 }
 
-/* ----------------------------------------------------------------------------
- 下層ページ ファーストビュー 見出し
----------------------------------------------------------------------------- */
+//---------------------------------------------------------------
+// 下層ページ ファーストビュー 見出し
+//---------------------------------------------------------------
 .heading--fv {
   @include heading(fv);
 }
 
-/* ----------------------------------------------------------------------------
- セクション 見出し 左寄せ
----------------------------------------------------------------------------- */
+//---------------------------------------------------------------
+// セクション 見出し 左寄せ
+//---------------------------------------------------------------
 .heading--left {
   @include heading(left);
 }
 
-/* ----------------------------------------------------------------------------
- セクション 見出し 中央寄せ
----------------------------------------------------------------------------- */
+//---------------------------------------------------------------
+// セクション 見出し 中央寄せ
+//---------------------------------------------------------------
 .heading--center {
   @include heading(center);
 }

@@ -1,5 +1,4 @@
-@use "../utils/variables" as *;
-@use "../utils/mixins" as *;
+@use "../utils";
 
 /* ------------------------------------------------------------------------------------------------------
  お問い合わせページ 共通
@@ -31,23 +30,23 @@
       display: block;
       width: 90%;
       height: 2px;
-      background: rgba($color: $main-color, $alpha: 0.3);
+      background: rgba(utils.$main-color, 0.3);
     }
 
     &-item {
-      background: $accent-color;
+      background: utils.$accent-color;
       border-radius: 50%;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      row-gap: $margin-sm;
-      color: $base-color;
+      row-gap: utils.$margin-sm;
+      color: utils.$base-color;
 
       // 現在地以外
       &.inactive {
-        background: $sub-color;
-        color: $main-color;
+        background: utils.$sub-color;
+        color: utils.$main-color;
       }
     }
   }
@@ -63,7 +62,7 @@
     display: grid;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px rgba($color: $main-color, $alpha: 0.3) solid;
+    border-bottom: 1px rgba(utils.$main-color, 0.3) solid;
 
     &-title {
       font-weight: 500;
@@ -73,15 +72,15 @@
 
     .required {
       font-weight: 400;
-      background: $accent-color;
+      background: utils.$accent-color;
       border-radius: 6px;
-      color: $base-color;
+      color: utils.$base-color;
       box-sizing: border-box;
     }
 
     .textarea {
       width: 100%;
-      background: $sub-color;
+      background: utils.$sub-color;
     }
 
     // ラジオボタン スタイル
@@ -97,7 +96,7 @@
     }
 
     input[type="radio"] {
-      background: $sub-color;
+      background: utils.$sub-color;
       appearance: none;
       -webkit-appearance: none;
       border-radius: 50%;
@@ -111,7 +110,7 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background: $accent-color;
+      background: utils.$accent-color;
       border-radius: 50%;
     }
   }
@@ -124,21 +123,21 @@
 /* ------------------------------------------------------------------------------------------------------
  お問い合わせページ pc
 ------------------------------------------------------------------------------------------------------ */
-@include mq(l) {
+@include utils.mq(l) {
   .form {
     width: min(66.6%, 1080px);
 
     // 見出し
     &__heading {
       font-size: clamp(24px, 2.2vw, 32px);
-      margin-bottom: $margin-xl;
+      margin-bottom: utils.$margin-xl;
     }
 
     // ステップ
     &__step {
       width: max(41.6%, 320px);
       height: clamp(72px, 6.5vw, 104px);
-      margin-bottom: $margin-xl;
+      margin-bottom: utils.$margin-xl;
 
       &-item {
         width: clamp(72px, 6.5vw, 104px);
@@ -148,41 +147,41 @@
 
     // リード文
     &__lead {
-      margin-bottom: $margin-xl;
+      margin-bottom: utils.$margin-xl;
     }
 
     // フォーム入力欄
     &__item {
       grid-template-columns: 27% 62.5%;
-      padding-bottom: $margin-lg;
-      margin-bottom: $margin-lg;
+      padding-bottom: utils.$margin-lg;
+      margin-bottom: utils.$margin-lg;
 
       // 最後の入力欄
       &:last-of-type {
-        margin-bottom: $margin-xl;
+        margin-bottom: utils.$margin-xl;
       }
 
       &-title {
         font-size: clamp(14px, 1.25vw, 20px);
-        column-gap: $margin-sm;
+        column-gap: utils.$margin-sm;
       }
 
       .required {
-        padding: $margin-xs $margin-sm;
+        padding: utils.$margin-xs utils.$margin-sm;
         font-size: 12px;
       }
 
       .textarea {
-        padding: $margin-md;
+        padding: utils.$margin-md;
       }
 
       // ラジオボタン スタイル
       .radio {
-        column-gap: $margin-md;
+        column-gap: utils.$margin-md;
       }
 
       .radio__label {
-        column-gap: $margin-xs;
+        column-gap: utils.$margin-xs;
       }
 
       input[type="radio"] {
@@ -201,21 +200,21 @@
 /* ------------------------------------------------------------------------------------------------------
  お問い合わせページ sp
 ------------------------------------------------------------------------------------------------------ */
-@include mq(s) {
+@include utils.mq(s) {
   .form {
-    @include wrapper;
+    padding: 120px 4.265vw 0;
 
     // 見出し
     &__heading {
       font-size: clamp(22px, 6.4vw, 32px);
-      margin-bottom: $margin-xl;
+      margin-bottom: utils.$margin-xl;
     }
 
     // ステップ
     &__step {
       width: min(100%, 400px);
       height: clamp(72px, 21.3vw, 96px);
-      margin-bottom: $margin-xl;
+      margin-bottom: utils.$margin-xl;
 
       &-item {
         width: clamp(72px, 21.3vw, 96px);
@@ -225,16 +224,16 @@
 
     // リード文
     &__lead {
-      margin-bottom: $margin-xl;
+      margin-bottom: utils.$margin-xl;
     }
 
     // フォーム入力欄
     &__item {
       grid-template-rows: 1fr;
       grid-template-columns: 1fr;
-      row-gap: $margin-md;
-      padding-bottom: $margin-lg;
-      margin-bottom: $margin-lg;
+      row-gap: utils.$margin-md;
+      padding-bottom: utils.$margin-lg;
+      margin-bottom: utils.$margin-lg;
 
       // 最後の入力欄
       &:last-of-type {
@@ -243,25 +242,25 @@
 
       &-title {
         font-size: clamp(14px, 4.266vw, 20px);
-        column-gap: $margin-sm;
+        column-gap: utils.$margin-sm;
       }
 
       .required {
-        padding: $margin-xs $margin-sm;
+        padding: utils.$margin-xs utils.$margin-sm;
         font-size: 12px;
       }
 
       .textarea {
-        padding: $margin-md;
+        padding: utils.$margin-md;
       }
 
       // ラジオボタン スタイル
       .radio {
-        column-gap: $margin-md;
+        column-gap: utils.$margin-md;
       }
 
       .radio__label {
-        column-gap: $margin-xs;
+        column-gap: utils.$margin-xs;
       }
 
       input[type="radio"] {

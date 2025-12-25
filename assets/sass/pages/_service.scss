@@ -1,22 +1,16 @@
-@use "../utils/variables" as *;
-@use "../utils/mixins" as *;
-
+@use "../utils";
 /* ------------------------------------------------------------------------------------------------------
- serviceページ 
+ types 共通 (service) 
 ------------------------------------------------------------------------------------------------------ */
-
-/* -------------------------------------------------------------
-   types 共通
-------------------------------------------------------------- */
 .service-type {
   &__wrapper {
-    @include wrapper;
+    @include utils.wrapper;
     display: grid;
   }
 
-  // ----------------
-  // アイコン
-  // ----------------
+  //---------------------------------------------------------------
+  // icon
+  //---------------------------------------------------------------
   &__list {
     display: flex;
     justify-content: center;
@@ -24,8 +18,8 @@
   }
 
   &__item {
-    background: $sub-color;
-    border-radius: $radius;
+    background: utils.$sub-color;
+    border-radius: utils.$radius;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -46,32 +40,32 @@
   }
 
   &__title-en {
-    @include en;
-    color: $accent-color;
+    @include utils.en;
+    color: utils.$accent-color;
   }
 }
 
-/* -------------------------------------------------------------
-   types pc
-------------------------------------------------------------- */
-.service-type {
-  @include mq(l) {
+/* ------------------------------------------------------------------------------------------------------
+ types pc (service) 
+------------------------------------------------------------------------------------------------------ */
+@include utils.mq(l) {
+  .service-type {
     &__wrapper {
       grid-template-columns: 44% 47.9%;
       justify-content: space-between;
       align-items: center;
     }
 
-    // ----------------
-    // アイコン
-    // ----------------
+    //---------------------------------------------------------------
+    // icon
+    //---------------------------------------------------------------
     &__list {
-      gap: $margin-lg;
+      gap: utils.$margin-lg;
     }
 
     &__item {
-      width: 9vw;
-      height: 9vw;
+      width: max(128px, 9vw);
+      height: max(128px, 9vw);
 
       &-icon {
         width: 40%;
@@ -84,7 +78,7 @@
 
     &__title {
       font-size: clamp(13px, 0.972vw, 16px);
-      margin-bottom: $margin-xs;
+      margin-bottom: utils.$margin-xs;
     }
 
     &__title-en {
@@ -93,12 +87,54 @@
   }
 }
 
-/* -------------------------------------------------------------
-   reason 共通
-------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------
+ types sp (service) 
+------------------------------------------------------------------------------------------------------ */
+@include utils.mq(s) {
+  .service-type {
+    &__wrapper {
+      flex-wrap: wrap;
+      row-gap: utils.$margin-xl;
+    }
+
+    //---------------------------------------------------------------
+    // icon
+    //---------------------------------------------------------------
+    &__list {
+      gap: utils.$margin-lg;
+      order: 2;
+    }
+
+    &__item {
+      width: min(42vw, 180px);
+      height: min(42vw, 180px);
+
+      &-icon {
+        width: 40%;
+      }
+    }
+
+    &__title-area {
+      row-gap: 2px;
+    }
+
+    &__title {
+      font-size: min(3.73vw, 18px);
+      margin-bottom: utils.$margin-xs;
+    }
+
+    &__title-en {
+      font-size: min(3.2vw, 14px);
+    }
+  }
+}
+
+/* ------------------------------------------------------------------------------------------------------
+ reason 共通 (service) 
+------------------------------------------------------------------------------------------------------ */
 .service-reason {
   &__wrapper {
-    @include wrapper;
+    @include utils.wrapper;
   }
 
   &__list {
@@ -111,8 +147,8 @@
   }
 
   &__number {
-    @include en;
-    color: $accent-color;
+    @include utils.en;
+    color: utils.$accent-color;
     display: inline-block;
   }
 
@@ -121,11 +157,11 @@
   }
 }
 
-/* -------------------------------------------------------------
-   reason pc
-------------------------------------------------------------- */
-.service-reason {
-  @include mq(l) {
+/* ------------------------------------------------------------------------------------------------------
+ reason pc (service) 
+------------------------------------------------------------------------------------------------------ */
+@include utils.mq(l) {
+  .service-reason {
     &__wrapper {
       grid-template-columns: 44% 47.9%;
       justify-content: space-between;
@@ -133,7 +169,7 @@
     }
 
     &__lead {
-      margin-bottom: $margin-xl;
+      margin-bottom: utils.$margin-xl;
     }
 
     &__list {
@@ -141,49 +177,79 @@
     }
 
     &__item {
-      grid-template-columns: 54% 40%;
+      grid-template-columns: 40% 54%;
       justify-content: space-between;
       align-items: center;
 
       // 二番目の項目を横向きに反転
       &:nth-of-type(2) {
-        grid-template-columns: 40% 54%;
-      }
+        grid-template-columns: 54% 40%;
 
-      &:nth-of-type(2) .service-reason__text-area {
-        order: 2;
+        .service-reason__item-img {
+          grid-column: 2;
+          grid-row: 1;
+        }
+
+        .service-reason__text-area {
+          grid-column: 1;
+          grid-row: 1;
+        }
       }
     }
 
     &__number {
-      margin-bottom: $margin-sm;
+      margin-bottom: utils.$margin-sm;
     }
 
     &__title {
       font-size: clamp(18px, 1.67vw, 24px);
-      margin-bottom: $margin-lg;
+      margin-bottom: utils.$margin-lg;
     }
   }
 }
 
-/* -------------------------------------------------------------
-   genre 共通
-------------------------------------------------------------- */
-.service-genre {
-  &__wrapper {
-    @include wrapper;
-  }
+/* ------------------------------------------------------------------------------------------------------
+ reason sp (service) 
+------------------------------------------------------------------------------------------------------ */
+@include utils.mq(s) {
+  .service-reason {
+    &__lead {
+      margin-bottom: utils.$margin-xl;
+    }
 
-  &__list {
-    display: grid;
+    &__list {
+      row-gap: min(17vw, 100px);
+    }
+
+    &__item {
+      row-gap: min(6.4vw, 40px);
+    }
+
+    &__number {
+      margin-bottom: utils.$margin-sm;
+    }
+
+    &__title {
+      font-size: min(5vw, 27px);
+      margin-bottom: utils.$margin-md;
+    }
   }
 }
 
-/* -------------------------------------------------------------
-   genre pc
-------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------
+ genre 共通 (service) 
+------------------------------------------------------------------------------------------------------ */
 .service-genre {
-  @include mq(l) {
+  &__wrapper {
+    @include utils.wrapper;
+  }
+}
+
+/* ------------------------------------------------------------------------------------------------------
+ genre pc (service) 
+------------------------------------------------------------------------------------------------------ */
+@include utils.mq(l) {
+  .service-genre {
     &__wrapper {
       grid-template-columns: 44% 47.9%;
       justify-content: space-between;
@@ -191,18 +257,644 @@
     }
 
     &__lead {
-      margin-bottom: $margin-xl;
+      margin-bottom: utils.$margin-xl;
     }
 
     &__list {
       grid-template-columns: 1fr 1fr 1fr;
       grid-template-rows: 1fr 1fr;
       gap: 4.4vw;
-      margin-bottom: $margin-xl;
+      margin-bottom: utils.$margin-xl;
+      display: grid;
     }
 
     &__item-img {
-      margin-bottom: $margin-md;
+      margin-bottom: utils.$margin-md;
+    }
+  }
+}
+
+/* ------------------------------------------------------------------------------------------------------
+ genre sp (service) 
+------------------------------------------------------------------------------------------------------ */
+@include utils.mq(s) {
+  .service-genre {
+    &__lead {
+      margin-bottom: utils.$margin-xl;
+    }
+
+    &__list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      row-gap: utils.$margin-xl;
+      margin-bottom: utils.$margin-xl;
+    }
+
+    &__item {
+      width: min(42.66vw, 214px);
+    }
+
+    &__item-img {
+      margin-bottom: utils.$margin-sm;
+    }
+  }
+}
+
+/* ------------------------------------------------------------------------------------------------------
+ plan 共通 (service) 
+------------------------------------------------------------------------------------------------------ */
+.service-plan {
+  // --- 背景色 --- //
+  &__bg {
+    background: utils.$sub-color;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+  }
+
+  // 要素が1つの時だけ中央寄せに変更
+  &__list > .service-plan__item:only-child {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__item {
+    box-sizing: border-box;
+    background: utils.$base-color;
+  }
+
+  &__title-area {
+    text-align: center;
+  }
+
+  // 英語の色を青に
+  .en {
+    color: utils.$accent-color;
+    @include utils.en;
+    display: inline-block;
+  }
+
+  &__title {
+    font-weight: 500;
+  }
+
+  // --- 価格表 --- //
+  &__table {
+    width: 100%;
+
+    tbody {
+      display: flex;
+      flex-direction: column;
+    }
+
+    tr {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba($color: utils.$main-color, $alpha: 0.3);
+    }
+
+    &-title {
+      font-weight: 400;
+    }
+
+    &-number {
+      font-weight: 500;
+      @include utils.en;
+    }
+
+    // 値段の単位
+    &-unit {
+      font-family: utils.$font-family-jp;
+    }
+  }
+
+  // --- 注意書き --- //
+  .caution {
+    line-height: 1.7;
+    position: relative;
+
+    // 「※」 スタイル
+    &::before {
+      content: "※";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+}
+
+/* ------------------------------------------------------------------------------------------------------
+ plan pc (service) 
+------------------------------------------------------------------------------------------------------ */
+@include utils.mq(l) {
+  .service-plan {
+    &__wrapper {
+      @include utils.wrapper;
+    }
+
+    &__lead {
+      margin-bottom: utils.$margin-xl;
+    }
+
+    // --- 背景色にグレー --- //
+    &__bg {
+      padding: clamp(64px, 5vw, 80px) 12.815%;
+    }
+
+    // --- タブ --- //
+    &__tab-list {
+      max-width: 800px;
+      margin: 0 auto 32px;
+    }
+
+    // --- リスト --- //
+    &__list {
+      justify-content: space-between;
+      max-width: 1080px;
+      margin: 0 auto 32px;
+    }
+
+    &__item {
+      width: 45.2%;
+      padding: 32px;
+    }
+
+    // 英語の色を青に
+    .en {
+      font-size: clamp(12px, 0.972vw, 14px);
+      margin-bottom: utils.$margin-sm;
+    }
+
+    &__title {
+      font-size: clamp(17px, 1.39vw, 20px);
+      margin-bottom: utils.$margin-lg;
+    }
+
+    // --- 価格表 --- //
+    &__table {
+      tbody {
+        row-gap: utils.$margin-md;
+      }
+
+      tr {
+        padding-bottom: utils.$margin-md;
+      }
+
+      &-number {
+        font-size: clamp(17px, 1.67vw, 24px);
+      }
+    }
+
+    // --- 注意書き --- //
+    .caution {
+      font-size: clamp(12px, 0.972vw, 16px);
+      padding-left: utils.$margin-lg;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+  }
+}
+
+/* ------------------------------------------------------------------------------------------------------
+ plan sp (service) 
+------------------------------------------------------------------------------------------------------ */
+@include utils.mq(s) {
+  .service-plan {
+    padding-top: 120px;
+
+    &__lead {
+      margin-bottom: utils.$margin-xl;
+      @include utils.wrapper;
+    }
+
+    // --- 背景色にグレー --- //
+    &__bg {
+      padding: min(14.93vw, 80px) 4.265vw;
+    }
+
+    // --- タブ --- //
+    &__tab-list {
+      flex-wrap: wrap;
+      justify-content: center;
+      font-size: min(4.8vw, 22px);
+      gap: utils.$margin-lg;
+      margin-bottom: utils.$margin-lg;
+    }
+
+    // --- リスト --- //
+    &__list {
+      justify-content: center;
+      row-gap: min(17vw, 100px);
+      margin-bottom: utils.$margin-xl;
+      flex-wrap: wrap;
+    }
+
+    // タブレットでは横並びに変更
+    @media (min-width: 600px) and (max-width: 1020px) {
+      &__list {
+        justify-content: space-between;
+      }
+    }
+
+    &__item {
+      padding: 32px 4.664%;
+      width: min(100%, 343px);
+    }
+
+    // 英語の色を青に
+    .en {
+      font-size: min(3.466vw, 14px);
+      margin-bottom: utils.$margin-xs;
+    }
+
+    &__title {
+      font-size: min(5.33vw, 22px);
+      margin-bottom: utils.$margin-lg;
+    }
+
+    // --- 価格表 --- //
+    &__table {
+      tbody {
+        row-gap: utils.$margin-md;
+      }
+
+      tr {
+        padding-bottom: utils.$margin-md;
+      }
+
+      &-title {
+        font-size: min(4.266vw, 16px);
+      }
+
+      &-number {
+        font-size: min(5.66vw, 20px);
+      }
+    }
+
+    // --- 注意書き --- //
+    .caution {
+      font-size: min(3.73vw, 18px);
+      padding-left: utils.$margin-lg;
+    }
+  }
+}
+
+/* ------------------------------------------------------------------------------------------------------
+ voice 共通 (service) 
+------------------------------------------------------------------------------------------------------ */
+.service-voice {
+  &__wrapper {
+    margin: 0 auto;
+  }
+
+  // --- リスト --- ///
+  &__list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__item {
+    &-title {
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      column-gap: utils.$margin-sm;
+    }
+  }
+
+  &__category {
+    color: utils.$accent-color;
+  }
+}
+
+/* ------------------------------------------------------------------------------------------------------
+ voice pc (service) 
+------------------------------------------------------------------------------------------------------ */
+@include utils.mq(l) {
+  .service-voice {
+    &__lead {
+      margin-bottom: utils.$margin-xl;
+    }
+
+    &__wrapper {
+      width: 75%;
+    }
+
+    // --- リスト --- ///
+    &__list {
+      row-gap: clamp(80px, 7vw, 100px);
+    }
+
+    &__item {
+      display: grid;
+      justify-content: space-between;
+      align-items: center;
+      grid-template-columns: 13% 82%;
+
+      // 2番目のリストを反転
+      &:nth-of-type(2) {
+        grid-template-columns: 82% 13%;
+
+        .service-voice__item-img {
+          order: 2;
+        }
+      }
+      &-title {
+        font-size: clamp(18px, 1.67vw, 24px);
+        margin-bottom: utils.$margin-md;
+      }
+    }
+
+    &__category {
+      font-size: clamp(12px, 0.972vw, 14px);
+    }
+  }
+}
+
+/* ------------------------------------------------------------------------------------------------------
+ voice sp (service) 
+------------------------------------------------------------------------------------------------------ */
+@include utils.mq(s) {
+  .service-voice {
+    &__lead {
+      margin-bottom: utils.$margin-xl;
+    }
+
+    &__wrapper {
+      @include utils.wrapper;
+    }
+
+    // --- リスト --- ///
+    &__list {
+      row-gap: min(17vw, 100px);
+    }
+
+    &__item {
+      display: flex;
+      flex-direction: column;
+      row-gap: utils.$margin-lg;
+      justify-content: center;
+      align-items: center;
+
+      // 画像
+      &-img {
+        width: min(32vw, 160px);
+      }
+
+      // タイトル
+      &-text {
+        max-width: 512px;
+      }
+
+      &-title {
+        font-size: clamp(18px, 5.33vw, 22px);
+        margin-bottom: utils.$margin-md;
+      }
+    }
+
+    // タブレットでは横並びに変更
+    @media (min-width: 600px) and (max-width: 1020px) {
+      &__item {
+        display: grid;
+        grid-template-columns: 26.6% 68%;
+        justify-content: space-between;
+
+        // 画像
+        &-img {
+          width: min(100%, 180px);
+        }
+
+        // 2番目のリストを反転
+        &:nth-of-type(2) {
+          grid-template-columns: 68% 26.6%;
+
+          .service-voice__item-img {
+            order: 2;
+          }
+        }
+      }
+    }
+
+    &__category {
+      font-size: clamp(12px, 3.466vw, 14px);
+    }
+  }
+}
+
+/* ------------------------------------------------------------------------------------------------------
+ flow 共通 (service) 
+------------------------------------------------------------------------------------------------------ */
+.service-flow {
+  &__wrapper {
+    @include utils.wrapper;
+  }
+
+  &__lead {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.5;
+
+    .en {
+      @include utils.en;
+      color: utils.$accent-color;
+      font-weight: 500;
+    }
+
+    // 2行目のスタイル
+    .lead-second-row {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  // --- リスト --- ///
+  &__list {
+    display: grid;
+  }
+
+  &__item {
+    // テキスト
+    &-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &-title {
+      font-weight: 500;
+      display: flex;
+      flex-direction: column-reverse;
+      row-gap: utils.$margin-sm;
+    }
+
+    // 二番目の項目を基準に矢印を配置
+    &:nth-of-type(2),
+    &:nth-of-type(2) &-img {
+      position: relative;
+
+      &::before,
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 0;
+        height: 0;
+      }
+    }
+  }
+
+  &__number {
+    color: utils.$accent-color;
+    @include utils.en;
+  }
+}
+
+/* ------------------------------------------------------------------------------------------------------
+ flow pc (service) 
+------------------------------------------------------------------------------------------------------ */
+@include utils.mq(l) {
+  .service-flow {
+    &__lead {
+      margin-bottom: utils.$margin-lg;
+
+      .en {
+        font-size: clamp(28px, 3.3vw, 48px);
+        margin-left: utils.$margin-xs;
+      }
+    }
+
+    &__list {
+      grid-template-columns: 27.5% 27.5% 27.5%;
+      justify-content: space-between;
+      margin-bottom: utils.$margin-xl;
+    }
+
+    &__item {
+      // 画像
+      &-img {
+        margin-bottom: utils.$margin-lg;
+      }
+
+      // テキスト
+      &-text {
+        row-gap: utils.$margin-md;
+      }
+
+      &-title {
+        font-size: clamp(18px, 1.67vw, 24px);
+      }
+
+      // 二番目の項目を基準に矢印を配置
+      &:nth-of-type(2) {
+        &::before,
+        &::after {
+          display: none;
+        }
+      }
+      &:nth-of-type(2) &-img {
+        &::before,
+        &::after {
+          border-left: clamp(18px, 2.222vw, 32px) solid utils.$accent-color;
+          border-top: clamp(9px, 1.111vw, 16px) solid transparent;
+          border-bottom: clamp(9px, 1.111vw, 16px) solid transparent;
+          top: 50%;
+        }
+
+        &::before {
+          left: calc(50% - 14.583vw);
+          transform: translate(-50%, -50%);
+        }
+
+        &::after {
+          right: calc(50% - 14.583vw);
+          transform: translate(70%, -50%);
+        }
+      }
+    }
+
+    &__number {
+      font-size: clamp(12px, 0.972vw, 14px);
+    }
+  }
+}
+
+/* ------------------------------------------------------------------------------------------------------
+ flow sp (service) 
+------------------------------------------------------------------------------------------------------ */
+@include utils.mq(s) {
+  .service-flow {
+    &__lead {
+      flex-direction: column;
+      margin-bottom: utils.$margin-lg;
+
+      .en {
+        font-size: min(10.67vw, 48px);
+        margin-left: utils.$margin-xs;
+      }
+    }
+
+    // --- リスト --- //
+    &__list {
+      row-gap: 100px;
+      margin-bottom: utils.$margin-xl;
+    }
+
+    &__item {
+      position: relative;
+
+      // 画像
+      &-img {
+        margin-bottom: utils.$margin-lg;
+      }
+
+      // テキスト
+      &-text {
+        row-gap: utils.$margin-md;
+      }
+
+      &-title {
+        font-size: min(5vw, 27px);
+      }
+
+      // 二番目の項目を基準に矢印を配置
+      &:nth-of-type(2) {
+        &::before,
+        &::after {
+          border-top: 40px solid utils.$accent-color;
+          border-left: 20px solid transparent;
+          border-right: 20px solid transparent;
+          left: 50%;
+        }
+
+        &::before {
+          top: -48px;
+          transform: translate(-50%, -50%);
+        }
+
+        &::after {
+          bottom: -48px;
+          transform: translate(-50%, 50%);
+        }
+      }
+
+      // 二番目の項目を基準に矢印を配置
+      &:nth-of-type(2) &-img {
+        &::before,
+        &::after {
+          display: none;
+        }
+      }
+    }
+
+    &__number {
+      font-size: clamp(12px, 3.73vw, 16px);
     }
   }
 }

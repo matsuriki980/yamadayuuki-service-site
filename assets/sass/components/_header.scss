@@ -1,15 +1,15 @@
-@use "../utils/variables" as *;
-@use "../utils/mixins" as *;
+@use "../utils";
 
-/* ----------------------------------------------------------------------------
-ヘッダー 共通
----------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------
+ header 共通
+------------------------------------------------------------------------------------------------------ */
 .header {
   width: 100%;
   position: absolute;
   z-index: 5;
   top: 0;
   left: 0;
+
   &__wrapper {
     margin: 0 auto;
     display: flex;
@@ -19,13 +19,13 @@
 
   // ロゴ
   &__logo {
-    @include logo;
+    @include utils.logo;
   }
 
   // ナビゲーション
   .gnav {
     &__item a {
-      @include en;
+      @include utils.en;
     }
 
     // 2階層目ナビゲーション
@@ -48,7 +48,7 @@
 
     .phone-number {
       font-weight: 600;
-      @include en;
+      @include utils.en;
       display: flex;
       align-items: center;
     }
@@ -59,10 +59,10 @@
   }
 }
 
-/* ----------------------------------------------------------------------------
-ヘッダー pc
----------------------------------------------------------------------------- */
-@include mq(l) {
+/* ------------------------------------------------------------------------------------------------------
+ header pc
+------------------------------------------------------------------------------------------------------ */
+@include utils.mq(l) {
   .header {
     &__wrapper {
       width: 95%;
@@ -102,8 +102,8 @@
       // 2階層目ナビゲーション
       &__item:nth-of-type(2) > a {
         position: relative;
-        padding-right: $margin-md;
-        margin: $margin-sm 0;
+        padding-right: utils.$margin-md;
+        margin: utils.$margin-sm 0;
         display: inline-block;
 
         &::before {
@@ -115,8 +115,8 @@
           right: 0;
           width: 8px;
           height: 8px;
-          border-bottom: 1px #1f1f1f solid;
-          border-right: 1px #1f1f1f solid;
+          border-bottom: 1px utils.$main-color solid;
+          border-right: 1px utils.$main-color solid;
           transform: translateY(-50%) rotate(45deg);
         }
       }
@@ -124,15 +124,15 @@
       &__sub-list {
         display: flex;
         flex-direction: column;
-        row-gap: $margin-md;
+        row-gap: utils.$margin-md;
         position: absolute;
-        background: $base-color;
-        @include box-shadow;
-        padding: $margin-md;
+        background: utils.$base-color;
+        @include utils.box-shadow;
+        padding: utils.$margin-md;
         box-sizing: border-box;
         opacity: 0;
         visibility: hidden;
-        transition: $transition;
+        transition: utils.$transition;
 
         &.active {
           opacity: 1;
@@ -147,7 +147,7 @@
 
     // 電話番号
     &__contact--phone {
-      row-gap: $margin-sm;
+      row-gap: utils.$margin-sm;
       flex-direction: column;
 
       .reception {
@@ -165,13 +165,13 @@
   }
 }
 
-/* ----------------------------------------------------------------------------
-ヘッダー sp
----------------------------------------------------------------------------- */
-@include mq(s) {
+/* ------------------------------------------------------------------------------------------------------
+ header sp
+------------------------------------------------------------------------------------------------------ */
+@include utils.mq(s) {
   .header {
     &__wrapper {
-      @include wrapper;
+      @include utils.wrapper;
       height: clamp(80px, 21.33vw, 120px);
       position: relative;
     }
@@ -181,7 +181,7 @@
       width: clamp(48px, 12.8vw, 56px);
       height: clamp(48px, 12.8vw, 56px);
       border-radius: 6px;
-      background: $accent-color;
+      background: utils.$accent-color;
       display: flex;
       justify-content: center;
       position: fixed;
@@ -193,8 +193,8 @@
         position: absolute;
         width: 70%;
         height: 1px;
-        background: $base-color;
-        transition: $transition;
+        background: utils.$base-color;
+        transition: utils.$transition;
       }
 
       // 線 1本目
@@ -246,7 +246,7 @@
       top: 0;
       left: 0;
       transform: translateX(100%);
-      transition: $transition;
+      transition: utils.$transition;
 
       // ハンバーガーメニュー アクティブ
       &.active {
@@ -257,22 +257,22 @@
         display: flex;
         align-items: center;
         flex-direction: column;
-        row-gap: $margin-xl;
+        row-gap: utils.$margin-xl;
         position: absolute;
         z-index: 10;
         top: 0;
         right: 0;
         width: min(95%, 410px);
         height: 100%;
-        background: $main-color;
+        background: utils.$main-color;
         overflow-y: scroll;
       }
 
       // ロゴ
       &__logo {
-        @include wrapper;
-        @include logo;
-        color: $base-color;
+        @include utils.wrapper;
+        @include utils.logo;
+        color: utils.$base-color;
         height: 80px;
         display: flex;
         align-items: center;
@@ -289,10 +289,10 @@
       z-index: 8;
       top: 0;
       left: 0;
-      background: rgba($color: $main-color, $alpha: $opacity);
+      background: rgba($color: utils.$main-color, $alpha: utils.$opacity);
       opacity: 0;
       visibility: hidden;
-      transition: $transition;
+      transition: utils.$transition;
 
       // active
       &.active {
@@ -303,8 +303,8 @@
 
     // ナビゲーション
     .gnav {
-      @include wrapper;
-      padding-top: 128px;
+      width: 100%;
+      padding: 128px 4.265vw 0;
 
       &__list {
         display: flex;
@@ -314,18 +314,18 @@
 
       &__item {
         padding-bottom: clamp(17px, 5.3vw, 24px);
-        border-bottom: 1px solid rgba($color: $base-color, $alpha: $opacity);
+        border-bottom: 1px solid rgba($color: utils.$base-color, $alpha: utils.$opacity);
       }
 
       &__item > a {
         position: relative;
         font-size: clamp(17px, 5.3vw, 22px);
-        color: $base-color;
+        color: utils.$base-color;
         display: block;
-        padding-left: $margin-md;
+        padding-left: utils.$margin-md;
 
         &::before {
-          @include decoration-circle(sm);
+          @include utils.decoration-circle(sm);
           top: 10%;
           left: 0;
         }
@@ -341,25 +341,25 @@
           right: 0;
           width: 12px;
           height: 12px;
-          border-bottom: 1px $base-color solid;
-          border-right: 1px $base-color solid;
+          border-bottom: 1px utils.$base-color solid;
+          border-right: 1px utils.$base-color solid;
           transform: rotate(45deg);
         }
       }
 
       &__sub-list {
-        color: $base-color;
+        color: utils.$base-color;
         display: flex;
         flex-direction: column;
-        row-gap: $margin-md;
+        row-gap: utils.$margin-md;
         height: 0;
         overflow: hidden;
-        transition: $transition;
+        transition: utils.$transition;
         padding-top: clamp(17px, 19.875px, 24px);
 
         a {
           font-size: clamp(13px, 4vw, 15px);
-          padding-left: $margin-md;
+          padding-left: utils.$margin-md;
           margin-left: 12px;
           position: relative;
         }
@@ -371,7 +371,7 @@
           position: absolute;
           width: 12px;
           height: 1px;
-          background: $base-color;
+          background: utils.$base-color;
           top: 50%;
           left: 0;
           transform: translateY(-50%);
@@ -381,8 +381,8 @@
 
     // メール・電話共通
     &__contact {
-      @include wrapper;
-      color: $base-color;
+      @include utils.wrapper;
+      color: utils.$base-color;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -390,13 +390,14 @@
       &-title {
         font-size: 18px;
         font-weight: 500;
-        margin-bottom: $margin-md;
+        margin-bottom: utils.$margin-md;
       }
     }
 
     // メール
     &__contact--email {
       flex-direction: column;
+      width: 100%;
 
       a {
         width: 100%;
@@ -424,7 +425,7 @@
 
       .phone-number {
         font-size: clamp(28px, 8.9vw, 36px);
-        margin-bottom: $margin-sm;
+        margin-bottom: utils.$margin-sm;
       }
 
       .phone-icon {

@@ -1,13 +1,12 @@
-@use "../utils/variables" as *;
-@use "../utils/mixins" as *;
+@use "../utils";
 @use "button" as *;
 
-/* ----------------------------------------------------------------------------
-   お問い合わせCTA 共通
----------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------
+ お問い合わせCTA 共通 
+------------------------------------------------------------------------------------------------------ */
 .contact-cta {
   &__wrapper {
-    @include wrapper;
+    @include utils.wrapper;
     display: grid;
     align-items: center;
   }
@@ -17,14 +16,14 @@
     &--right {
       display: grid;
       justify-content: space-between;
-      color: $base-color;
+      color: utils.$base-color;
       text-align: center;
     }
   }
 
   // 電話番号・メール 共通
   &__box {
-    background: $main-color;
+    background: utils.$main-color;
     box-sizing: border-box;
     display: flex;
     justify-content: center;
@@ -34,11 +33,11 @@
 
   &__title {
     font-weight: 500;
-    margin-bottom: $margin-md;
+    margin-bottom: utils.$margin-md;
   }
 
   .icon {
-    @include icon(lg);
+    @include icon(lg); // ← button 由来なのでそのまま
   }
 
   // 電話番号
@@ -49,7 +48,7 @@
     }
 
     .phone-number {
-      @include en;
+      @include utils.en;
       font-weight: 500;
       display: inline-block;
       display: flex;
@@ -60,16 +59,16 @@
   // メール
   &__button {
     display: flex;
-    column-gap: $margin-sm;
+    column-gap: utils.$margin-sm;
     justify-content: center;
     align-items: center;
   }
 }
 
-/* ----------------------------------------------------------------------------
-   お問い合わせCTA pc
----------------------------------------------------------------------------- */
-@include mq(l) {
+/* ------------------------------------------------------------------------------------------------------
+ お問い合わせCTA PC 
+------------------------------------------------------------------------------------------------------ */
+@include utils.mq(l) {
   .contact-cta {
     &__wrapper {
       grid-template-columns: 31.36% 60%;
@@ -78,7 +77,6 @@
     }
 
     &__content {
-      // 右側の要素
       &--right {
         grid-template-columns: 48% 48%;
       }
@@ -92,7 +90,7 @@
     // 電話番号
     .phone-number {
       font-size: clamp(21px, 2vw, 32px);
-      margin-bottom: $margin-sm;
+      margin-bottom: utils.$margin-sm;
     }
 
     .reception {
@@ -108,21 +106,20 @@
   }
 }
 
-/* ----------------------------------------------------------------------------
-   お問い合わせCTA sp
----------------------------------------------------------------------------- */
-@include mq(s) {
+/* ------------------------------------------------------------------------------------------------------
+ お問い合わせCTA sp 
+------------------------------------------------------------------------------------------------------ */
+@include utils.mq(s) {
   .contact-cta {
     &__wrapper {
       row-gap: clamp(24px, 8.533vw, 40px);
     }
 
     &__content {
-      // 右側の要素
       &--right {
         width: 100%;
         grid-auto-columns: 1fr;
-        row-gap: $margin-md;
+        row-gap: utils.$margin-md;
       }
     }
 
@@ -135,7 +132,7 @@
     // 電話番号
     .phone-number {
       font-size: clamp(24px, 8.53vw, 40px);
-      margin-bottom: $margin-sm;
+      margin-bottom: utils.$margin-sm;
 
       .icon {
         width: clamp(32px, 8.53vw, 40px);

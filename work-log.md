@@ -1,10 +1,10 @@
 <h1>作業日報</h1>
 
 ## 作業内容
-<h3>serviceページ</h3>
-・Serviceページの「Typesセクション」「Reasonセクション」「Genreセクション」のPC版HTML/CSSを実装
+<h3>serviceページ コーディング</h3>
+・PC版 [Area/Planセクション][Voiceセクション][Flowセクション]<br>
+・SP版 [Typeセクション][Reasonセクション][Genreセクション][Area/Planセクション][Voiceセクション][Flowセクション]
 
 ## ポイント
-・横並びレイアウトには「display:grid」を使用し、grid-template-columnsで子要素の幅調整を行った。<br>
-これにより、子要素それぞれに幅を指定しなくてもよくなるので記述量を減らせた。<br>
-・本文やリード文はmixinで共通化し、HTMLに固定クラス名を命名。
+・only-dhildを使用し、[Planセクション]のカードが一つの場合は中央寄せ、二つの場合は両端揃えといった<br>
+　タブ切り替えによる要素の増減にも柔軟に対応。

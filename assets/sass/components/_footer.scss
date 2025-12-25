@@ -1,13 +1,12 @@
-@use "../utils/variables" as *;
-@use "../utils/mixins" as *;
+@use "../utils";
 
-/* ----------------------------------------------------------------------------
-フッター 共通
----------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------
+ footer 共通
+------------------------------------------------------------------------------------------------------ */
 .footer {
-  background: $main-color;
+  background: utils.$main-color;
   box-sizing: border-box;
-  color: $base-color;
+  color: utils.$base-color;
 
   &__wrapper {
     margin: 0 auto;
@@ -16,7 +15,7 @@
   // 上段の要素
   &__top {
     display: flex;
-    border-bottom: 1px solid rgba($color: $base-color, $alpha: $opacity);
+    border-bottom: 1px solid rgba(utils.$base-color, utils.$opacity);
   }
 
   // 左側の要素
@@ -27,7 +26,7 @@
 
   // ロゴ
   &__logo {
-    @include logo;
+    @include utils.logo;
   }
 
   // 連絡先
@@ -64,7 +63,7 @@
     }
 
     &-item a {
-      @include en;
+      @include utils.en;
     }
 
     // 2階層目 ナビゲーション
@@ -86,7 +85,7 @@
         position: absolute;
         display: inline-block;
         content: "";
-        background: $base-color;
+        background: utils.$base-color;
         left: 0;
         top: 50%;
         transform: translateY(-50%);
@@ -102,12 +101,12 @@
   }
 }
 
-/* ----------------------------------------------------------------------------
-フッター pc
----------------------------------------------------------------------------- */
-@include mq(l) {
+/* ------------------------------------------------------------------------------------------------------
+ footer pc
+------------------------------------------------------------------------------------------------------ */
+@include utils.mq(l) {
   .footer {
-    padding: $margin-xl 0 $margin-md;
+    padding: utils.$margin-xl 0 utils.$margin-md;
 
     &__wrapper {
       width: 95%;
@@ -116,8 +115,8 @@
     // 上段の要素
     &__top {
       justify-content: space-between;
-      padding-bottom: $margin-xl;
-      margin-bottom: $margin-md;
+      padding-bottom: utils.$margin-xl;
+      margin-bottom: utils.$margin-md;
     }
 
     // 左側の要素
@@ -127,16 +126,16 @@
 
     // 連絡先
     &__info {
-      row-gap: $margin-md;
+      row-gap: utils.$margin-md;
 
       &-item {
-        column-gap: $margin-sm;
+        column-gap: utils.$margin-sm;
         font-size: clamp(16px, 1.25vw, 18px);
       }
 
       // 電話番号
       .phone-number {
-        column-gap: $margin-sm;
+        column-gap: utils.$margin-sm;
       }
 
       .reception {
@@ -152,13 +151,13 @@
     // ナビゲーション
     &__nav {
       &-list {
-        column-gap: $margin-xl;
+        column-gap: utils.$margin-xl;
         align-items: flex-start;
       }
 
       // 右側
       .nav-column ul {
-        row-gap: $margin-md;
+        row-gap: utils.$margin-md;
       }
 
       &-item a {
@@ -171,11 +170,11 @@
       }
 
       &-sub-list {
-        row-gap: $margin-md;
+        row-gap: utils.$margin-md;
 
         a {
           font-size: clamp(13px, 1.04vw, 15px);
-          padding-left: $margin-md;
+          padding-left: utils.$margin-md;
         }
 
         // 装飾
@@ -188,42 +187,42 @@
   }
 }
 
-/* ----------------------------------------------------------------------------
-フッター sp
----------------------------------------------------------------------------- */
-@include mq(s) {
+/* ------------------------------------------------------------------------------------------------------
+ footer sp
+------------------------------------------------------------------------------------------------------ */
+@include utils.mq(s) {
   .footer {
-    padding: $margin-xl 0 $margin-md;
+    padding: utils.$margin-xl 0 utils.$margin-md;
 
     &__wrapper {
-      @include wrapper;
+      @include utils.wrapper;
     }
 
     // 上段の要素
     &__top {
       flex-direction: column;
-      row-gap: $margin-xl;
-      padding-bottom: $margin-xl;
-      margin-bottom: $margin-md;
+      row-gap: utils.$margin-xl;
+      padding-bottom: utils.$margin-xl;
+      margin-bottom: utils.$margin-md;
     }
 
     // 左側の要素
     &__content--left {
-      row-gap: $margin-xl;
+      row-gap: utils.$margin-xl;
     }
 
     // 連絡先
     &__info {
-      row-gap: $margin-md;
+      row-gap: utils.$margin-md;
 
       &-item {
-        column-gap: $margin-sm;
+        column-gap: utils.$margin-sm;
         font-size: clamp(14px, 4.266vw, 16px);
       }
 
       // 電話番号
       .phone-number {
-        column-gap: $margin-sm;
+        column-gap: utils.$margin-sm;
       }
 
       .reception {
@@ -239,14 +238,14 @@
     // ナビゲーション
     &__nav {
       &-list {
-        gap: $margin-xl;
+        gap: utils.$margin-xl;
         align-items: flex-start;
         flex-wrap: wrap;
       }
 
       // 右側
       .nav-column ul {
-        row-gap: $margin-md;
+        row-gap: utils.$margin-md;
       }
 
       &-item a {
@@ -259,11 +258,11 @@
       }
 
       &-sub-list {
-        row-gap: $margin-md;
+        row-gap: utils.$margin-md;
 
         a {
           font-size: 13px;
-          padding-left: $margin-md;
+          padding-left: utils.$margin-md;
         }
 
         // 装飾

@@ -1,8 +1,8 @@
-@use "../utils/variables" as *;
-@use "../utils/mixins" as *;
+@use "../utils";
+
 
 /* ------------------------------------------------------------------------------------------------------
- メインビジュアル ファーストビュー 共通
+ main-visual 共通
 ------------------------------------------------------------------------------------------------------ */
 .top-fv {
   padding-top: 0;
@@ -18,7 +18,7 @@
   &__title--main {
     font-weight: 500;
     line-height: 1.3;
-    @include en;
+    @include utils.en;
   }
 
   &__title--sub {
@@ -32,7 +32,7 @@
       display: block;
       width: 64px;
       height: 1px;
-      background: $main-color;
+      background: utils.$main-color;
       top: 50%;
       transform: translateY(-50%);
       left: 0;
@@ -60,7 +60,7 @@
 /* ------------------------------------------------------------------------------------------------------
  メインビジュアル ファーストビュー pc
 ------------------------------------------------------------------------------------------------------ */
-@include mq(l) {
+@include utils.mq(l) {
   .top-fv {
     margin-left: 2.5vw;
     height: 100svh;
@@ -75,7 +75,7 @@
 
     // タイトル
     &__title-wrapper {
-      row-gap: $margin-lg;
+      row-gap: utils.$margin-lg;
       top: 50%;
       transform: translateY(-50%);
     }
@@ -102,23 +102,24 @@
     }
   }
 }
+
 /* ------------------------------------------------------------------------------------------------------
  メインビジュアル ファーストビュー sp
 ------------------------------------------------------------------------------------------------------ */
-@include mq(s) {
+@include utils.mq(s) {
   .top-fv {
     height: min(880px, calc(100svh - clamp(80px, 21.33vw, 120px)));
     margin-top: clamp(80px, 21.33vw, 120px);
 
     &__wrapper {
-      @include wrapper;
+      @include utils.wrapper;
       height: calc(100% - clamp(80px, 21.33vw, 120px));
       position: relative;
     }
 
     // タイトル
     &__title-wrapper {
-      row-gap: $margin-md;
+      row-gap: utils.$margin-md;
       bottom: -9%;
     }
 
@@ -145,7 +146,7 @@
   text-align: center;
 
   &__wrapper {
-    @include wrapper;
+    @include utils.wrapper;
   }
 
   // リード文
@@ -162,11 +163,11 @@
 /* ------------------------------------------------------------------------------------------------------
  concept pc
 ------------------------------------------------------------------------------------------------------ */
-@include mq(l) {
+@include utils.mq(l) {
   .concept {
     // リード文
     &__lead {
-      margin-bottom: $margin-lg;
+      margin-bottom: utils.$margin-lg;
     }
   }
 }
@@ -174,11 +175,11 @@
 /* ------------------------------------------------------------------------------------------------------
  concept sp
 ------------------------------------------------------------------------------------------------------ */
-@include mq(s) {
+@include utils.mq(s) {
   .concept {
     // リード文
     &__lead {
-      margin-bottom: clamp($margin-md, 4vw, $margin-lg);
+      margin-bottom: clamp(utils.$margin-md, 4vw, utils.$margin-lg);
     }
   }
 }
@@ -188,7 +189,7 @@
 ------------------------------------------------------------------------------------------------------ */
 .service {
   &__wrapper {
-    @include wrapper;
+    @include utils.wrapper;
     display: grid;
     justify-content: space-between;
     align-items: flex-end;
@@ -225,7 +226,7 @@
 /* ------------------------------------------------------------------------------------------------------
  service pc
 ------------------------------------------------------------------------------------------------------ */
-@include mq(l) {
+@include utils.mq(l) {
   .service {
     &__wrapper {
       grid-template-columns: 40.9% 50%;
@@ -234,21 +235,21 @@
 
     // 画像
     &__img-wrapper {
-      row-gap: $margin-xl;
+      row-gap: utils.$margin-xl;
     }
 
     // リード文
     &__lead {
-      font-size: clamp(20px, 1.66vw, 32px);
-      margin-bottom: $margin-xl;
+      font-size: clamp(20px, 1.66vw, 28px);
+      margin-bottom: utils.$margin-xl;
     }
 
     &__description {
-      margin-bottom: $margin-lg;
+      margin-bottom: utils.$margin-lg;
 
       // 最後のリード文
       &:last-of-type {
-        margin-bottom: $margin-xl;
+        margin-bottom: utils.$margin-xl;
       }
     }
   }
@@ -257,29 +258,29 @@
 /* ------------------------------------------------------------------------------------------------------
  service sp
 ------------------------------------------------------------------------------------------------------ */
-@include mq(s) {
+@include utils.mq(s) {
   .service {
     &__wrapper {
-      row-gap: $margin-xl;
+      row-gap: utils.$margin-xl;
     }
 
     // 画像
     &__img-wrapper {
-      row-gap: clamp($margin-md, 4vw, $margin-lg);
+      row-gap: clamp(utils.$margin-md, 4vw, utils.$margin-lg);
     }
 
     // リード文
     &__lead {
       font-size: clamp(20px, 5vw, 28px);
-      margin-bottom: $margin-lg;
+      margin-bottom: utils.$margin-lg;
     }
 
     &__description {
-      margin-bottom: clamp($margin-md, 4vw, $margin-lg);
+      margin-bottom: clamp(utils.$margin-md, 4vw, utils.$margin-lg);
 
       // 最後のリード文
       &:last-of-type {
-        margin-bottom: $margin-xl;
+        margin-bottom: utils.$margin-xl;
       }
     }
   }
@@ -289,12 +290,10 @@
  works 共通
 ------------------------------------------------------------------------------------------------------ */
 .works {
-  // ホバー時の動き
   a:hover {
-    opacity: 1; //aリンクすべてに指定している透過を無効化
+    opacity: 1;
   }
 
-  // スライダー ボタン
   .carousel-navigation {
     display: flex;
     justify-content: space-between;
@@ -303,15 +302,15 @@
 
   .carousel-arrow {
     border-radius: 50%;
-    background: $main-color;
+    background: utils.$main-color;
     position: relative;
 
     &::before {
       position: absolute;
       content: "";
       display: block;
-      border-top: 1px solid $base-color;
-      border-right: 1px solid $base-color;
+      border-top: 1px solid utils.$base-color;
+      border-right: 1px solid utils.$base-color;
       top: 50%;
     }
 
@@ -332,16 +331,15 @@
 
     span {
       border-radius: 50%;
-      background: rgba($color: $main-color, $alpha: 0.2);
+      background: rgba($color: utils.$main-color, $alpha: 0.2);
     }
   }
 
   &__content--top {
-    @include wrapper;
+    @include utils.wrapper;
     display: flex;
   }
 
-  // リスト
   &__content--bottom {
     overflow: hidden;
   }
@@ -356,7 +354,7 @@
     &-text-area {
       display: flex;
       flex-direction: column-reverse;
-      row-gap: $margin-sm;
+      row-gap: utils.$margin-sm;
     }
 
     &-title {
@@ -364,7 +362,7 @@
     }
 
     &-label {
-      color: $accent-color;
+      color: utils.$accent-color;
     }
   }
 }
@@ -372,14 +370,13 @@
 /* ------------------------------------------------------------------------------------------------------
  works pc
 ------------------------------------------------------------------------------------------------------ */
-@include mq(l) {
+@include utils.mq(l) {
   .works {
     &__content--top {
       justify-content: space-between;
       align-items: flex-start;
     }
 
-    // スライダー ボタン
     .carousel-navigation {
       width: 20.83vw;
       height: 4.16vw;
@@ -396,7 +393,7 @@
     }
 
     .carousel-dots {
-      column-gap: $margin-md;
+      column-gap: utils.$margin-md;
 
       span {
         width: 12px;
@@ -410,20 +407,20 @@
 
     &__list {
       width: 197vw;
-      margin-bottom: $margin-xl;
+      margin-bottom: utils.$margin-xl;
     }
 
     &__item {
       width: 14.89%;
 
       &-img {
-        margin-bottom: $margin-lg;
+        margin-bottom: utils.$margin-lg;
         overflow: hidden;
       }
 
       img {
         scale: 1;
-        transition: $transition;
+        transition: utils.$transition;
       }
 
       &:hover {
@@ -433,11 +430,15 @@
       }
 
       &-text-area {
-        row-gap: $margin-sm;
+        row-gap: utils.$margin-sm;
       }
 
       &-title {
-        font-size: clamp(18px, 1.66vw, 27px);
+        font-size: clamp(18px, 1.39vw, 22px);
+      }
+
+      &-label {
+        font-size: clamp(12px, 0.972vw, 14px);
       }
     }
   }
@@ -446,17 +447,16 @@
 /* ------------------------------------------------------------------------------------------------------
  works sp
 ------------------------------------------------------------------------------------------------------ */
-@include mq(s) {
+@include utils.mq(s) {
   .works {
     &__content--top {
       flex-direction: column;
     }
 
-    // スライダー ボタン
     .carousel-navigation {
       width: min(56vw, 360px);
       height: min(10.6vw, 64px);
-      margin-bottom: $margin-lg;
+      margin-bottom: utils.$margin-lg;
     }
 
     .carousel-arrow {
@@ -470,7 +470,7 @@
     }
 
     .carousel-dots {
-      column-gap: min(2vw, $margin-md);
+      column-gap: min(2vw, utils.$margin-md);
 
       span {
         width: clamp(8px, 2vw, 16px);
@@ -479,12 +479,12 @@
     }
 
     &__content--bottom {
-      @include wrapper;
+      @include utils.wrapper;
     }
 
     &__list {
       width: 624vw;
-      margin-bottom: $margin-xl;
+      margin-bottom: utils.$margin-xl;
     }
 
     &__item {
@@ -506,21 +506,20 @@
 ------------------------------------------------------------------------------------------------------ */
 .about {
   &__wrapper {
-    @include wrapper;
+    @include utils.wrapper;
     display: grid;
   }
 
-  // 名前
   .name {
     font-weight: 500;
     display: flex;
     align-items: center;
-    column-gap: $margin-sm;
+    column-gap: utils.$margin-sm;
   }
 
   .name-en {
-    @include en;
-    color: $accent-color;
+    @include utils.en;
+    color: utils.$accent-color;
     font-weight: 400;
   }
 
@@ -532,7 +531,7 @@
 /* ------------------------------------------------------------------------------------------------------
  about pc
 ------------------------------------------------------------------------------------------------------ */
-@include mq(l) {
+@include utils.mq(l) {
   .about {
     &__wrapper {
       grid-template-columns: 44.867% 45.24%;
@@ -540,10 +539,9 @@
       align-items: center;
     }
 
-    // 名前
     .name {
       font-size: 28px;
-      margin-bottom: $margin-lg;
+      margin-bottom: utils.$margin-lg;
     }
 
     .name-en {
@@ -551,7 +549,7 @@
     }
 
     &__description {
-      margin-bottom: $margin-xl;
+      margin-bottom: utils.$margin-xl;
     }
   }
 }
@@ -559,16 +557,15 @@
 /* ------------------------------------------------------------------------------------------------------
  about sp
 ------------------------------------------------------------------------------------------------------ */
-@include mq(s) {
+@include utils.mq(s) {
   .about {
     &__wrapper {
-      row-gap: $margin-xl;
+      row-gap: utils.$margin-xl;
     }
 
-    // 名前
     .name {
       font-size: min(6.4vw, 28px);
-      margin-bottom: $margin-lg;
+      margin-bottom: utils.$margin-lg;
     }
 
     .name-en {
@@ -576,7 +573,7 @@
     }
 
     &__description {
-      margin-bottom: $margin-xl;
+      margin-bottom: utils.$margin-xl;
     }
   }
 }

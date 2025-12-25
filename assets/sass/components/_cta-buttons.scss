@@ -1,23 +1,22 @@
-@use "../utils/variables" as *;
-@use "../utils/mixins" as *;
+@use "../utils";
 
-/* ----------------------------------------------------------------------------
-   下部 お問い合わせCTA sp
----------------------------------------------------------------------------- */
-@include mq(s) {
+/* ------------------------------------------------------------------------------------------------------
+ 下部追従 お問い合わせCTA sp 
+------------------------------------------------------------------------------------------------------ */
+@include utils.mq(s) {
   .cta-btns {
-    background: $base-color;
-    @include box-shadow;
+    background: utils.$base-color;
+    @include utils.box-shadow;
     position: fixed;
     z-index: 7;
     left: 0;
     bottom: 0;
     width: 100vw;
-    padding: $margin-md 0;
+    padding: utils.$margin-md 0;
     box-sizing: border-box;
 
     &__wrapper {
-      @include wrapper;
+      @include utils.wrapper;
       max-width: 560px;
       text-align: center;
     }
@@ -25,7 +24,7 @@
     &__lead {
       font-size: clamp(1.4px, 4.267vw, 20px);
       font-weight: 500;
-      margin-bottom: $margin-md;
+      margin-bottom: utils.$margin-md;
     }
 
     // 電話・メール共通
@@ -39,17 +38,17 @@
       font-size: clamp(11px, 3.2vw, 20px);
       font-weight: 500;
       height: clamp(40px, 12.8vw, 64px);
-      color: $base-color;
+      color: utils.$base-color;
       display: flex;
       justify-content: center;
       align-items: center;
-      column-gap: $margin-sm;
+      column-gap: utils.$margin-sm;
       border-radius: 6px;
     }
 
     // 電話
     .cta-btn--phone {
-      background: $main-color;
+      background: utils.$main-color;
 
       .cta-btn-icon {
         width: clamp(16px, 4.267vw, 20px);
@@ -58,7 +57,7 @@
 
     // メール
     .cta-btn--email {
-      background: $accent-color;
+      background: utils.$accent-color;
 
       .cta-btn-icon {
         width: clamp(14px, 3.733vw, 20px);
