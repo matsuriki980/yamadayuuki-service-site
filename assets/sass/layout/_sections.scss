@@ -5,7 +5,7 @@
 ------------------------------------------------------------------------------------------------------ */
 section {
   @include utils.mq(l) {
-    padding-top: 160px;
+    padding-top: clamp(120px, 11.11vw, 160px);
   }
 
   @include utils.mq(s) {

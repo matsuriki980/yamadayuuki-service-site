@@ -1,1 +1,134 @@
 @use "../utils";
+
+/* ------------------------------------------------------------------------------------------------------
+ works(top) works(index) 共通
+------------------------------------------------------------------------------------------------------ */
+
+//---------------------------------------------------------------
+// 画像 ホバー時拡大
+//---------------------------------------------------------------
+@include utils.mq(l) {
+  .works-img {
+    overflow: hidden;
+
+    img {
+      scale: 1;
+      transition: utils.$transition;
+    }
+  }
+
+  .work__item:hover {
+    img {
+      scale: 1.2;
+    }
+  }
+}
+
+/* ------------------------------------------------------------------------------------------------------
+ works(index) 共通
+------------------------------------------------------------------------------------------------------ */
+.works-index {
+  &__wrapper {
+    @include utils.wrapper;
+  }
+
+  a:hover {
+    opacity: 1;
+  }
+
+  &__item {
+    &-text-area {
+      display: flex;
+      flex-direction: column-reverse;
+      row-gap: utils.$margin-sm;
+    }
+
+    &-title {
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    &-label {
+      color: utils.$accent-color;
+    }
+  }
+}
+
+/* ------------------------------------------------------------------------------------------------------
+ works(index) pc
+------------------------------------------------------------------------------------------------------ */
+@include utils.mq(l) {
+  .works-index {
+    // --- タブ --- //
+    &__tab-list {
+      max-width: 950px;
+      justify-content: space-between;
+      margin: 0 auto utils.$margin-xl;
+    }
+
+    //--- リスト --- //
+    &__list {
+      display: grid;
+      justify-content: space-between;
+      grid-template-columns: repeat(2, 45.8%);
+      row-gap: clamp(64px, 5vw, 80px);
+    }
+
+    &__item {
+      &-img {
+        margin-bottom: utils.$margin-lg;
+      }
+
+      &-text-area {
+        row-gap: utils.$margin-sm;
+      }
+
+      &-title {
+        font-size: clamp(18px, 1.39vw, 22px);
+      }
+    }
+  }
+}
+
+/* ------------------------------------------------------------------------------------------------------
+ works(index) sp
+------------------------------------------------------------------------------------------------------ */
+@include utils.mq(s) {
+  .works-index {
+    //--- リスト --- //
+    &__list {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      row-gap: 80px;
+    }
+
+    // タブレットでは両端揃え
+    @media (min-width: 600px) and (max-width: 1020px) {
+      &__list {
+        display: grid;
+        grid-template-columns: 48% 48%;
+        justify-content: space-between;
+      }
+    }
+
+    &__item {
+      &-img {
+        margin-bottom: min(4.266vw, utils.$margin-md);
+      }
+
+      &-text-area {
+        row-gap: utils.$margin-sm;
+      }
+
+      &-title {
+        font-size: min(5.33vw, 18px);
+        line-height: 1.5;
+      }
+
+      &-label {
+        font-size: min(3.73vw, 14px);
+      }
+    }
+  }
+}

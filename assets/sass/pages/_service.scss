@@ -410,8 +410,7 @@
 
     // --- タブ --- //
     &__tab-list {
-      max-width: 800px;
-      margin: 0 auto 32px;
+      justify-content: space-around;
     }
 
     // --- リスト --- //
@@ -477,15 +476,6 @@
     // --- 背景色にグレー --- //
     &__bg {
       padding: min(14.93vw, 80px) 4.265vw;
-    }
-
-    // --- タブ --- //
-    &__tab-list {
-      flex-wrap: wrap;
-      justify-content: center;
-      font-size: min(4.8vw, 22px);
-      gap: utils.$margin-lg;
-      margin-bottom: utils.$margin-lg;
     }
 
     // --- リスト --- //

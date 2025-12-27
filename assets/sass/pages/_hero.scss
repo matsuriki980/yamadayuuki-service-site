@@ -35,7 +35,7 @@
     padding-top: clamp(80px, 21.33vw, 120px);
 
     &__wrapper {
-      @include utils.wrapper;
+      padding: clamp(64px, 17vw, 80px) 4.265vw 0;
       grid-template-rows: 1fr;
       row-gap: utils.$margin-lg;
     }

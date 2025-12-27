@@ -1,1 +1,239 @@
 @use "../utils";
+
+/* ------------------------------------------------------------------------------------------------------
+ profile (about) 共通
+------------------------------------------------------------------------------------------------------ */
+.profile {
+  &__wrapper {
+    @include utils.wrapper;
+  }
+
+  .name {
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    column-gap: utils.$margin-sm;
+  }
+
+  .name-en {
+    @include utils.en;
+    color: utils.$accent-color;
+    font-weight: 400;
+  }
+
+  &__description {
+    line-height: 2;
+  }
+
+  &__client-title {
+    font-weight: 500;
+  }
+
+  &__client-list {
+    line-height: 1.5;
+  }
+}
+
+/* ------------------------------------------------------------------------------------------------------
+ profile (about) pc
+------------------------------------------------------------------------------------------------------ */
+@include utils.mq(l) {
+  .profile {
+    &__wrapper {
+      display: grid;
+      grid-template-columns: 44.867% 45.24%;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .name {
+      font-size: 28px;
+      margin-bottom: utils.$margin-lg;
+    }
+
+    .name-en {
+      font-size: clamp(12px, 1.111vw, 16px);
+    }
+
+    &__description {
+      margin-bottom: utils.$margin-xl;
+    }
+
+    &__client-title {
+      font-size: clamp(18px, 1.39vw, 22px);
+      margin-bottom: utils.$margin-sm;
+    }
+  }
+}
+
+/* ------------------------------------------------------------------------------------------------------
+ profile (about) sp
+------------------------------------------------------------------------------------------------------ */
+@include utils.mq(s) {
+  .profile {
+    &__wrapper {
+      display: flex;
+      flex-direction: column;
+      row-gap: utils.$margin-xl-sp;
+    }
+
+    .name {
+      font-size: min(6.4vw, 28px);
+      margin-bottom: utils.$margin-lg;
+    }
+
+    .name-en {
+      font-size: min(12px, 3.2vw, 18px);
+    }
+
+    &__description {
+      margin-bottom: utils.$margin-lg;
+    }
+
+    &__client-title {
+      font-size: min(5.33vw, 28px);
+      margin-bottom: utils.$margin-sm;
+    }
+  }
+}
+
+/* ------------------------------------------------------------------------------------------------------
+ message (about) 共通
+------------------------------------------------------------------------------------------------------ */
+.message {
+  text-align: center;
+
+  &__wrapper {
+    @include utils.wrapper;
+  }
+
+  // リード文
+  &__lead {
+    line-height: 2;
+
+    // 最後のリード文
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}
+
+/* ------------------------------------------------------------------------------------------------------
+ message pc
+------------------------------------------------------------------------------------------------------ */
+@include utils.mq(l) {
+  .message {
+    // リード文
+    &__lead {
+      margin-bottom: utils.$margin-lg;
+    }
+  }
+}
+
+/* ------------------------------------------------------------------------------------------------------
+ message sp
+------------------------------------------------------------------------------------------------------ */
+@include utils.mq(s) {
+  .message {
+    // リード文
+    &__lead {
+      margin-bottom: clamp(utils.$margin-md, 4vw, utils.$margin-lg);
+    }
+  }
+}
+
+/* ------------------------------------------------------------------------------------------------------
+ career (about) 共通
+------------------------------------------------------------------------------------------------------ */
+.career {
+  color: utils.$base-color;
+  // --- 背景画像 --- //
+  &__bg-area {
+    background: utils.$main-color;
+  }
+
+  &__wrapper {
+    @include utils.wrapper;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.7;
+  }
+
+  &__year {
+    font-weight: 400;
+  }
+
+  &__description {
+    font-weight: 200;
+  }
+}
+
+/* ------------------------------------------------------------------------------------------------------
+ career pc
+------------------------------------------------------------------------------------------------------ */
+@include utils.mq(l) {
+  .career {
+    // --- 背景画像 --- //
+    &__bg-area {
+      padding: clamp(64px, 4.44vw, 72px) 0;
+    }
+
+    // --- careerの見出しの余白の解除 --- //
+    .main-heading {
+      margin-bottom: 0;
+    }
+
+    &__list {
+      row-gap: clamp(40px, 2.777vw, 56px);
+    }
+
+    &__item {
+      width: 60.5%;
+      margin-left: auto;
+      display: grid;
+      grid-template-columns: 11.1% 83.33%;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    &__year {
+      font-size: clamp(15px, 1.25vw, 20px);
+    }
+
+    &__description {
+      font-size: clamp(12px, 1.111vw, 16px);
+    }
+  }
+}
+
+/* ------------------------------------------------------------------------------------------------------
+ career sp
+------------------------------------------------------------------------------------------------------ */
+@include utils.mq(s) {
+  .career {
+    // --- 背景画像 --- //
+    &__bg-area {
+      padding: min(14.93vw, 80px) 0;
+    }
+
+    &__list {
+      row-gap: clamp(40px, 2.777vw, 56px);
+    }
+
+    &__item {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__year {
+      font-size: min(5.333vw, 24px);
+    }
+  }
+}
