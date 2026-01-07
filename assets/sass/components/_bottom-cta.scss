@@ -4,7 +4,7 @@
  下部追従 お問い合わせCTA sp 
 ------------------------------------------------------------------------------------------------------ */
 @include utils.mq(s) {
-  .cta-btns {
+  .bottom-cta {
     background: utils.$base-color;
     @include utils.box-shadow;
     position: fixed;
@@ -14,6 +14,13 @@
     width: 100vw;
     padding: utils.$margin-md 0;
     box-sizing: border-box;
+    transform: translateY(30vh);
+    transition: utils.$transition;
+
+    // --- 画面上部がfvを超えるもしくはフッターを超えていない時、表示 --- //
+    &.is-visible {
+      transform: translateY(0);
+    }
 
     &__wrapper {
       @include utils.wrapper;

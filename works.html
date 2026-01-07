@@ -37,10 +37,10 @@
             <div class="header__logo"><a href="index.html">yamada yuuki</a></div>
 
             <!-- ハンバーガーメニュー開閉時　背景透過 -->
-            <span class="hamburger-menu__bg pc-hidden"></span>
+            <span class="hamburger-menu__bg pc-hidden" id="hamburger-menu__bg"></span>
 
             <!-- 左側の要素 -->
-            <div class="header__right hamburger-menu">
+            <div class="header__right hamburger-menu" id="hamburger-menu">
 
 
                 <div class="header__right-wrapper hamburger-menu__wrapper">
@@ -51,21 +51,29 @@
                     <!-- ナビゲーション -->
                     <nav class="gnav">
                         <ul class="gnav__list">
-                            <li class="gnav__item"><a href="index.html">top</a></li>
-                            <li class="gnav__item has-child"><a>service</a>
+                            <li class="gnav__item"><a href="index.html" class="gnav__link">top</a></li>
+                            <li class="gnav__item has-child">
+                                <button class="gnav__toggle gnav__link">service</button>
                                 <ul class="gnav__sub-list">
-                                    <li class="gnav-sub-item"><a href="service.html">トップ</a></li>
-                                    <li class="gnav-sub-item"><a href="service.html#types">サービスの種類</a></li>
-                                    <li class="gnav__sub-item"><a href="service.html#reason">選ばれる理由</a></li>
-                                    <li class="gnav__sub-item"><a href="service.html#genre">撮影ジャンル</a></li>
-                                    <li class="gnav__sub-item"><a href="service.html#plan">撮影料金・エリア</a></li>
-                                    <li class="gnav__sub-item"><a href="service.html#voice">お客様の声</a></li>
-                                    <li class="gnav__sub-item"><a href="service.html#flow">撮影の流れ</a></li>
+                                    <li class="gnav__sub-item"><a href="service.html" class="gnav__sub-link">トップ</a>
+                                    </li>
+                                    <li class="gnav__sub-item"><a href="service.html#types"
+                                            class="gnav__sub-link">サービスの種類</a></li>
+                                    <li class="gnav__sub-item"><a href="service.html#reason"
+                                            class="gnav__sub-link">選ばれる理由</a></li>
+                                    <li class="gnav__sub-item"><a href="service.html#genre"
+                                            class="gnav__sub-link">撮影ジャンル</a></li>
+                                    <li class="gnav__sub-item"><a href="service.html#plan"
+                                            class="gnav__sub-link">撮影料金・エリア</a></li>
+                                    <li class="gnav__sub-item"><a href="service.html#voice"
+                                            class="gnav__sub-link">お客様の声</a></li>
+                                    <li class="gnav__sub-item"><a href="service.html#flow"
+                                            class="gnav__sub-link">撮影の流れ</a></li>
                                 </ul>
                             </li>
-                            <li class="gnav__item"><a href="works.html">works</a></li>
-                            <li class="gnav__item"><a href="about.html">about</a></li>
-                            <li class="gnav__item sp-hidden">
+                            <li class="gnav__item gnav__link"><a href="works.html">works</a></li>
+                            <li class="gnav__item gnav__link"><a href="about.html">about</a></li>
+                            <li class="gnav__item gnav__link sp-hidden">
                                 <a href="contact.html" class="btn">
                                     <span class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg"
@@ -134,7 +142,7 @@
             </div>
 
             <!-- ハンバーガーボタン -->
-            <button class="hamburger-btn pc-hidden">
+            <button class="hamburger-btn pc-hidden" id="hamburger-btn">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -143,9 +151,50 @@
     </header>
     <!--================ ヘッダーここまで ================-->
 
+    <!--================ SP版 下部 依頼・お問い合わせCTA ================-->
+    <div class="cta-btns pc-hidden sp-hidden">
+
+        <div class="cta-btns__wrapper">
+
+            <p class="cta-btns__lead">依頼・お問い合わせはこちら</p>
+
+            <div class="cta-btn__wrapper">
+                <!-- 電話 -->
+                <a href="tel:09046414374" class="cta-btn cta-btn--phone">
+                    <span class="cta-btn-icon">
+                        <img src="assets/images/common/iphone-icon-white.png" alt="">
+                    </span>電話をかける</a>
+
+
+                <!-- メール -->
+                <a href="contact.html" class="cta-btn cta-btn--email"><span class="cta-btn-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            viewBox="0,0,256,256" width="100px" height="100px" fill-rule="nonzero">
+                            <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                                stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                                font-family="none" font-size="none" style="mix-blend-mode: normal">
+                                <g transform="scale(5.12,5.12)">
+                                    <path
+                                        d="M0,7v2.875l25,19.84375l25,-19.59375v-3.125zM0,12.40625v30.59375h50v-30.34375l-24.375,19.125c-0.17969,0.14063 -0.40625,0.21875 -0.625,0.21875c-0.21875,0 -0.44141,-0.07422 -0.625,-0.21875z" />
+                                </g>
+                            </g>
+                        </svg>
+                    </span>お問い合わせページへ</a>
+            </div>
+
+        </div>
+    </div>
+    <!--================ SP版 下部 依頼・お問い合わせCTA ここまで ================-->
+
+    <!--================ ページトップボタン ================-->
+    <button class="page-top-btn sp-hidden" id="page-top-btn">
+        <span class="page-top-btn__arrow"></span>
+    </button>
+    <!--================ ページトップボタン ここまで ================-->
+
     <main>
         <!--================ ファーストビュー ================-->
-        <section class="fv">
+        <section class="fv" id="fv">
             <div class="fv__wrapper">
 
                 <!-- 見出し -->
@@ -169,17 +218,26 @@
             <div class="works-index__wrapper">
 
                 <!-- タブ切り替え -->
-                <ul class="tab-list works-index__tab-list">
-                    <li class="tab-item works-index__tab-item active">All</li>
-                    <li class="tab-item works-index__tab-item">企業撮影</li>
-                    <li class="tab-item works-index__tab-item">Web商品撮影</li>
-                    <li class="tab-item works-index__tab-item">ウエディング撮影</li>
-                    <li class="tab-item works-index__tab-item">モデル撮影</li>
-                    <li class="tab-item works-index__tab-item">家族撮影</li>
-                    <li class="tab-item works-index__tab-item">料理撮影</li>
-                </ul>
+                <div class="tab-list works-index__tab-list" data-tabs role="tablist">
+                    <button class="tab-item works-index__tab-item" role="tab" aria-selected="true"
+                        data-tab="all-works">All</button>
+                    <button class="tab-item works-index__tab-item" role="tab" aria-selected="false"
+                        data-tab="company">企業撮影</button>
+                    <button class="tab-item works-index__tab-item" role="tab" aria-selected="false"
+                        data-tab="ec">EC商品撮影</button>
+                    <button class="tab-item works-index__tab-item" role="tab" aria-selected="false"
+                        data-tab="wedding">ウエディング撮影</button>
+                    <button class="tab-item works-index__tab-item" role="tab" aria-selected="false"
+                        data-tab="model">モデル撮影</button>
+                    <button class="tab-item works-index__tab-item" role="tab" aria-selected="false"
+                        data-tab="family">家族撮影</button>
+                    <button class="tab-item works-index__tab-item" role="tab" aria-selected="false"
+                        data-tab="cook">料理撮影</button>
+                </div>
 
-                <ul class="works-index__list">
+                <!-- All -->
+                <ul class="works-index__list" role="tabpanel" data-panel="all-works">
+
 
                     <li class="works-index__item work__item">
                         <a href="works-detail1.html">
@@ -240,6 +298,107 @@
                             </div>
                         </a>
                     </li>
+
+                    <li class="works-index__item work__item">
+                        <a href="works-detail6.html">
+                            <div class="works-index__item-img works-img">
+                                <img src="assets/images/common/work6.jpg" alt="黒のお皿に盛り付けたキムチ">
+                            </div>
+                            <div class="works-index__item-text-area">
+                                <h3 class="works-index__item-title">飲食店 メニュー用撮影</h3>
+                                <span class="works-index__item-label">料理撮影</span>
+                            </div>
+                        </a>
+                    </li>
+
+                </ul>
+
+                <!-- 企業撮影 -->
+                <ul class="works-index__list" role="tabpanel" data-panel="company" hidden>
+
+                    <li class="works-index__item work__item">
+                        <a href="works-detail1.html">
+                            <div class="works-index__item-img works-img">
+                                <img src="assets/images/common/work1.jpg" alt="白背景の透明感あるオフィスに置かれたデスクトップ">
+                            </div>
+                            <div class="works-index__item-text-area">
+                                <h3 class="works-index__item-title">ホームページ用 ビジネスポートレート撮影</h3>
+                                <span class="works-index__item-label">企業撮影</span>
+                            </div>
+                        </a>
+                    </li>
+
+                </ul>
+
+                <!-- EC撮影 -->
+                <ul class="works-index__list" role="tabpanel" data-panel="ec" hidden>
+
+                    <li class="works-index__item work__item">
+                        <a href="works-detail2.html">
+                            <div class="works-index__item-img works-img">
+                                <img src="assets/images/common/work2.jpg" alt="水滴を弾く、化粧水">
+                            </div>
+                            <div class="works-index__item-text-area">
+                                <h3 class="works-index__item-title">ECサイト掲載用 商品撮影（EC・広告用）</h3>
+                                <span class="works-index__item-label">EC商品撮影</span>
+                            </div>
+                        </a>
+                    </li>
+
+                </ul>
+
+                <!-- ウエディング撮影 -->
+                <ul class="works-index__list" role="tabpanel" data-panel="wedding" hidden>
+
+                    <li class="works-index__item work__item">
+                        <a href="works-detail3.html">
+                            <div class="works-index__item-img works-img">
+                                <img src="assets/images/common/work3.jpg" alt="ステップをしながら、お互いの顔を見つめ合う夫婦">
+                            </div>
+                            <div class="works-index__item-text-area">
+                                <h3 class="works-index__item-title">ウエディング 前撮り撮影</h3>
+                                <span class="works-index__item-label">ウエディング撮影</span>
+                            </div>
+                        </a>
+                    </li>
+
+                </ul>
+
+                <!-- モデル撮影 -->
+                <ul class="works-index__list" role="tabpanel" data-panel="model" hidden>
+
+                    <li class="works-index__item work__item">
+                        <a href="works-detail4.html">
+                            <div class="works-index__item-img works-img">
+                                <img src="assets/images/common/work4.jpg" alt="柵にもたれながら、クールなポーズを行うモデル女性">
+                            </div>
+                            <div class="works-index__item-text-area">
+                                <h3 class="works-index__item-title">プロモーション用 モデル撮影</h3>
+                                <span class="works-index__item-label">モデル撮影</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- 家族撮影 -->
+                <ul class="works-index__list" role="tabpanel" data-panel="family" hidden>
+
+                    <li class="works-index__item work__item">
+                        <a href="works-detail5.html">
+                            <div class="works-index__item-img works-img">
+                                <img src="assets/images/common/work5.jpg" alt="母と父に抱きかかえられながらはしゃぐ2人の子供">
+                            </div>
+                            <div class="works-index__item-text-area">
+                                <h3 class="works-index__item-title">記念日・ライフイベント撮影</h3>
+                                <span class="works-index__item-label">家族撮影</span>
+                            </div>
+                        </a>
+                    </li>
+
+                </ul>
+
+                <!-- 飲食店メニュー撮影 -->
+                <ul class="works-index__list" role="tabpanel" data-panel="cook" hidden>
 
                     <li class="works-index__item work__item">
                         <a href="works-detail6.html">
@@ -495,5 +654,4 @@
 
     <!-- JavaScript -->
     <script src="assets/js/script.js" defer></script>
-    <script src="assets/js/contact.js" defer></script>
 </body>

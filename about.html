@@ -37,10 +37,10 @@
             <div class="header__logo"><a href="index.html">yamada yuuki</a></div>
 
             <!-- ハンバーガーメニュー開閉時　背景透過 -->
-            <span class="hamburger-menu__bg pc-hidden"></span>
+            <span class="hamburger-menu__bg pc-hidden" id="hamburger-menu__bg"></span>
 
             <!-- 左側の要素 -->
-            <div class="header__right hamburger-menu">
+            <div class="header__right hamburger-menu" id="hamburger-menu">
 
 
                 <div class="header__right-wrapper hamburger-menu__wrapper">
@@ -51,21 +51,29 @@
                     <!-- ナビゲーション -->
                     <nav class="gnav">
                         <ul class="gnav__list">
-                            <li class="gnav__item"><a href="index.html">top</a></li>
-                            <li class="gnav__item has-child"><a>service</a>
+                            <li class="gnav__item"><a href="index.html" class="gnav__link">top</a></li>
+                            <li class="gnav__item has-child">
+                                <button class="gnav__toggle gnav__link">service</button>
                                 <ul class="gnav__sub-list">
-                                    <li class="gnav-sub-item"><a href="service.html">トップ</a></li>
-                                    <li class="gnav-sub-item"><a href="service.html#types">サービスの種類</a></li>
-                                    <li class="gnav__sub-item"><a href="service.html#reason">選ばれる理由</a></li>
-                                    <li class="gnav__sub-item"><a href="service.html#genre">撮影ジャンル</a></li>
-                                    <li class="gnav__sub-item"><a href="service.html#plan">撮影料金・エリア</a></li>
-                                    <li class="gnav__sub-item"><a href="service.html#voice">お客様の声</a></li>
-                                    <li class="gnav__sub-item"><a href="service.html#flow">撮影の流れ</a></li>
+                                    <li class="gnav__sub-item"><a href="service.html" class="gnav__sub-link">トップ</a>
+                                    </li>
+                                    <li class="gnav__sub-item"><a href="service.html#types"
+                                            class="gnav__sub-link">サービスの種類</a></li>
+                                    <li class="gnav__sub-item"><a href="service.html#reason"
+                                            class="gnav__sub-link">選ばれる理由</a></li>
+                                    <li class="gnav__sub-item"><a href="service.html#genre"
+                                            class="gnav__sub-link">撮影ジャンル</a></li>
+                                    <li class="gnav__sub-item"><a href="service.html#plan"
+                                            class="gnav__sub-link">撮影料金・エリア</a></li>
+                                    <li class="gnav__sub-item"><a href="service.html#voice"
+                                            class="gnav__sub-link">お客様の声</a></li>
+                                    <li class="gnav__sub-item"><a href="service.html#flow"
+                                            class="gnav__sub-link">撮影の流れ</a></li>
                                 </ul>
                             </li>
-                            <li class="gnav__item"><a href="works.html">works</a></li>
-                            <li class="gnav__item"><a href="about.html">about</a></li>
-                            <li class="gnav__item sp-hidden">
+                            <li class="gnav__item gnav__link"><a href="works.html">works</a></li>
+                            <li class="gnav__item gnav__link"><a href="about.html">about</a></li>
+                            <li class="gnav__item gnav__link sp-hidden">
                                 <a href="contact.html" class="btn">
                                     <span class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg"
@@ -134,7 +142,7 @@
             </div>
 
             <!-- ハンバーガーボタン -->
-            <button class="hamburger-btn pc-hidden">
+            <button class="hamburger-btn pc-hidden" id="hamburger-btn">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -143,9 +151,50 @@
     </header>
     <!--================ ヘッダーここまで ================-->
 
+    <!--================ SP版 下部 依頼・お問い合わせCTA ================-->
+    <div class="cta-btns pc-hidden sp-hidden">
+
+        <div class="cta-btns__wrapper">
+
+            <p class="cta-btns__lead">依頼・お問い合わせはこちら</p>
+
+            <div class="cta-btn__wrapper">
+                <!-- 電話 -->
+                <a href="tel:09046414374" class="cta-btn cta-btn--phone">
+                    <span class="cta-btn-icon">
+                        <img src="assets/images/common/iphone-icon-white.png" alt="">
+                    </span>電話をかける</a>
+
+
+                <!-- メール -->
+                <a href="contact.html" class="cta-btn cta-btn--email"><span class="cta-btn-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            viewBox="0,0,256,256" width="100px" height="100px" fill-rule="nonzero">
+                            <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                                stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                                font-family="none" font-size="none" style="mix-blend-mode: normal">
+                                <g transform="scale(5.12,5.12)">
+                                    <path
+                                        d="M0,7v2.875l25,19.84375l25,-19.59375v-3.125zM0,12.40625v30.59375h50v-30.34375l-24.375,19.125c-0.17969,0.14063 -0.40625,0.21875 -0.625,0.21875c-0.21875,0 -0.44141,-0.07422 -0.625,-0.21875z" />
+                                </g>
+                            </g>
+                        </svg>
+                    </span>お問い合わせページへ</a>
+            </div>
+
+        </div>
+    </div>
+    <!--================ SP版 下部 依頼・お問い合わせCTA ここまで ================-->
+
+    <!--================ ページトップボタン ================-->
+    <button class="page-top-btn sp-hidden" id="page-top-btn">
+        <span class="page-top-btn__arrow"></span>
+    </button>
+    <!--================ ページトップボタン ここまで ================-->
+
     <main>
         <!--================ ファーストビュー ================-->
-        <section class="fv">
+        <section class="fv" id="fv">
             <div class="fv__wrapper">
 
                 <!-- 見出し -->
@@ -167,35 +216,36 @@
         <!--================ message ================-->
         <section class="message">
 
-            <div class="message__wrapper">
+            <div class="message__wrapper fade-group">
 
                 <!-- 見出し -->
-                <div class="heading heading--center">
+                <div class="heading heading--center fade-trigger">
                     <h2 class="main-heading">message</h2>
                     <p class="sub-heading">メッセージ</p>
                 </div>
 
                 <!-- リード文 -->
-                <p class="message__lead text text--center">
-                    撮影とは、シャッターを押すだけではないと私は捉えています。
-                </p>
+                <div class="fade-text fade-description fade-description--delay">
+                    <p class="message__lead text text--center">
+                        撮影とは、シャッターを押すだけではないと私は捉えています。
+                    </p>
 
-                <p class="message__lead text text--center">
-                    “撮影を通してお客様の「喜び」を生み出す”これが、私が撮影を続ける理由です。
-                </p>
+                    <p class="message__lead text text--center">
+                        “撮影を通してお客様の「喜び」を生み出す”これが、私が撮影を続ける理由です。
+                    </p>
 
-                <p class="message__lead text text--center">
-                    当たり前のことですが、僕が撮りたい・満足する写真は一切求めていません。<br>僕が撮影を通して生み出したいのは、ご依頼いただいたお客様の「喜び」です。
-                </p>
+                    <p class="message__lead text text--center">
+                        当たり前のことですが、僕が撮りたい・満足する写真は一切求めていません。<br>僕が撮影を通して生み出したいのは、ご依頼いただいたお客様の「喜び」です。
+                    </p>
 
-                <p class="message__lead text text--center">
-                    たくさんイメージ写真の提案はしますが、<br>僕が撮りたい写真を無理に押し付けることは絶対にしません。
-                </p>
+                    <p class="message__lead text text--center">
+                        たくさんイメージ写真の提案はしますが、<br>僕が撮りたい写真を無理に押し付けることは絶対にしません。
+                    </p>
 
-                <p class="message__lead text text--center">
-                    だからこそ、たくさん笑って、喜んでいただける撮影時間と、<br>必ず期待以上の撮影データをお渡しいたします。
-                </p>
-
+                    <p class="message__lead text text--center">
+                        だからこそ、たくさん笑って、喜んでいただける撮影時間と、<br>必ず期待以上の撮影データをお渡しいたします。
+                    </p>
+                </div>
             </div>
         </section>
         <!--================ message ここまで ================-->
@@ -203,38 +253,38 @@
         <!--================ profile ================-->
         <section class="profile">
 
-            <div class="profile__wrapper">
+            <div class="profile__wrapper fade-group">
 
-                <div class="profile__content about__content--left">
-
-                    <!-- 画像 -->
-                    <span class="profile__img"><img src="assets/images/common/profile-img.jpg"
-                            alt="笑顔で正面に顔を向ける撮影者"></span>
-
+                <!-- 画像 -->
+                <div class="profile__img fade-img">
+                    <img src="assets/images/about/profile.jpg" alt="笑顔で正面に顔を向ける撮影者">
                 </div>
 
                 <!-- テキスト -->
-                <div class="profile__content profile__content--right">
+                <div class="profile__text">
 
                     <!-- 見出し -->
-                    <div class="heading heading--left">
+                    <div class="heading heading--left fade-trigger">
                         <h2 class="main-heading">profile</h2>
                         <p class="sub-heading">プロフィール</p>
                     </div>
 
-                    <p class="name">山田悠希<span class="name-en">yamada yuuki</span></p>
+                    <div class="fade-text fade-description">
 
-                    <p class="profile__description text text--left">
-                        アパレルEC会社で撮影業務を開始し、商品・モデル撮影を中心に全ブランドのビジュアル制作を担当。<br>
-                        EC商品ページや販促用撮影を通じて、「売る・使われる写真」を意識した企業向け撮影を経験しました。<br>
-                        その後、企業・法人撮影に加え、ウェディング撮影（前撮り・当日アシスタント）にも携わり、現在はコーポレート、商品、ウェディング、家族写真まで、目的に応じた幅広い撮影を行っています。
-                    </p>
+                        <p class="name">山田悠希<span class="name-en">yamada yuuki</span></p>
 
-                    <div class="profile__client">
-                        <h3 class="profile__client-title">担当企業様</h3>
-                        <p class="profile__client-list">
-                            インディードジャパン様 / 株式会社VB NEXT / 株式会社NeXT STAR / 株式会社NORBENCE / センチュリー21 ラヴィットハウス ほか
+                        <p class="profile__description text text--left">
+                            アパレルEC会社で撮影業務を開始し、商品・モデル撮影を中心に全ブランドのビジュアル制作を担当。<br>
+                            EC商品ページや販促用撮影を通じて、「売る・使われる写真」を意識した企業向け撮影を経験しました。<br>
+                            その後、企業・法人撮影に加え、ウェディング撮影（前撮り・当日アシスタント）にも携わり、現在はコーポレート、商品、ウェディング、家族写真まで、目的に応じた幅広い撮影を行っています。
                         </p>
+
+                        <div class="profile__client">
+                            <h3 class="profile__client-title">担当企業様</h3>
+                            <p class="profile__client-list">
+                                インディードジャパン様 / 株式会社VB NEXT / 株式会社NeXT STAR / 株式会社NORBENCE / センチュリー21 ラヴィットハウス ほか
+                            </p>
+                        </div>
                     </div>
                 </div>
 
@@ -247,16 +297,19 @@
             <div class="career__bg-area">
                 <div class="career__wrapper">
 
-                    <!-- 見出し -->
-                    <div class="heading heading--left">
-                        <h2 class="main-heading">career</h2>
-                        <p class="sub-heading">これまでの経歴</p>
+                    <div class="fade-group">
+
+                        <!-- 見出し -->
+                        <div class="heading heading--left fade-trigger">
+                            <h2 class="main-heading">career</h2>
+                            <p class="sub-heading">これまでの経歴</p>
+                        </div>
                     </div>
 
                     <!-- 年表 -->
-                    <dl class="career__list">
+                    <dl class="career__list fade-group">
 
-                        <div class="career__item">
+                        <div class="career__item fade-item fade-trigger">
                             <dt class="career__year">
                                 <time datetime="2017">2017年</time>
                             </dt>
@@ -265,7 +318,7 @@
                             </dd>
                         </div>
 
-                        <div class="career__item">
+                        <div class="career__item fade-item fade-item--second">
                             <dt class="career__year">
                                 <time datetime="2018">2018</time>〜<time datetime="2020">2020</time>年
                             </dt>
@@ -276,7 +329,7 @@
                             </dd>
                         </div>
 
-                        <div class="career__item">
+                        <div class="career__item fade-item fade-item--third">
                             <dt class="career__year">
                                 <time datetime="2021">2021年</time>
                             </dt>
@@ -285,7 +338,7 @@
                             </dd>
                         </div>
 
-                        <div class="career__item">
+                        <div class="career__item fade-item fade-item--fourth">
                             <dt class="career__year">
                                 <time datetime="2022">2022年</time>
                             </dt>
@@ -294,7 +347,7 @@
                             </dd>
                         </div>
 
-                        <div class="career__item">
+                        <div class="career__item fade-item fade-item--fifth">
                             <dt class="career__year">
                                 <time datetime="2023">2023</time>〜<time datetime="2025">2025</time>年
                             </dt>
@@ -498,5 +551,4 @@
 
     <!-- JavaScript -->
     <script src="assets/js/script.js" defer></script>
-    <script src="assets/js/contact.js" defer></script>
 </body>

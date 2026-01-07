@@ -24,12 +24,12 @@
 
   // ナビゲーション
   .gnav {
-    &__item a {
+    &__link {
       @include utils.en;
     }
 
     // 2階層目ナビゲーション
-    &__item:nth-of-type(2) > a {
+    &__toggle {
       position: relative;
 
       &::before,
@@ -84,12 +84,12 @@
         column-gap: clamp(32px, 3.333vw, 48px);
       }
 
-      &__item {
-        a {
-          font-size: clamp(15px, 1.25vw, 18px);
-          font-weight: 400;
-        }
+      &__link {
+        font-size: clamp(15px, 1.25vw, 18px);
+        font-weight: 400;
+      }
 
+      &__item {
         // お問い合わせ
         &:nth-of-type(5) {
           .mail-icon {
@@ -100,7 +100,7 @@
       }
 
       // 2階層目ナビゲーション
-      &__item:nth-of-type(2) > a {
+      &__toggle {
         position: relative;
         padding-right: utils.$margin-md;
         margin: utils.$margin-sm 0;
@@ -134,7 +134,7 @@
         visibility: hidden;
         transition: utils.$transition;
 
-        &.active {
+        &.is-open {
           opacity: 1;
           visibility: visible;
         }
@@ -213,8 +213,8 @@
       }
     }
 
-    // ハンバーガーボタン active
-    .hamburger-btn.active {
+    // ハンバーガーボタン is-open
+    .hamburger-btn.is-open {
       span {
         width: 65%;
       }
@@ -249,7 +249,7 @@
       transition: utils.$transition;
 
       // ハンバーガーメニュー アクティブ
-      &.active {
+      &.is-open {
         transform: translateX(0);
       }
 
@@ -295,7 +295,7 @@
       transition: utils.$transition;
 
       // active
-      &.active {
+      &.is-open {
         opacity: 1;
         visibility: visible;
       }
@@ -314,14 +314,15 @@
 
       &__item {
         padding-bottom: clamp(17px, 5.3vw, 24px);
-        border-bottom: 1px solid rgba($color: utils.$base-color, $alpha: utils.$opacity);
+        border-bottom: 1px solid
+          rgba($color: utils.$base-color, $alpha: utils.$opacity);
       }
 
-      &__item > a {
+      &__link {
         position: relative;
         font-size: clamp(17px, 5.3vw, 22px);
         color: utils.$base-color;
-        display: block;
+        width: 100%;
         padding-left: utils.$margin-md;
 
         &::before {
@@ -335,7 +336,7 @@
         padding-bottom: 0;
       }
 
-      .has-child a {
+      &__toggle {
         &::after {
           top: 2%;
           right: 0;
@@ -356,26 +357,26 @@
         overflow: hidden;
         transition: utils.$transition;
         padding-top: clamp(17px, 19.875px, 24px);
+      }
 
-        a {
-          font-size: clamp(13px, 4vw, 15px);
-          padding-left: utils.$margin-md;
-          margin-left: 12px;
-          position: relative;
-        }
+      &__sub-link {
+        font-size: clamp(13px, 4vw, 15px);
+        padding-left: utils.$margin-md;
+        margin-left: 12px;
+        position: relative;
+      }
 
-        // 装飾
-        a::before {
-          display: inline-block;
-          content: "";
-          position: absolute;
-          width: 12px;
-          height: 1px;
-          background: utils.$base-color;
-          top: 50%;
-          left: 0;
-          transform: translateY(-50%);
-        }
+      // 装飾
+      &__sub-link::before {
+        display: inline-block;
+        content: "";
+        position: absolute;
+        width: 12px;
+        height: 1px;
+        background: utils.$base-color;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
       }
     }
 

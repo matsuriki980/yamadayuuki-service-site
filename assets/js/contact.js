@@ -3,15 +3,12 @@
 // ========================================================================================================================================================
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector("#form");
+
   const contactPlaceholder = form.querySelector(".contact-detail");
 
   // =========================================
   // プレスフォルダー 改行
   // =========================================
-  // 要素が存在するときのみ実行
-  if (!contactPlaceholder) {
-    return;
-  }
   contactPlaceholder.placeholder =
     "例1：サイトに記載しているジャンル以外の撮影にも対応可能でしょうか？\n\n例2：写真撮影をお願いしたいです。\n日付：○○月○○日 \n用途：家族旅行のファミリー撮影";
 

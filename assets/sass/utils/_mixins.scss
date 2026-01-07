@@ -125,14 +125,21 @@
 
   .tab-item {
     font-weight: 500;
+    transition: $transition;
+  }
 
-    // 未選択のタブ
+  // 未選択のタブ
+  [role="tab"][aria-selected="false"] {
     color: rgba($color: $main-color, $alpha: 0.2);
 
-    // 選択中のタブ
-    &.active {
-      color: rgba($color: $main-color, $alpha: 1);
+    &:hover {
+      color: $accent-color;
     }
+  }
+
+  // 選択中のタブ
+  [role="tab"][aria-selected="true"] {
+    color: $accent-color;
   }
 
   // --- pc --- //

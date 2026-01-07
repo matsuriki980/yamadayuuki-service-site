@@ -1,0 +1,161 @@
+@use "../utils";
+
+/* ------------------------------------------------------------------------------------------------------
+   フェードインアニメーション 
+------------------------------------------------------------------------------------------------------ */
+
+//---------------------------------------------------------------
+// ファーストビュー
+//---------------------------------------------------------------
+
+// --- タイトル 共通 --- //
+.fade-fv-title {
+  transition: utils.$transition;
+  opacity: 0;
+
+  &.is-visible {
+    opacity: 1;
+  }
+}
+
+// --- タイトル 日本語 --- //
+.fade-fv-title--sub {
+  transition-delay: 2s;
+}
+
+//---------------------------------------------------------------
+// フェードインのトリガー
+//---------------------------------------------------------------
+.fade-trigger {
+  transition-duration: 0.5s;
+  opacity: 0;
+  filter: blur(4px);
+
+  &.is-visible {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+//---------------------------------------------------------------
+// テキスト
+//---------------------------------------------------------------
+
+// --- テキスト 共通 --- //
+.fade-text {
+  transition-duration: 0.5s;
+  opacity: 0;
+  filter: blur(4px);
+
+  &.is-visible {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+.fade-description {
+  transition-delay: 0.3s;
+}
+
+// --- 本文 (concept/message) --- //
+.fade-description--delay {
+  transition-delay: 1.5s;
+}
+
+//---------------------------------------------------------------
+// 画像
+//---------------------------------------------------------------
+.fade-img {
+  transition-duration: 0.5s;
+  transition-delay: 1.3s;
+  opacity: 0;
+  filter: blur(4px);
+
+  &.is-visible {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+// --- 二番目の画像 --- //
+.fade-img--second {
+  transition-delay: 1.5s;
+}
+
+// --- 三番目の画像 --- //
+.fade-img--third {
+  transition-delay: 1.7s;
+}
+
+//---------------------------------------------------------------
+// アイコン
+//---------------------------------------------------------------
+.fade-icon {
+  transition-duration: 0.5s;
+  transition-delay: 1.3s;
+  opacity: 0;
+  filter: blur(4px);
+
+  &.is-visible {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+// --- 二番目のアイコン --- //
+.fade-icon--second {
+  transition-delay: 1.5s;
+}
+
+// --- 三番目のアイコン --- //
+.fade-icon--third {
+  transition-delay: 1.7s;
+}
+
+// --- 四番目のアイコン --- //
+.fade-icon--fourth {
+  transition-delay: 1.9s;
+}
+
+// --- 五番目のアイコン --- //
+.fade-icon--fifth {
+  transition-delay: 2.1s;
+}
+
+//---------------------------------------------------------------
+// テキストや画像をまとめた要素
+//---------------------------------------------------------------
+.fade-item {
+  transition-duration: 0.5s;
+  opacity: 0;
+  filter: blur(4px);
+
+  &.is-visible {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+// --- 二番目の要素 --- //
+.fade-item--second {
+  transition-delay: 0.2s;
+}
+
+// --- 三番目の要素 --- //
+.fade-item--third {
+  transition-delay: 0.4s;
+}
+
+// --- 四番目の要素 --- //
+.fade-item--fourth {
+  transition-delay: 0.6s;
+}
+
+// --- 五番目要素素 --- //
+.fade-item--fifth {
+  transition-delay: 0.8s;
+}
+
+// --- 六番目要素素 --- //
+.fade-item--sixth {
+  transition-delay: 1s;
+}

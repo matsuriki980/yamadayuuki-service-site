@@ -189,9 +189,10 @@
 .service {
   &__wrapper {
     @include utils.wrapper;
+  }
+
+  &__block {
     display: grid;
-    justify-content: space-between;
-    align-items: flex-end;
   }
 
   // 画像
@@ -227,9 +228,10 @@
 ------------------------------------------------------------------------------------------------------ */
 @include utils.mq(l) {
   .service {
-    &__wrapper {
+    &__block {
       grid-template-columns: 40.9% 50%;
       align-items: center;
+      justify-content: space-between;
     }
 
     // 画像
@@ -259,7 +261,7 @@
 ------------------------------------------------------------------------------------------------------ */
 @include utils.mq(s) {
   .service {
-    &__wrapper {
+    &__block {
       row-gap: utils.$margin-xl;
     }
 
@@ -301,8 +303,14 @@
 
   .carousel-arrow {
     border-radius: 50%;
-    background: utils.$main-color;
+    background: utils.$accent-color;
     position: relative;
+    transition: utils.$transition;
+
+    // ホバー時、黒背景に
+    &:hover {
+      background: utils.$main-color;
+    }
 
     &::before {
       position: absolute;
@@ -332,21 +340,15 @@
       border-radius: 50%;
       background: rgba($color: utils.$main-color, $alpha: 0.2);
     }
+
+    .swiper-pagination-bullet-active {
+      background: utils.$accent-color;
+    }
   }
 
   &__content--top {
     @include utils.wrapper;
     display: flex;
-  }
-
-  &__content--bottom {
-    overflow: hidden;
-  }
-
-  &__list {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
   }
 
   &__item {
@@ -377,31 +379,31 @@
     }
 
     .carousel-navigation {
-      width: 20.83vw;
-      height: 4.16vw;
+      width: clamp(200px, 20.83vw, 320px);
+      height: clamp(40px, 4.16vw, 64px);
     }
 
     .carousel-arrow {
-      width: 4.16vw;
+      width: clamp(40px, 4.16vw, 64px);
       height: 100%;
 
       &::before {
-        width: 14px;
-        height: 14px;
+        width: clamp(8px, 0.833vw, 12px);
+        height: clamp(8px, 0.833vw, 12px);
       }
     }
 
     .carousel-dots {
-      column-gap: utils.$margin-md;
+      column-gap: clamp(8px, 0.833vw, 12px);
 
       span {
-        width: 12px;
-        height: 12px;
+        width: clamp(8px, 0.833vw, 12px);
+        height: clamp(8px, 0.833vw, 12px);
       }
     }
 
     &__content--bottom {
-      padding-left: 8.68vw;
+      margin-left: 8.68vw;
     }
 
     &__list {
@@ -466,7 +468,7 @@
     }
 
     &__content--bottom {
-      @include utils.wrapper;
+      margin: 0 4.265vw;
     }
 
     &__list {

@@ -37,10 +37,10 @@
             <div class="header__logo"><a href="index.html">yamada yuuki</a></div>
 
             <!-- ハンバーガーメニュー開閉時　背景透過 -->
-            <span class="hamburger-menu__bg pc-hidden"></span>
+            <span class="hamburger-menu__bg pc-hidden" id="hamburger-menu__bg"></span>
 
             <!-- 左側の要素 -->
-            <div class="header__right hamburger-menu">
+            <div class="header__right hamburger-menu" id="hamburger-menu">
 
 
                 <div class="header__right-wrapper hamburger-menu__wrapper">
@@ -51,21 +51,29 @@
                     <!-- ナビゲーション -->
                     <nav class="gnav">
                         <ul class="gnav__list">
-                            <li class="gnav__item"><a href="index.html">top</a></li>
-                            <li class="gnav__item has-child"><a>service</a>
+                            <li class="gnav__item"><a href="index.html" class="gnav__link">top</a></li>
+                            <li class="gnav__item has-child">
+                                <button class="gnav__toggle gnav__link">service</button>
                                 <ul class="gnav__sub-list">
-                                    <li class="gnav-sub-item"><a href="service.html">トップ</a></li>
-                                    <li class="gnav-sub-item"><a href="service.html#types">サービスの種類</a></li>
-                                    <li class="gnav__sub-item"><a href="service.html#reason">選ばれる理由</a></li>
-                                    <li class="gnav__sub-item"><a href="service.html#genre">撮影ジャンル</a></li>
-                                    <li class="gnav__sub-item"><a href="service.html#plan">撮影料金・エリア</a></li>
-                                    <li class="gnav__sub-item"><a href="service.html#voice">お客様の声</a></li>
-                                    <li class="gnav__sub-item"><a href="service.html#flow">撮影の流れ</a></li>
+                                    <li class="gnav__sub-item"><a href="service.html" class="gnav__sub-link">トップ</a>
+                                    </li>
+                                    <li class="gnav__sub-item"><a href="service.html#types"
+                                            class="gnav__sub-link">サービスの種類</a></li>
+                                    <li class="gnav__sub-item"><a href="service.html#reason"
+                                            class="gnav__sub-link">選ばれる理由</a></li>
+                                    <li class="gnav__sub-item"><a href="service.html#genre"
+                                            class="gnav__sub-link">撮影ジャンル</a></li>
+                                    <li class="gnav__sub-item"><a href="service.html#plan"
+                                            class="gnav__sub-link">撮影料金・エリア</a></li>
+                                    <li class="gnav__sub-item"><a href="service.html#voice"
+                                            class="gnav__sub-link">お客様の声</a></li>
+                                    <li class="gnav__sub-item"><a href="service.html#flow"
+                                            class="gnav__sub-link">撮影の流れ</a></li>
                                 </ul>
                             </li>
-                            <li class="gnav__item"><a href="works.html">works</a></li>
-                            <li class="gnav__item"><a href="about.html">about</a></li>
-                            <li class="gnav__item sp-hidden">
+                            <li class="gnav__item gnav__link"><a href="works.html">works</a></li>
+                            <li class="gnav__item gnav__link"><a href="about.html">about</a></li>
+                            <li class="gnav__item gnav__link sp-hidden">
                                 <a href="contact.html" class="btn">
                                     <span class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg"
@@ -134,7 +142,7 @@
             </div>
 
             <!-- ハンバーガーボタン -->
-            <button class="hamburger-btn pc-hidden">
+            <button class="hamburger-btn pc-hidden" id="hamburger-btn">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -143,9 +151,15 @@
     </header>
     <!--================ ヘッダーここまで ================-->
 
+    <!--================ ページトップボタン ================-->
+    <button class="page-top-btn sp-hidden" id="page-top-btn">
+        <span class="page-top-btn__arrow"></span>
+    </button>
+    <!--================ ページトップボタン ここまで ================-->
+
     <main>
         <!--================ ファーストビュー ================-->
-        <section class="fv">
+        <section class="fv" id="fv">
             <div class="fv__wrapper">
 
                 <!-- 見出し -->

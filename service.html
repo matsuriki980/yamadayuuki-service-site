@@ -37,10 +37,10 @@
             <div class="header__logo"><a href="index.html">yamada yuuki</a></div>
 
             <!-- ハンバーガーメニュー開閉時　背景透過 -->
-            <span class="hamburger-menu__bg pc-hidden"></span>
+            <span class="hamburger-menu__bg pc-hidden" id="hamburger-menu__bg"></span>
 
             <!-- 左側の要素 -->
-            <div class="header__right hamburger-menu">
+            <div class="header__right hamburger-menu" id="hamburger-menu">
 
 
                 <div class="header__right-wrapper hamburger-menu__wrapper">
@@ -51,21 +51,29 @@
                     <!-- ナビゲーション -->
                     <nav class="gnav">
                         <ul class="gnav__list">
-                            <li class="gnav__item"><a href="index.html">top</a></li>
-                            <li class="gnav__item has-child"><a>service</a>
+                            <li class="gnav__item"><a href="index.html" class="gnav__link">top</a></li>
+                            <li class="gnav__item has-child">
+                                <button class="gnav__toggle gnav__link">service</button>
                                 <ul class="gnav__sub-list">
-                                    <li class="gnav-sub-item"><a href="service.html">トップ</a></li>
-                                    <li class="gnav-sub-item"><a href="service.html#types">サービスの種類</a></li>
-                                    <li class="gnav__sub-item"><a href="service.html#reason">選ばれる理由</a></li>
-                                    <li class="gnav__sub-item"><a href="service.html#genre">撮影ジャンル</a></li>
-                                    <li class="gnav__sub-item"><a href="service.html#plan">撮影料金・エリア</a></li>
-                                    <li class="gnav__sub-item"><a href="service.html#voice">お客様の声</a></li>
-                                    <li class="gnav__sub-item"><a href="service.html#flow">撮影の流れ</a></li>
+                                    <li class="gnav__sub-item"><a href="service.html" class="gnav__sub-link">トップ</a>
+                                    </li>
+                                    <li class="gnav__sub-item"><a href="service.html#types"
+                                            class="gnav__sub-link">サービスの種類</a></li>
+                                    <li class="gnav__sub-item"><a href="service.html#reason"
+                                            class="gnav__sub-link">選ばれる理由</a></li>
+                                    <li class="gnav__sub-item"><a href="service.html#genre"
+                                            class="gnav__sub-link">撮影ジャンル</a></li>
+                                    <li class="gnav__sub-item"><a href="service.html#plan"
+                                            class="gnav__sub-link">撮影料金・エリア</a></li>
+                                    <li class="gnav__sub-item"><a href="service.html#voice"
+                                            class="gnav__sub-link">お客様の声</a></li>
+                                    <li class="gnav__sub-item"><a href="service.html#flow"
+                                            class="gnav__sub-link">撮影の流れ</a></li>
                                 </ul>
                             </li>
-                            <li class="gnav__item"><a href="works.html">works</a></li>
-                            <li class="gnav__item"><a href="about.html">about</a></li>
-                            <li class="gnav__item sp-hidden">
+                            <li class="gnav__item gnav__link"><a href="works.html">works</a></li>
+                            <li class="gnav__item gnav__link"><a href="about.html">about</a></li>
+                            <li class="gnav__item gnav__link sp-hidden">
                                 <a href="contact.html" class="btn">
                                     <span class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg"
@@ -134,7 +142,7 @@
             </div>
 
             <!-- ハンバーガーボタン -->
-            <button class="hamburger-btn pc-hidden">
+            <button class="hamburger-btn pc-hidden" id="hamburger-btn">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -143,9 +151,49 @@
     </header>
     <!--================ ヘッダーここまで ================-->
 
+    <!--================ SP版 下部 依頼・お問い合わせCTA ================-->
+    <div class="cta-btns pc-hidden sp-hidden">
+
+        <div class="cta-btns__wrapper">
+
+            <p class="cta-btns__lead">依頼・お問い合わせはこちら</p>
+
+            <div class="cta-btn__wrapper">
+                <!-- 電話 -->
+                <a href="tel:09046414374" class="cta-btn cta-btn--phone">
+                    <span class="cta-btn-icon">
+                        <img src="assets/images/common/iphone-icon-white.png" alt="">
+                    </span>電話をかける</a>
+
+
+                <!-- メール -->
+                <a href="contact.html" class="cta-btn cta-btn--email"><span class="cta-btn-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            viewBox="0,0,256,256" width="100px" height="100px" fill-rule="nonzero">
+                            <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                                stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                                font-family="none" font-size="none" style="mix-blend-mode: normal">
+                                <g transform="scale(5.12,5.12)">
+                                    <path
+                                        d="M0,7v2.875l25,19.84375l25,-19.59375v-3.125zM0,12.40625v30.59375h50v-30.34375l-24.375,19.125c-0.17969,0.14063 -0.40625,0.21875 -0.625,0.21875c-0.21875,0 -0.44141,-0.07422 -0.625,-0.21875z" />
+                                </g>
+                            </g>
+                        </svg>
+                    </span>お問い合わせページへ</a>
+            </div>
+
+        </div>
+    </div>
+    <!--================ SP版 下部 依頼・お問い合わせCTA ここまで ================-->
+
+    <!--================ ページトップボタン ================-->
+    <button class="page-top-btn sp-hidden" id="page-top-btn">
+        <span class="page-top-btn__arrow"></span>
+    </button>
+    <!--================ ページトップボタン ここまで ================-->
     <main>
         <!--================ ファーストビュー ================-->
-        <section class="fv">
+        <section class="fv" id="fv">
             <div class="fv__wrapper">
 
                 <!-- 見出し -->
@@ -166,9 +214,9 @@
 
         <!--================ サービスの種類 ================-->
         <section class="service-type" id="types">
-            <div class="service-type__wrapper">
-                <ul class="service-type__list service-type__content service-type__content--left">
-                    <li class="service-type__item">
+            <div class="service-type__wrapper fade-group">
+                <ul class="service-type__list">
+                    <li class="service-type__item fade-icon">
                         <div class="service-type__title-area">
                             <span class="service-type__title-en">photo</span>
                             <h2 class="service-type__title">写真撮影</h2>
@@ -176,7 +224,7 @@
                         <div class="service-type__item-icon"><img src="assets/images/service/type1.png" alt="カメラのアイコン">
                         </div>
                     </li>
-                    <li class="service-type__item">
+                    <li class="service-type__item fade-icon fade-icon--second">
                         <div class="service-type__title-area">
                             <span class="service-type__title-en">movie</span>
                             <h2 class="service-type__title">動画撮影</h2>
@@ -184,7 +232,7 @@
                         <div class="service-type__item-icon"><img src="assets/images/service/type2.png" alt="動画の再生アイコン">
                         </div>
                     </li>
-                    <li class="service-type__item">
+                    <li class="service-type__item fade-icon fade-icon--third">
                         <div class="service-type__title-area">
                             <span class="service-type__title-en">Wedding</span>
                             <h2 class="service-type__title">衣装着付け・<br>ヘアメイク</h2>
@@ -192,7 +240,7 @@
                         <div class="service-type__item-icon"><img src="assets/images/service/type3.png"
                                 alt="ウエディングドレスのアイコン"></div>
                     </li>
-                    <li class="service-type__item">
+                    <li class="service-type__item fade-icon fade-icon--fourth">
                         <div class="service-type__title-area">
                             <span class="service-type__title-en">img edit</span>
                             <h2 class="service-type__title">商品ページ用<br>画像制作</h2>
@@ -200,7 +248,7 @@
                         <div class="service-type__item-icon"><img src="assets/images/service/type4.png"
                                 alt="ペンで画像を編集している様子を表すアイコン"></div>
                     </li>
-                    <li class="service-type__item">
+                    <li class="service-type__item fade-icon fade-icon--fifth">
                         <div class="service-type__title-area">
                             <span class="service-type__title-en">banner</span>
                             <h2 class="service-type__title">バナー広告<br>ビジュアル制作</h2>
@@ -210,19 +258,21 @@
                     </li>
                 </ul>
 
-                <div class="service-type__content service-type__content--right">
+                <div class="service-type__text">
 
                     <!-- 見出し -->
-                    <div class="heading heading--left">
+                    <div class="heading heading--left fade-text fade-trigger">
                         <h2 class="main-heading">types</h2>
                         <p class="sub-heading">サービスの種類</p>
                     </div>
 
-                    <p class="service-type__lead text text--left">
-                        撮影は、写真・動画のいずれか、または両方からお選びいただけます。<br>
-                        ウェディング撮影では、衣装の着付けやヘアメイクを含むトータルサポートにも対応しています。<br>
-                        また、撮影素材を活用した商品ページ用画像や、バナー広告などのビジュアル制作まで一貫してご依頼いただけます。
-                    </p>
+                    <div class="fade-text fade-description">
+                        <p class="service-type__lead text text--left">
+                            撮影は、写真・動画のいずれか、または両方からお選びいただけます。<br>
+                            ウェディング撮影では、衣装の着付けやヘアメイクを含むトータルサポートにも対応しています。<br>
+                            また、撮影素材を活用した商品ページ用画像や、バナー広告などのビジュアル制作まで一貫してご依頼いただけます。
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -234,70 +284,85 @@
 
             <div class="service-reason__wrapper">
 
-                <!-- 見出し -->
-                <div class="heading heading--left">
-                    <h2 class="main-heading">reason</h2>
-                    <p class="sub-heading">選ばれる理由</p>
+                <div class="fade-group">
+
+                    <!-- 見出し -->
+                    <div class="heading heading--left fade-text fade-trigger">
+                        <h2 class="main-heading">reason</h2>
+                        <p class="sub-heading">選ばれる理由</p>
+                    </div>
+
+                    <div class="fade-text fade-description">
+                        <p class="service-reason__lead text text--left">
+                            多様なニーズに応える柔軟な撮影と、自然な表情や魅力を引き出すコミュニケーション。<br>
+                            撮影後まで丁寧に対応し、記憶に残る撮影体験をご提供します。
+                        </p>
+                    </div>
+
                 </div>
 
-                <p class="service-reason__lead text text--left">
-                    多様なニーズに応える柔軟な撮影と、自然な表情や魅力を引き出すコミュニケーション。<br>
-                    撮影後まで丁寧に対応し、記憶に残る撮影体験をご提供します。
-                </p>
-
                 <ol class="service-reason__list">
-                    <li class="service-reason__item">
+                    <li class="service-reason__item fade-group">
 
                         <!-- 画像 -->
-                        <div class="service-reason__item-img">
+                        <div class="service-reason__item-img fade-img">
                             <img src="assets/images/service/reason1.jpg" alt="対面で話す女性と、真剣に耳を傾ける人物">
                         </div>
 
                         <!-- テキスト -->
                         <div class="service-reason__text-area">
-                            <span class="service-reason__number">reason1</span>
-                            <h3 class="service-reason__title">想いの背景まで汲み取るヒアリング</h3>
-                            <p class="service-reason__description text text--left">
-                                何を撮りたいかだけでなく、なぜ撮りたいのか、<br>
-                                どう使いたいのかまで丁寧に伺い、用途に合わせた構成やビジュアル設計までご提案します。
-                            </p>
+
+                            <div class="fade-trigger">
+                                <span class="service-reason__number">reason1</span>
+                                <h3 class="service-reason__title">想いの背景まで汲み取るヒアリング</h3>
+
+                                <p class="service-reason__description text text--left">
+                                    何を撮りたいかだけでなく、なぜ撮りたいのか、<br>
+                                    どう使いたいのかまで丁寧に伺い、用途に合わせた構成やビジュアル設計までご提案します。
+                                </p>
+                            </div>
                         </div>
                     </li>
 
-                    <li class="service-reason__item">
+                    <li class="service-reason__item fade-group">
 
                         <!-- 画像 -->
-                        <div class="service-reason__item-img">
+                        <div class="service-reason__item-img fade-img">
                             <img src="assets/images/service/reason2.jpg" alt="撮影データをPCとカメラで確認し、編集する人物">
                         </div>
 
                         <!-- テキスト -->
                         <div class="service-reason__text-area">
-                            <span class="service-reason__number">reason2</span>
-                            <h3 class="service-reason__title">撮影後を見据えた一貫したクオリティ</h3>
-                            <p class="service-reason__description text text--left">
-                                撮影はゴールではなく、その先につながるもの。<br>
-                                写真・動画の表現から仕上がりまで、使用シーンを意識したクオリティを大切にしています。
-                            </p>
+                            <div class="fade-trigger">
+                                <span class="service-reason__number">reason2</span>
+                                <h3 class="service-reason__title">撮影後を見据えた一貫したクオリティ</h3>
+                                <p class="service-reason__description text text--left">
+                                    撮影はゴールではなく、その先につながるもの。<br>
+                                    写真・動画の表現から仕上がりまで、使用シーンを意識したクオリティを大切にしています。
+                                </p>
+                            </div>
                         </div>
                     </li>
 
-                    <li class="service-reason__item">
+                    <li class="service-reason__item fade-group">
 
                         <!-- 画像 -->
-                        <div class="service-reason__item-img">
+                        <div class="service-reason__item-img fade-img">
                             <img src="assets/images/service/reason3.jpg" alt="笑顔で握手をする女性とそれに応じる人物">
                         </div>
 
                         <!-- テキスト -->
                         <div class="service-reason__text-area">
-                            <span class="service-reason__number">reason3</span>
-                            <h3 class="service-reason__title">安心して任せられる対応とフォロー</h3>
-                            <p class="service-reason__description text text--left">
-                                ご相談から撮影当日、納品後まで一貫して対応。<br>
-                                細かな確認や調整にも丁寧に向き合い、
-                                「お願いしてよかった」と感じていただける体制を整えています。
-                            </p>
+
+                            <div class="fade-trigger">
+                                <span class="service-reason__number">reason3</span>
+                                <h3 class="service-reason__title">安心して任せられる対応とフォロー</h3>
+                                <p class="service-reason__description text text--left">
+                                    ご相談から撮影当日、納品後まで一貫して対応。<br>
+                                    細かな確認や調整にも丁寧に向き合い、
+                                    「お願いしてよかった」と感じていただける体制を整えています。
+                                </p>
+                            </div>
                         </div>
                     </li>
                 </ol>
@@ -311,19 +376,23 @@
 
             <div class="service-genre__wrapper">
 
-                <!-- 見出し -->
-                <div class="heading heading--center">
-                    <h2 class="main-heading">genre</h2>
-                    <p class="sub-heading">撮影ジャンル</p>
+                <div class="fade-group">
+
+                    <!-- 見出し -->
+                    <div class="heading heading--center fade-trigger">
+                        <h2 class="main-heading">genre</h2>
+                        <p class="sub-heading">撮影ジャンル</p>
+                    </div>
+
+                    <p class="service-genre__lead text text--center fade-text fade-description">
+                        あらゆる撮影ジャンルに対応可能です。<br>
+                        企業PRやポートレート、WEb商品撮影など、幅広いニーズに応じた撮影を行っています。
+                    </p>
+
                 </div>
 
-                <p class="service-genre__lead text text--center">
-                    あらゆる撮影ジャンルに対応可能です。<br>
-                    企業PRやポートレート、WEb商品撮影など、幅広いニーズに応じた撮影を行っています。
-                </p>
-
-                <ul class="service-genre__list">
-                    <li class="service-genre__item">
+                <ul class="service-genre__list fade-group fade-trigger">
+                    <li class="service-genre__item fade-item">
                         <!-- 画像 -->
                         <div class="service-genre__item-img">
                             <img src="assets/images/common/work1.jpg" alt="白背景の透明感あるオフィスに置かれたデスクトップ">
@@ -333,7 +402,7 @@
                         <h3 class="service-genre__title">企業撮影</h3>
                     </li>
 
-                    <li class="service-genre__item">
+                    <li class="service-genre__item fade-item fade-item--second">
                         <!-- 画像 -->
                         <div class="service-genre__item-img">
                             <img src="assets/images/common/work2.jpg" alt="水滴を弾く、化粧水">
@@ -343,7 +412,7 @@
                         <h3 class="service-genre__title">Web商品撮影</h3>
                     </li>
 
-                    <li class="service-genre__item">
+                    <li class="service-genre__item fade-item fade-item--third">
                         <!-- 画像 -->
                         <div class="service-genre__item-img">
                             <img src="assets/images/common/work3.jpg" alt="ステップをしながら、お互いの顔を見つめ合う夫婦">
@@ -353,7 +422,7 @@
                         <h3 class="service-genre__title">ウエディング撮影</h3>
                     </li>
 
-                    <li class="service-genre__item">
+                    <li class="service-genre__item fade-item fade-item--fourth">
                         <!-- 画像 -->
                         <div class="service-genre__item-img">
                             <img src="assets/images/common/work5.jpg" alt="柵にもたれながら、クールなポーズを行うモデル女性">
@@ -363,7 +432,7 @@
                         <h3 class="service-genre__title">モデル撮影</h3>
                     </li>
 
-                    <li class="service-genre__item">
+                    <li class="service-genre__item fade-item fade-item--fifth">
                         <!-- 画像 -->
                         <div class="service-genre__item-img">
                             <img src="assets/images/common/work4.jpg" alt="母と父に抱きかかえられながらはしゃぐ2人の子供">
@@ -374,7 +443,7 @@
                     </li>
 
 
-                    <li class="service-genre__item">
+                    <li class="service-genre__item fade-item fade-item--sixth">
                         <!-- 画像 -->
                         <div class="service-genre__item-img">
                             <img src="assets/images/common/work6.jpg" alt="黒のお皿に盛り付けたキムチ">
@@ -531,18 +600,20 @@
             <div class="service-voice__wrapper">
 
                 <!-- 見出し -->
-                <div class="heading heading--center">
-                    <h2 class="main-heading">voice</h2>
-                    <p class="sub-heading">お客様の声</p>
-                </div>
+                <div class="fade-group">
+                    <div class="heading heading--center fade-trigger">
+                        <h2 class="main-heading">voice</h2>
+                        <p class="sub-heading">お客様の声</p>
+                    </div>
 
-                <p class="service-voice__lead text text--center">
-                    当サービスをご利用いただいたお客様からの評価をご紹介します。
-                </p>
+                    <p class="service-voice__lead text text--center fade-text fade-description">
+                        当サービスをご利用いただいたお客様からの評価をご紹介します。
+                    </p>
+                </div>
 
                 <!-- リスト -->
                 <ul class="service-voice__list">
-                    <li class="service-voice__item">
+                    <li class="service-voice__item fade-trigger fade-group">
 
                         <!-- 画像 -->
                         <div class="service-voice__item-img">
@@ -560,7 +631,7 @@
                         </div>
                     </li>
 
-                    <li class="service-voice__item">
+                    <li class="service-voice__item fade-trigger fade-group">
 
                         <!-- 画像 -->
                         <div class="service-voice__item-img">
@@ -579,7 +650,7 @@
                         </div>
                     </li>
 
-                    <li class="service-voice__item">
+                    <li class="service-voice__item fade-trigger fade-group">
 
                         <!-- 画像 -->
                         <div class="service-voice__item-img">
@@ -608,19 +679,21 @@
             <div class="service-flow__wrapper">
 
                 <!-- 見出し -->
-                <div class="heading heading--center">
-                    <h2 class="main-heading">flow</h2>
-                    <p class="sub-heading">撮影の流れ</p>
+                <div class="fade-group">
+                    <div class="heading heading--center fade-trigger">
+                        <h2 class="main-heading">flow</h2>
+                        <p class="sub-heading">撮影の流れ</p>
+                    </div>
+
+                    <p class="service-flow__lead text text--center fade-text fade-description">
+                        事前のヒアリングから撮影後の納品まで、<br class="pc-hidden"><span class="lead-second-row">簡単な<span
+                                class="en">3</span>ステップでご利用いただけます。</span>
+                    </p>
                 </div>
 
-                <p class="service-flow__lead text text--center">
-                    事前のヒアリングから撮影後の納品まで、<br class="pc-hidden"><span class="lead-second-row">簡単な<span
-                            class="en">3</span>ステップでご利用いただけます。</span>
-                </p>
-
                 <!-- リスト -->
-                <ul class="service-flow__list">
-                    <li class="service-flow__item">
+                <ul class="service-flow__list fade-group fade-trigger">
+                    <li class="service-flow__item fade-item">
 
                         <!-- 画像 -->
                         <div class="service-flow__item-img">
@@ -637,7 +710,7 @@
                         </div>
                     </li>
 
-                    <li class="service-flow__item">
+                    <li class="service-flow__item fade-item fade-item--second">
 
                         <!-- 画像 -->
                         <div class="service-flow__item-img">
@@ -655,7 +728,7 @@
                         </div>
                     </li>
 
-                    <li class="service-flow__item">
+                    <li class="service-flow__item fade-item fade-item--third">
 
                         <!-- 画像 -->
                         <div class="service-flow__item-img">
@@ -870,5 +943,4 @@
 
     <!-- JavaScript -->
     <script src="assets/js/script.js" defer></script>
-    <script src="assets/js/contact.js" defer></script>
 </body>

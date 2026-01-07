@@ -218,8 +218,78 @@
 }
 
 // ----------------------------------------------------------------------------
-// お問い合わせ 送信完了 ボタン
+// button お問い合わせ送信完了
 // ----------------------------------------------------------------------------
 .thanks__btn {
   margin: 0 auto;
+}
+
+// ---------------------------------------------------------------------
+// button ページトップボタン
+// ---------------------------------------------------------------------
+.page-top-btn {
+  background: utils.$accent-color;
+  display: inline-block;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 20;
+  transform: translateY(25vh);
+  transition: utils.$transition;
+
+  // --- スクロール量がファーストビューの高さを超えたら表示 --- //
+  &.is-visible {
+    transform: translateY(0);
+  }
+
+  // --- 矢印 --- //
+  &__arrow {
+    display: inline-block;
+    position: relative;
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 50%;
+      background: utils.$base-color;
+      height: 1px;
+    }
+
+    &::before {
+      left: calc(50% - 10px);
+      transform: rotate(135deg) translateY(-50%);
+    }
+
+    &::after {
+      transform: rotate(45deg) translateY(-50%);
+      right: calc(50% - 10px);
+    }
+  }
+}
+
+// ---------------------------------------------------------------------
+// button ページトップボタン pc
+// ---------------------------------------------------------------------
+@include utils.mq(l) {
+  .page-top-btn {
+    width: 64px;
+    height: 64px;
+    right: 2.5vw;
+    bottom: 2.5vw;
+
+    // --- 矢印 --- //
+    &__arrow {
+      width: 18px;
+      height: 9px;
+
+      &::before,
+      &::after {
+        width: 66.666%;
+      }
+    }
+  }
 }

@@ -57,7 +57,7 @@
     }
 
     // 画像
-    &__content--right {
+    &__img-area {
       height: 35.5vw;
     }
 
@@ -77,12 +77,12 @@
       grid-template-rows: 81.66vw auto;
     }
 
-    &__content--left {
+    &__text {
       order: 2;
     }
 
     // 画像
-    &__content--right {
+    &__img-area {
       order: 1;
       width: 91.66vw;
     }
